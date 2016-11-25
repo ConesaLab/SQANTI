@@ -1,5 +1,4 @@
-
-What is SQANTI for?
+**What is SQANTI for?**
 
 SQANTI (Structural and Quality Annotation of Novel Transcript Isoforms) is a pipeline created for the characterization of isoforms obtained by full-length transcript sequencing, which are commonly returned in a fasta file format without any extra information about gene/transcript annotation or attribute description.
 
