@@ -1,7 +1,7 @@
 # **Welcome to SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** #
 
  
-###**Summary**###
+##**Summary**##
 
 
 SQANTI is a pipeline for the in-depth characterization of isoforms obtained by full-length transcript sequencing, which are commonly returned in a fasta file format without any extra information about gene/transcript annotation or attribute description. 
@@ -19,7 +19,7 @@ SQANTI pipeline steps:
 ![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/69442998-Diapositiva1.png)
 
 
-### **Required software** ###
+## **Required software** ##
 
 * Python
 * Perl
@@ -27,7 +27,7 @@ SQANTI pipeline steps:
 * R environment
 
 
-### **Running** ###
+## **Running** ##
 
 SQANTI is a program written in python. To run it use *sqanti.py*. 
 
@@ -75,7 +75,29 @@ optional arguments:
   -v, --version         Display program version number.
 ```
 
-###**Input files**###
+
+##**Input files**##
+
+
+### Mandatory Input Files ###
+
+**1. Isoforms:** Isoforms to characterize must be given in a fasta file format. Te accepted formats for the fasta headers are:
+
+>\>PB.3.1|chr1:4857776-4897906(+)|i1_c1034/f143p70/2586 
+
+where "PB.3.1" is taken as the isoform ID (typical format returned by PacBio sequencing).
+
+>\>gi|737676268|ref|NM_001545.2| Description 
+
+where NM_001545.2 is taken as the isoform ID (typical format for RefSeq entries).
+
+> \>ENST00000434970.2 cdna chromosome:GRCh38:7:142786213:142786224:1 gene:ENSG00000282431.1 
+
+where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl entries).
+
+
+2. Annotation: To create gene models and therefore annotate each isoform to the corresponding reference gene and reference transcript it's mandatory to provide an reference annotation file in [GTF](http://www.ensembl.org/info/website/upload/gff.html).
+
 
 ###**Output files**###
 
@@ -90,5 +112,7 @@ Lorena de la Fuente
 lfuente@cipf.es
 
 Genomics of Gene Expression Lab
+
 Centro de Investigación Príncipe Felipe
+
 Eduardo Primo Yúfera, 3 46012 Valencia (Spain)
