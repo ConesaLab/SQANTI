@@ -1,4 +1,4 @@
-### Welcome to **SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** ###
+# Welcome to **SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** #
 
 
 **What is SQANTI for?**
