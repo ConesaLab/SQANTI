@@ -19,7 +19,7 @@ SQANTI pipeline steps:
 ![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/69442998-Diapositiva1.png)
 
 
-### **Require software** ###
+### **Required software** ###
 
 * Python
 * Perl
@@ -29,19 +29,21 @@ SQANTI pipeline steps:
 
 ### **Running** ###
 
-SQANTI is a program written in python. To run it use *sqanti.py*. Below you can see the help page of SQANTI where its mandatory and optional arguments are explained:
+SQANTI is a program written in python. To run it use *sqanti.py*. 
+
+Below you can see the help page of SQANTI where its mandatory and optional arguments are explained:
 
 ```
 #!bash
 usage: sqanti.py [-h] [-x GMAP_INDEX] [-o OUTPUT] [-d DIR] [-c COVERAGE]
                  [-s SITES] [-n] [-fl FL_COUNT] [-m] [-v]
-                 isoforms ref expression genome
+                 isoforms annotation expression genome
 
 Structural and Quality Annotation of Novel Transcript Isoforms
 
 positional arguments:
   isoforms              Isoforms (Fasta format)
-  ref                   Reference annotation file (GTF format)
+  annotation            Reference annotation file (GTF format)
   expression            Expression matrix
   genome                Reference genome (Fasta format)
 
@@ -71,7 +73,6 @@ optional arguments:
   -m, --mode            Use to run Sqanti when gtf and faa files have been
                         already created in previous runs.
   -v, --version         Display program version number.
-
 ```
 
 ###**Input files**###
@@ -91,4 +92,3 @@ lfuente@cipf.es
 Genomics of Gene Expression Lab
 Centro de Investigación Príncipe Felipe
 Eduardo Primo Yúfera, 3 46012 Valencia (Spain)
-
