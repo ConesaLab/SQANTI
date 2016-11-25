@@ -101,10 +101,10 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
    Note: It's recommended to discard smallRNAs (miRNAs, snoRNA, etc) to avoid a misannotation of novel genes.
 
 # 
-**2. Genome:** Mandatory for the error-correction of sequences during genome mapping. It must be given in a unique fasta file.
+**3. Genome:** Mandatory for the error-correction of sequences during genome mapping. It must be given in a unique fasta file.
 
 #
-**3. Expression Matrix:** SQANTI needs information about the pre-computed expression of each given isoform to calculate some quality control attributes. The format must be tabulated file where the first column corresponds to the isoform identifiers found in the fasta file. Next columns must represent the expression levels for each studied sample. Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
+**4. Expression Matrix:** SQANTI needs information about the pre-computed expression of each given isoform to calculate some quality control attributes. The format must be tabulated file where the first column corresponds to the isoform identifiers found in the fasta file. Next columns must represent the expression levels for each studied sample. Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
 ### Optional Input Files ###
