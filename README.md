@@ -22,6 +22,7 @@ SQANTI pipeline steps:
 ## **Required software** ##
 
 * Python
+* Pysam python module
 * Perl
 * Gmap aligner (version....)
 * R environment
@@ -114,6 +115,7 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 **2. FL_count:** As SQANTI was developed for the annotation and quality control of IsoSeq PacBio isoforms, you can provide PacBio abundance files where the number of Full-length reads associated to each PacBio-defined isoform is stored. Specifically, SQANTI uses the "*.abundance.txt" files.
 
 #
+**3. Gmap indexes: --------
 #
 *Note: You can see file format examples in "example" folder.*
 
