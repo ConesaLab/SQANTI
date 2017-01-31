@@ -13,14 +13,13 @@ SQANTI pipeline steps:
 1. First, as long-read sequencing usually has a high rate of errors along sequences, it performs a **reference-based correction of sequences**.
 
 2. Secondly, **generates genes models** and **classifies transcripts based on splice junctions**.
+      ![Transcript Classification](https://bitbucket.org/repo/kpnA5g/images/803890880-Diapositiva1.png)
 
-![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/803890880-Diapositiva1.png)
 3. Third, **computes a ORF prediction** for each isoform, obtaining information about the coding potential of each sequenced isoform. 
 
 4. Finally it carries out a **deep characterization of isoforms at both transcript and junction level** and **generates a report** with several plots describing in detail the mayor attributes that catalog your set of sequenced-isoforms.
 
-![Transcript Classification](https://bitbucket.org/repo/kpnA5g/images/69442998-Diapositiva1.png)
-
+![SQANTI WORKFLOW](https://bitbucket.org/repo/kpnA5g/images/3187661279-Diapositiva8.png)
 
 ## **Required software** ##
 
