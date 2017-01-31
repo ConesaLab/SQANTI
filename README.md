@@ -19,7 +19,7 @@ SQANTI pipeline steps:
 
 4. Finally it carries out a **deep characterization of isoforms at both transcript and junction level** and **generates a report** with several plots describing in detail the mayor attributes that catalog your set of sequenced-isoforms.
 
-![SQANTI WORKFLOW](https://bitbucket.org/repo/kpnA5g/images/3187661279-Diapositiva8.png)
+![SQANTI WORKFLOW](https://bitbucket.org/repo/kpnA5g/images/2483959904-Diapositiva8.png)
 
 ## **Required software** ##
 
