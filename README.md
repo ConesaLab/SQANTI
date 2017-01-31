@@ -16,7 +16,6 @@ SQANTI pipeline steps:
 
 ![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/2614193478-Diapositiva1.png =5x5)
 
-
 3. Third, **computes a ORF prediction** for each isoform, obtaining information about the coding potential of each sequenced isoform. 
 
 4. Finally it carries out a **deep characterization of isoforms at both transcript and junction level** and **generates a report** with several plots describing in detail the mayor attributes that catalog your set of sequenced-isoforms.
