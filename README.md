@@ -118,7 +118,7 @@ Expression values can be computed with any software design to calculate transcri
 **2. FL_count:** As SQANTI was developed for the annotation and quality control of IsoSeq PacBio isoforms, you can provide PacBio abundance files where the number of Full-length reads associated to each PacBio-defined isoform is stored. Specifically, SQANTI uses the "*.abundance.txt" files.
 
 #
-**3. Gmap indexes: Pre-computed genome indexes for GMAP aligner must be provided. 
+**3. Gmap indexes:** Pre-computed genome indexes for GMAP aligner must be provided. 
 
 #
 
@@ -127,19 +127,19 @@ Expression values can be computed with any software design to calculate transcri
 
 ##**Output files**##
 
-**1. name_corrected.fasta:** Transcript sequences after correction using genome sequence.
+**1. *name*_corrected.fasta:** Transcript sequences after correction using genome sequence.
 
-**2. name_corrected.gff**, **name_corrected.gtf** and **name_corrected.sam**: Alignment of corrected sequences 
+**2. *name*_corrected.gff**, **name_corrected.gtf** and **name_corrected.sam**: Alignment of corrected sequences 
 
-**3. name.faa:** File with predicted ORF sequences for corrected isoforms. GeneMarkS-T (http://exon.gatech.edu/GeneMark/) was used to predict coding sequences in eukaryotic transcripts. Also a GMST folder is created with extra information returned by GMST.
+**3. *name*.faa:** File with predicted ORF sequences for corrected isoforms. GeneMarkS-T (http://exon.gatech.edu/GeneMark/) was used to predict coding sequences in eukaryotic transcripts. Also a GMST folder is created with extra information returned by GMST.
 
 **4. RTS folder:** Folder with stores a file with information about attributes related to junctions potential to have suffered RT-switching during retrotranscription.
 
-**5. name_classification.txt:** File with attribute information at isoform level.
+**5. *name*_classification.txt:** File with attribute information at isoform level.
 
-**6. name_junctions.txt:** File with attribute information at splice junction level.
+**6. *name*_junctions.txt:** File with attribute information at splice junction level.
 
-**7. name_Report.pdf:** PDF file showing different quality control and descriptive plots.
+**7. *name*_Report.pdf:** PDF file showing different quality control and descriptive plots.
 
 
 
