@@ -106,23 +106,46 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 **3. Genome:** Mandatory for the error-correction of sequences during genome mapping. It must be given in a unique fasta file.
 
 #
-**4. Expression Matrix:** SQANTI needs information about the pre-computed expression of each given isoform to calculate some quality control attributes. The format must be tabulated file where the first column corresponds to the isoform identifiers found in the fasta file. Next columns must represent the expression levels for each studied sample. Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
+**4. Expression Matrix:** SQANTI needs information about the pre-computed expression of each given isoform to calculate some quality control attributes. The format must be tabulated file where the first column corresponds to the isoform identifiers. Next columns must represent the expression levels for each studied sample. The header must have a label for each studied sample.
+Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
 ### Optional Input Files ###
 
-**1. Coverage:** Short-read coverage in junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
+**1. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
 
 #
 **2. FL_count:** As SQANTI was developed for the annotation and quality control of IsoSeq PacBio isoforms, you can provide PacBio abundance files where the number of Full-length reads associated to each PacBio-defined isoform is stored. Specifically, SQANTI uses the "*.abundance.txt" files.
 
 #
-**3. Gmap indexes: --------
+**3. Gmap indexes: Pre-computed genome indexes for GMAP aligner must be provided. 
+
 #
+
 *Note: You can see file format examples in "example" folder.*
 
 
 ##**Output files**##
+
+**1. name_corrected.fasta:** Transcript sequences after correction using genome sequence.
+
+**2. name_corrected.gff**, **name_corrected.gtf** and **name_corrected.sam**: Alignment of corrected sequences 
+
+**3. name.faa:** File with predicted ORF sequences for corrected isoforms. GeneMarkS-T (http://exon.gatech.edu/GeneMark/) was used to predict coding sequences in eukaryotic transcripts. Also a GMST folder is created with extra information returned by GMST.
+
+**4. RTS folder:** Folder with stores a file with information about attributes related to junctions potential to have suffered RT-switching during retrotranscription.
+
+**5. name_classification.txt:** File with attribute information at isoform level.
+
+**6. name_junctions.txt:** File with attribute information at splice junction level.
+
+**7. name_Report.pdf:** PDF file showing different quality control and descriptive plots.
+
+
+
+
+
+
 
 ##**Version**##
 
