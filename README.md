@@ -154,10 +154,8 @@ Expression values can be computed with any software design to calculate transcri
 
 ##**Contact Information**##
 
-Lorena de la Fuente 
-
+Lorena de la Fuente. 
 lfuente@cipf.es
 
-Manuel Tardaguila
-
+Manuel Tardaguila.
 manueltar@ufl.edu
