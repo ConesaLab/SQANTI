@@ -88,7 +88,8 @@ optional arguments:
 
 
 
-
+```
+#!bash
 usage: sqanti_filtering.py [-h] [-i FASTA] [-d DIR] [-v]
                            TP_isoforms TN_isoforms sqanti_class
 
@@ -107,6 +108,7 @@ optional arguments:
                         directory where the script was run.
   -v, --version         Display program version number.
 
+```
 
 ##**Input files**##
 
