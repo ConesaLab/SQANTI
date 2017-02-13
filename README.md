@@ -26,8 +26,8 @@ SQANTI pipeline steps:
 * Python
 * Pysam python module
 * Perl
-* Gmap aligner (version....)
-* R environment
+* Gmap aligner (>= 2014-12-31)
+* R (>= 3.3.2)
 
 
 ## **Running** ##
