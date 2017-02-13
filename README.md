@@ -87,6 +87,27 @@ optional arguments:
 ```
 
 
+
+
+usage: sqanti_filtering.py [-h] [-i FASTA] [-d DIR] [-v]
+                           TP_isoforms TN_isoforms sqanti_class
+
+Filtering of Isoforms based on SQANTI attributes
+
+positional arguments:
+  TP_isoforms           File with true positive set of isoforms
+  TN_isoforms           File with true negative set of isoforms
+  sqanti_class          SQANTI classification at isoform level
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i FASTA, --isoforms FASTA
+                        Fasta isoform file to be filtered by SQANTI filtering
+  -d DIR, --dir DIR     Output directory name. Default: "Classifier_out"
+                        directory where the script was run.
+  -v, --version         Display program version number.
+
+
 ##**Input files**##
 
 
