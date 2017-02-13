@@ -156,6 +156,8 @@ Expression values can be computed with any software design to calculate transcri
 
 Lorena de la Fuente 
 lfuente@cipf.es
+Manuel Tardaguila
+manueltar@ufl.edu
 
 Genomics of Gene Expression Lab
 Centro de Investigación Príncipe Felipe
