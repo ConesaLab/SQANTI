@@ -155,10 +155,9 @@ Expression values can be computed with any software design to calculate transcri
 ##**Contact Information**##
 
 Lorena de la Fuente 
-lfuente@cipf.es
-Manuel Tardaguila
-manueltar@ufl.edu
 
-Genomics of Gene Expression Lab
-Centro de Investigación Príncipe Felipe
-Eduardo Primo Yúfera, 3 46012 Valencia (Spain)
+lfuente@cipf.es
+
+Manuel Tardaguila
+
+manueltar@ufl.edu
