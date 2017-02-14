@@ -189,6 +189,7 @@ def rts(args):
     #
     def checkSJforRTS(sjIdx, sjCounts, chrIdx, args, filename):
         rtsTrancList = []
+        rtsJunctionList = []
         transcnt = 0
         transrts = 0
         sjCnt = 0
@@ -259,6 +260,7 @@ def rts(args):
                                 else:
                                     nncCnt += 1
                             rtsTrancList.append(trans)
+                            rtsJunctionList.append(str(trans)+":"+str(sj.chromo)+":"+str(sj.strpos)+":"+str(sj.endpos))
                             f.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(trans, sj.sjn, sj.chromo, sj.strand, sj.strpos, sj.endpos, sj.category, sj.type, exonSeq, intronSeq, matchLen, matchPat, exwiggle, inwiggle, mismatch))
 
             sjRTSCounts = SJCounts(transrts, sjCnt, sjCnt, kcCnt, kncCnt, ncCnt, nncCnt)
@@ -271,7 +273,7 @@ def rts(args):
             # print("Fields:\tSJ\tKC\tKNC\tNC\tNNC")
             # print("RTS:\t{}\t{}\t{}\t{}\t{}".format(sjRTSCounts.sj, sjRTSCounts.knownCanonical, sjRTSCounts.knownNonCanonical, sjRTSCounts.novelCanonical, sjRTSCounts.novelNonCanonical))
             # print("%:\t{:.2f}\t{:.2f}\t{:.2f}\t{:.2f}\t{:.2f}".format(pct(sjRTSCounts.sj, sjCounts.sj), pct(sjRTSCounts.knownCanonical, sjCounts.knownCanonical), pct(sjRTSCounts.knownNonCanonical, sjCounts.knownNonCanonical), pct(sjRTSCounts.novelCanonical, sjCounts.novelCanonical), pct(sjRTSCounts.novelNonCanonical, sjCounts.novelNonCanonical)))
-        return rtsTrancList,sjRTSCounts
+        return rtsTrancList,sjRTSCounts, rtsJunctionList
         
     def pct(value, total):
         return (value / total * 100)
@@ -462,9 +464,9 @@ def rts(args):
     sjIdx, sjCounts = loadSpliceJunctions(args.sjFilepath)
 
     # # perform RTS analysis
-    rtsTrancList, sjRTSCounts = checkSJforRTS(sjIdx, sjCounts, chrIdx, args, rtsResultsFilepath)
+    rtsTrancList, sjRTSCounts, rtsJunctionList = checkSJforRTS(sjIdx, sjCounts, chrIdx, args, rtsResultsFilepath)
 
-    return(set(rtsTrancList))
+    return(set(rtsTrancList), set(rtsJunctionList))
 
 
 if __name__ == "__main__":
