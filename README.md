@@ -208,4 +208,9 @@ lfuente@cipf.es
 manueltar@ufl.edu
 
 
-![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/4205068069-Diapositiva1.png)
+##**SQANTI attributes table**##
+
+* Attributes at isoform level defined by SQANTI in *name*_classification.txt** file
+
+
+![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/3744906928-Diapositiva1.png)
