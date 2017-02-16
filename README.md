@@ -41,7 +41,7 @@ SQANTI is a program written in python. It is divided into two functions:
 * **Sqanti.py**, performing the in-depth characterization of transcripts
 * **Sqanti_filtering.py**, applying matching learning methods to filter transcripts that are likely to be artifacts.
 
-Below you can see the help page of SQANTI functions where its mandatory and optional arguments are explained.
+Below you can see the help page of SQANTI functions where their mandatory and optional arguments are explained.
 
 
 ##**SQANTI.py**##
@@ -118,7 +118,7 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
-##Optional input files:##
+##Optional Input Files:##
 
 **1. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
 
@@ -133,7 +133,7 @@ Expression values can be computed with any software design to calculate transcri
 **Note: You can check format of input files in "example_dataset" folder which contains a real example.**
 
 
-##Output files:##
+##Output Files:##
 
 **1. *name*_corrected.fasta:** Transcript sequences after correction using genome sequence.
 
@@ -182,12 +182,12 @@ optional arguments:
 
 **3. SQANTI classification file:** SQANTI output file with attribute information at isoform level.
 
-##Optional input files:##
+##Optional Input Files:##
 
 **4. Corrected isoforms file:** Isoforms to be filtered can be provided in a fasta file format to be automatically filtered by sqanti filtering.
 
 
-##Output files:##
+##Output Files:##
 # 
 ## fill by Cecile #
 
