@@ -1,0 +1,6 @@
+"Overall"
+"MinCov" 100
+"Min_sample_cov" 43.3386801182245
+"bite" 0
+"FL" 46.0871436446026
+"isoExp" 35.5944955481281

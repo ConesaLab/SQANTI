@@ -1,0 +1,7 @@
+Cross-Validated (10 fold, repeated 10 times) Confusion Matrix
+rows:predictions 
+columns:reference 
+
+"Pred_POS" "Pred_NEG"
+"Pred_POS" 47.7586206896552 10.3448275862069
+"Pred_NEG" 14.3103448275862 27.5862068965517
