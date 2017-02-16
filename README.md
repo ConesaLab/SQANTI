@@ -90,7 +90,7 @@ optional arguments:
 
 
 
-## Mandatory Input Files ##
+## Mandatory Input Files: ##
 
 **1. Isoforms:** Isoforms to characterize must be given in a fasta file format. The accepted formats for the fasta headers are:
 
@@ -118,7 +118,7 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
-##Optional input files##
+##Optional input files:##
 
 **1. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
 
@@ -133,7 +133,7 @@ Expression values can be computed with any software design to calculate transcri
 **Note: You can check format of input files in "example_dataset" folder which contains a real example.**
 
 
-##Output files##
+##Output files:##
 
 **1. *name*_corrected.fasta:** Transcript sequences after correction using genome sequence.
 
@@ -174,7 +174,7 @@ optional arguments:
   -v, --version         Display program version number.
 
 ```
-## Mandatory Input Files ##
+## Mandatory Input Files: ##
 
 **1. TP_isoforms:** One column file with true positive set of isoforms.
 
@@ -182,14 +182,14 @@ optional arguments:
 
 **3. SQANTI classification file:** SQANTI output file with attribute information at isoform level.
 
-##Optional input files##
+##Optional input files:##
 
 *4. Corrected isoforms file:** Isoforms to be filtered can be provided in a fasta file format to be automatically filtered by sqanti filtering.
 
 
-##Output files##
-
-## fill by Cecile
+##Output files:##
+# 
+## fill by Cecile #
 
 
 
@@ -208,9 +208,8 @@ lfuente@cipf.es
 manueltar@ufl.edu
 
 
-##**SQANTI attributes table**##
+##**Appendix**##
 
-* Attributes at isoform level defined by SQANTI in *name*_classification.txt** file
+* Attributes at isoform level defined by SQANTI in ***name_classification.txt** file
 
-
-![Diapositiva1.png](https://bitbucket.org/repo/kpnA5g/images/3744906928-Diapositiva1.png)
+![Diapositiva1.jpg](https://bitbucket.org/repo/kpnA5g/images/1960668416-Diapositiva1.jpg)
