@@ -217,4 +217,4 @@ manueltar@ufl.edu
 
 * Attributes at splice junction level defined by SQANTI in **name_junctions.txt** file
 
-![table_supp1_HOJA2-1.png](https://bitbucket.org/repo/kpnA5g/images/1930828945-table_supp1_HOJA2-1.png)
+![table_supp1_HOJA2-1 2.png](https://bitbucket.org/repo/kpnA5g/images/2891116287-table_supp1_HOJA2-1%202.png)
