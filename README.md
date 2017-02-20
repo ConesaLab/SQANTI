@@ -212,5 +212,9 @@ manueltar@ufl.edu
 
 * Attributes at isoform level defined by SQANTI in **name_classification.txt** file
 
+![table_supp1_HOJA1-1.png](https://bitbucket.org/repo/kpnA5g/images/3507259918-table_supp1_HOJA1-1.png)
+
 
 * Attributes at splice junction level defined by SQANTI in **name_junctions.txt** file
+
+![table_supp1_HOJA2-1.png](https://bitbucket.org/repo/kpnA5g/images/1930828945-table_supp1_HOJA2-1.png)
