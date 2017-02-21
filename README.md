@@ -184,14 +184,22 @@ optional arguments:
 
 ##Optional Input Files:##
 
-**4. Corrected isoforms file:** Isoforms to be filtered can be provided in a fasta file format to be automatically filtered by sqanti filtering.
+**1. Corrected isoforms file:** Isoforms to be filtered can be provided in a fasta file format to be automatically filtered by sqanti filtering.
 
 
 ##Output Files:##
-# 
-## fill by Cecile #
 
+**1. Confusion_matrix_trainingset.txt:** confusion matrix obtained on the cross-validation (10 fold, repeated 10 times) preformed on the training set. The rows correspond to the predictions, the columns corresponds to the reference (TP_isoforms, TN_isoforms).
 
+**2. Variable_Importance_trainingset.txt:** Importance of each variable on the final classifier. Values obtained with the function varImp of the caret library.
+
+**3. ROC_curves_RF.pdf:** ROC curves obtained on the cross-validation. One doted ROC curve by repetition. The red curve corresponds to the curve computed from the 10 repetitions. The area under ROC is computed and written at the bottom right of the plot.
+
+**4. feature_importance_training.pdf:** boxplot on the training set of the values of the 5 variables used by the classifier in function of the class (TP/TN). Log scale. In order to avoid infinite values in log scale we added plus one to each value for the variables “bite”, “minimum coverage”, “minimum sample coverage”, “isoform expression”.
+
+**5. feature_importance_ total.pdf:** boxplot of the values of the 5 variables used by the classifier on the predictions performed on the multi-exonic transcripts. Log scale. In order to avoid infinite value in log scale, we added plus one to each value for the variables “bite”, “minimum coverage”, “minimum sample coverage”, “isoform expression”.
+
+**6. curated_transcriptome.txt:**  One columns file providing the set of isoforms don't predicted as artifacs.
 
 
 ##**Version**##
