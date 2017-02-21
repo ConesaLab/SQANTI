@@ -141,7 +141,7 @@ Expression values can be computed with any software design to calculate transcri
 
 **3. *name*.faa:** File with predicted ORF sequences for corrected isoforms. GeneMarkS-T (http://exon.gatech.edu/GeneMark/) was used to predict coding sequences in eukaryotic transcripts. Also a GMST folder is created with extra information returned by GMST.
 
-**4. RTS folder:** Folder which stores a file with information about attributes related to junctions potential to have suffered RT-switching during retrotranscription.
+**4. RTS folder:** Folder which stores a file with information about junctions that are potential to have suffered RT-switching during retrotranscription. RT switching algorithm locates 8 nt direct repeats characteristic of RT switching between the upstream mRNA boundary of the non-canonical intron and the intron region adjacent to the downstream exon boundary with a slide of 1 nucleotide upstream/downstream. FSM transcripts with the highest mean expression in each gene are assumed to serve as templates for RT switching and are excluded from the analysis.
 
 **5. *name*_classification.txt:** File with attribute information at isoform level (table explaining features at the bottom of the file)
 
