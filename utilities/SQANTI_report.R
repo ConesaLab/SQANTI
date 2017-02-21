@@ -37,7 +37,7 @@ rownames(sqantiData) = sqantiData$isoform
 sorted <- sqantiData[order(sqantiData$isoExp, decreasing = T),]
 FSMhighestExpIsoPerGene <- sorted[(!duplicated(sorted$associatedGene) & sorted$structuralCategory=="full-splice_match"),"isoform"]
 sqantiData[which(sqantiData$isoform%in%FSMhighestExpIsoPerGene),"RTS_stage"] <- FALSE
-write.table(sqantiData, file="/home/ldelafuente/SQANTI_lorenaRep/test/class_RST.txt", row.names=FALSE, quote=F, sep="\t")
+write.table(sqantiData, file=class.file, row.names=FALSE, quote=F, sep="\t")
 
 xaxislabelsF1 = c("FSM", "ISM", "NIC", "NNC", "Genic\nGenomic",  "Antisense", "Fusion","Intergenic", "Genic\nIntron")
 sqantiData$structuralCategory = factor(sqantiData$structuralCategory, 
@@ -52,7 +52,7 @@ sqantiData$structuralCategory = factor(sqantiData$structuralCategory,
 
 junctionsData = read.table(file=junc.file, header=T, as.is=T, sep="\t")
 junctionsData[which(junctionsData$isoform%in%FSMhighestExpIsoPerGene),"RTS_junction"] <- FALSE
-write.table(junctionsData, file="/home/ldelafuente/SQANTI_lorenaRep/test/junctions_RST.txt", row.names=FALSE, quote=F, sep="\t")
+write.table(junctionsData, file=junc.file, row.names=FALSE, quote=F, sep="\t")
 
 
 ########### Handling information 
@@ -783,7 +783,7 @@ p22.bbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTSS)) +
 # PLOT 23
 
 p23 <- ggplot(data=junctionsData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black", width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black",  size=0.2, width = 0.7) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
   ylab("% Splice junctions") +  
@@ -801,7 +801,7 @@ sqantiData$AllCanonical = factor(sqantiData$AllCanonical,
                                        ordered=TRUE)
 
 p23.b <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", size=0.2, width = 0.7) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
   ylab("% Transcripts ") +  
@@ -817,7 +817,7 @@ p23.b <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
 
 #alpha
 p23.c <- ggplot(data=sqantiData, aes(x=structuralCategory, alpha=AllCanonical, fill=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black", width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black",  size=0.2,width = 0.7) +
   scale_fill_manual(values = myPalette, guide='none' )  +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_alpha_manual(values=c(1,0.3)) +
@@ -835,7 +835,7 @@ p23.c <- ggplot(data=sqantiData, aes(x=structuralCategory, alpha=AllCanonical, f
 # PLOT 24
 
 p24 <- ggplot(data=junctionsData, aes(x=transcriptCoord, fill = canonical_known)) +
-  geom_density(alpha=0.7) +
+  geom_density(alpha=0.7,  size=0.3) +
   scale_y_continuous(expand = c(0,0))  +
   scale_x_continuous(expand = c(0,0)) +
   scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
@@ -890,7 +890,10 @@ if (!all(is.na(sqantiData$MinCov))){
   total$relCov = total$totalCoverage[,"n"] / total$isoExp[,"mn"]
   total$minTSS = total$transcriptCoord[,"n"]
   
-  uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known")])
+  uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known", "totalCoverage")])
+  uniqJunc$notCov = uniqJunc$totalCoverage==0
+  
+  uniqueJunc_nonCov = as.data.frame(table(uniqJunc[uniqJunc$totalCoverage==0,"canonical_known"])/table(uniqJunc$canonical_known)*100)
   
   uniqJunc2 = merge(total, uniqJunc, by=1)
   uniqJunc2$TSSrange =cut(uniqJunc2$minTSS, breaks = c(0,40,80,120,160,200,10000000), labels = c("0-40", "41-80", "81-120", "121-160", "161-200",">200"))
@@ -920,7 +923,7 @@ if (!all(is.na(sqantiData$MinCov))){
   
   
   pn3 <-ggplot(data=uniqJunc2, aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-    geom_boxplot(outlier.size = 0.2) +
+    geom_boxplot(outlier.size = 0.1) +
     scale_fill_manual(values = myPalette) +
     ylab("Relative coverage") + 
     xlab("# TSS distance range") +
@@ -928,7 +931,26 @@ if (!all(is.na(sqantiData$MinCov))){
     theme(legend.position="bottom", legend.title=element_blank())  +
     ggtitle( "Relative Coverage of junctions (unique junctions) \n\n\n") 
   
+  pn4 <-ggplot(data=uniqJunc[uniqJunc$notCov==TRUE,], aes(x=canonical_known,fill=canonical_known)) +
+    geom_bar(color="black", size=0.3, width=0.7) +
+    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
+    ylab("# Splice Junctions without coverage") + 
+    xlab("Junction Type") +
+    mytheme +
+    guides(fill=FALSE) +
+    ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
+
   
+  pn5 <- ggplot(data=uniqueJunc_nonCov, aes(x=Var1, y=Freq, fill=Var1)) +
+    geom_bar(position=position_dodge(), stat="identity", color="black", size=0.3, width=0.7) +
+    guides(fill=FALSE) +
+    scale_y_continuous( expand = c(0,0)) +
+    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
+    ylab("% Splice Junctions without coverage") + 
+    xlab("Junction Type") +
+    mytheme +
+    guides(fill=FALSE) +
+    ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
   
   # same but using all the junctions
   
@@ -946,7 +968,7 @@ if (!all(is.na(sqantiData$MinCov))){
   
   
   pn1.2 <-ggplot(data=junctionsData[junctionsData$relCov<1,], aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-    geom_boxplot(outlier.shape = NA, size=0.3) +
+    geom_boxplot(outlier.size = 0.2, size=0.3) +
     scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
     ylab("Relative coverage") + 
     xlab("# TSS distance range") +
@@ -1136,8 +1158,16 @@ gt1 <- gTree(children=gList(table, title))
 # t2
 freqCat = as.data.frame(table(isoPerGene$novelGene))
 table2 <- tableGrob(freqCat, rows = NULL, cols = c("category","# genes"))
-title2 <- textGrob("Gene classification", gp=gpar(fontface="italic", fontsize=17), vjust = -4)
+title2 <- textGrob("Gene classification", gp=gpar(fontface="italic", fontsize=17), vjust = -3.5)
 gt2 <- gTree(children=gList(table2, title2))
+
+# t4
+freqCat = as.data.frame(table(uniqJunc$canonical_known))
+freqCat$Var1 = gsub(" ", "", freqCat$Var1)
+freqCat$Var1 = gsub("\n", " ", freqCat$Var1)
+table2 <- tableGrob(freqCat, rows = NULL, cols = c("category","# SJ"))
+title2 <- textGrob("SJ classification", gp=gpar(fontface="italic", fontsize=17), vjust = -5)
+gt3 <- gTree(children=gList(table2, title2))
 
 # t3
 nGenes = nrow(isoPerGene)
@@ -1147,7 +1177,7 @@ s <- textGrob(sn, gp=gpar(fontface="italic", fontsize=17), vjust = 0)
 
 
 # drawing t1 and t2
-grid.arrange(s,gt2,gt1, layout_matrix = cbind(c(1,2),c(3,3)))
+grid.arrange(s,gt2,gt3,gt1, layout_matrix = cbind(c(1,2,3),c(1,4,4)))
 
 
 #1. general parameters
@@ -1187,6 +1217,8 @@ p24
 p25
 p26
 pn1.2
+pn4
+pn5
 p29
 p29.a
 

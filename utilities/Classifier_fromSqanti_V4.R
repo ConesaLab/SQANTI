@@ -234,7 +234,7 @@ colnames(tmp)=colnames(restot)
 restot=rbind(restot,tmp)#add positive prediction for all the monoexonic transcripts
 
 
-write.table(restot,file=paste(opt$out,'/predit_completetable.txt',sep=''),sep='\t',row.names = FALSE, quote=F)
+#write.table(restot,file=paste(opt$out,'/predict_completetable.txt',sep=''),sep='\t',row.names = FALSE, quote=F)
 subt=restot[rownames(training),]
 #table(c(rep("TP",length(TP$V1)),rep("TN",length(TN$V1))),subt$predit)
 

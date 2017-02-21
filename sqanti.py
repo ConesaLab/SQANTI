@@ -1062,14 +1062,14 @@ def FLcount_parser (fl_files):
 	fl_dicc = {}
 	for path in cov_paths:
 		p = open(path.strip(), "r")
-		header = p.readline()
 		for line in p:
-			pbid = line.split()[0]
-			fl = int(line.split()[1])
-			if pbid in fl_dicc:
-				fl_dicc[pbid] = fl_dicc[pbid] + fl
-			else:
-				fl_dicc[pbid] = fl
+			if line[0] != "#" and line[0:4] != "pbid":
+				pbid = line.split()[0]
+				fl = int(line.split()[1])
+				if pbid in fl_dicc:
+					fl_dicc[pbid] = fl_dicc[pbid] + fl
+				else:
+					fl_dicc[pbid] = fl
 		p.close()
 
 	return(fl_dicc)
@@ -1220,7 +1220,7 @@ def correctionPlusORFpred(args):
 			for ID in fastaDicc:
 				if len(ID.split("|"))>4: # Refseq fasta header
 					ID_mod = ID.split("|")[3]
-				elif len(ID.split("|"))==3: # PacBio fasta header
+				elif len(ID.split("|"))==3 or len(ID.split("|"))==4: # PacBio fasta header
 					ID_mod = ID.split("|")[0]
 				else:
 					ID_mod = ID.split()[0] # Ensembl fasta header
@@ -1242,10 +1242,11 @@ def correctionPlusORFpred(args):
 			with open(corrGFF, 'w') as corrGFF_out:
 				with open(corrGFF_gmap, 'r') as corrGFF_in:
 					for i in corrGFF_in:
-						if (".mrna1" in i) or (".path1" in i):
-							j = i.replace(".mrna1","")
-							k = j.replace(".path1", ".gene")
-							corrGFF_out.write(k)
+						if i[0] != "#" and i.split("\t")[2] != "CDS":
+							if (".mrna1" in i) or (".path1" in i):
+								j = i.replace(".mrna1","")
+								k = j.replace(".path1", ".gene")
+								corrGFF_out.write(k)
 
 			# GFF to GTF
 			subprocess.call([utilitiesPath+"gffread", corrGFF , '-T', '-o', corrGTF])
