@@ -20,7 +20,7 @@ SQANTI pipeline steps:
 
 4. Finally, it carries out a **deep characterization of isoforms at both transcript and junction level** and **generates a report** with several plots describing in detail the mayor attributes that catalog your set of sequenced isoforms.
 
-5. Together with SQANTI tool, the user can use the **SQANTI filtering tool to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI-defined attributes to create a classifier of artifacts.
+5. Together with SQANTI function, the user can use the **SQANTI filtering function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI-defined attributes to create a classifier of artifacts.
 
 
 ![SQANTI WORKFLOW](https://bitbucket.org/repo/kpnA5g/images/2483959904-Diapositiva8.png)
@@ -38,11 +38,13 @@ SQANTI pipeline steps:
 
 SQANTI is a program written in python. It is divided into two functions:
 
-* Sqanti.py, performing the in-depth characterization of transcripts
-* Sqanti_filtering.py, applying matching learning methods to filter transcripts that are likely to be artifacts.
+* **Sqanti.py**, performing the in-depth characterization of transcripts
+* **Sqanti_filtering.py**, applying matching learning methods to filter transcripts that are likely to be artifacts.
+
+Below you can see the help page of SQANTI functions where their mandatory and optional arguments are explained.
 
 
-Below you can see the help page of SQANTI functions where its mandatory and optional arguments are explained:
+##**SQANTI.py**##
 
 ```
 #!bash
@@ -87,10 +89,8 @@ optional arguments:
 ```
 
 
-##**Input files**##
 
-
-### Mandatory Input Files ###
+## Mandatory Input Files: ##
 
 **1. Isoforms:** Isoforms to characterize must be given in a fasta file format. The accepted formats for the fasta headers are:
 
@@ -118,7 +118,7 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
-### Optional Input Files ###
+##Optional Input Files:##
 
 **1. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
 
@@ -130,10 +130,10 @@ Expression values can be computed with any software design to calculate transcri
 
 #
 
-*Note: You can see file format examples in "example" folder.*
+**Note: You can check format of input files in "example_dataset" folder which contains a real example.**
 
 
-##**Output files**##
+##Output Files:##
 
 **1. *name*_corrected.fasta:** Transcript sequences after correction using genome sequence.
 
@@ -141,14 +141,17 @@ Expression values can be computed with any software design to calculate transcri
 
 **3. *name*.faa:** File with predicted ORF sequences for corrected isoforms. GeneMarkS-T (http://exon.gatech.edu/GeneMark/) was used to predict coding sequences in eukaryotic transcripts. Also a GMST folder is created with extra information returned by GMST.
 
-**4. RTS folder:** Folder with stores a file with information about attributes related to junctions potential to have suffered RT-switching during retrotranscription.
+**4. RTS folder:** Folder which stores a file with information about attributes related to junctions potential to have suffered RT-switching during retrotranscription.
 
-**5. *name*_classification.txt:** File with attribute information at isoform level.
+**5. *name*_classification.txt:** File with attribute information at isoform level (table explaining features at the bottom of the file)
 
 **6. *name*_junctions.txt:** File with attribute information at splice junction level.
 
-**7. *name*_Report.pdf:** PDF file showing different quality control and descriptive plots.
+**7. *name*_Report.pdf:** PDF file showing different quality control and descriptive plots. 
 
+
+
+##**SQANTI_filtering.py**##
 
 ```
 #!bash
@@ -171,6 +174,24 @@ optional arguments:
   -v, --version         Display program version number.
 
 ```
+## Mandatory Input Files: ##
+
+**1. TP_isoforms:** One column file with true positive set of isoforms.
+
+**2. TN_isoforms:** One column file with true negative set of isoforms.
+
+**3. SQANTI classification file:** SQANTI output file with attribute information at isoform level.
+
+##Optional Input Files:##
+
+**4. Corrected isoforms file:** Isoforms to be filtered can be provided in a fasta file format to be automatically filtered by sqanti filtering.
+
+
+##Output Files:##
+# 
+## fill by Cecile #
+
+
 
 
 ##**Version**##
@@ -185,3 +206,15 @@ lfuente@cipf.es
 
 * Manuel Tardaguila.
 manueltar@ufl.edu
+
+
+##**Appendix**##
+
+* Attributes at isoform level defined by SQANTI in **name_classification.txt** file
+
+![table_supp1_HOJA1-1.png](https://bitbucket.org/repo/kpnA5g/images/3507259918-table_supp1_HOJA1-1.png)
+
+
+* Attributes at splice junction level defined by SQANTI in **name_junctions.txt** file
+
+![table_supp1_HOJA2-1 2.png](https://bitbucket.org/repo/kpnA5g/images/2891116287-table_supp1_HOJA2-1%202.png)
