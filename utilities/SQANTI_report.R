@@ -783,7 +783,7 @@ p22.bbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTSS)) +
 # PLOT 23
 
 p23 <- ggplot(data=junctionsData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black",  size=0.2, width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black",  size=0.3, width = 0.7) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
   ylab("% Splice junctions") +  
@@ -801,7 +801,7 @@ sqantiData$AllCanonical = factor(sqantiData$AllCanonical,
                                        ordered=TRUE)
 
 p23.b <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", size=0.2, width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", size=0.3, width = 0.7) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
   ylab("% Transcripts ") +  
@@ -817,7 +817,7 @@ p23.b <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
 
 #alpha
 p23.c <- ggplot(data=sqantiData, aes(x=structuralCategory, alpha=AllCanonical, fill=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black",  size=0.2,width = 0.7) +
+  geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black",  size=0.3,width = 0.7) +
   scale_fill_manual(values = myPalette, guide='none' )  +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_alpha_manual(values=c(1,0.3)) +
@@ -1188,6 +1188,9 @@ p0
 p6
 p7
 p10
+if (!all(is.na(sqantiData$FL))){
+  p11
+}
 
 #2. general parameters by structual categories
 
@@ -1197,7 +1200,9 @@ p1
 p4
 p5
 p8
-p9
+if (!all(is.na(sqantiData$FL))){
+  print(p9)
+}
 p2
 p3
 p13
@@ -1216,9 +1221,11 @@ p23
 p24
 p25
 p26
-pn1.2
-pn4
-pn5
+if (!all(is.na(sqantiData$MinCov))){
+  print(pn1.2)
+  print(pn4)
+  print(pn5)
+}
 p29
 p29.a
 
@@ -1235,7 +1242,7 @@ p22.bbbbb
 
 s <- textGrob("Quality control attributes", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
 grid.arrange(s)
-#p28
+#p28a
 p28.a
 p28.c
 

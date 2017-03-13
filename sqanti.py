@@ -1271,7 +1271,9 @@ def correctionPlusORFpred(args):
 		os.remove(corrGFF_gmap)
 
 
-	elif (os.path.exists(corrFASTA) and os.path.exists(corrGTF) and os.path.exists(corrSAM)):
+	elif (os.path.exists(corrFASTA) and os.path.exists(corrGTF)):
+
+		sys.stdout.write("\nSkipping correction of sequences because of specified -m option.\n")
 
 		if not os.path.exists(ORF):
 			# ORF generation
@@ -1282,10 +1284,13 @@ def correctionPlusORFpred(args):
 			subprocess.call(["perl", utilitiesPath+"gmst/gmst.pl", corrFASTA , '-faa', '--strand','direct', '--fnn', '--output',  os.path.splitext(os.path.basename(args.isoforms))[0]+"_corrected"], cwd=gmst_dir) 
 			os.rename(gmst_dir+os.path.basename(ORF), ORF) 
 
-			sys.stdout.write("\nSkipping correction of sequences because of specified -m option.\n")
+		if not os.path.exists(corrSAM):
+			sys.stdout.write("\nIndels will be not calculated since SAM file doesn't exist.\n")
+
+
 
 	else:
-		sys.stderr.write('ERROR: Unable to read any of this corrected files: \n %s\n %s\n %s\n' % (corrSAM, corrFASTA, corrGTF))
+		sys.stderr.write('ERROR: Unable to read any of this corrected files: \n %s\n %s\n' % (corrFASTA, corrGTF))
 		sys.stderr.write('CHECK IF YOU RUN PREVIOUSLY SQANTI WITHOUT -m OPTION \n')
 		sys.exit()
 
@@ -1303,11 +1308,20 @@ def correctionPlusORFpred(args):
 		pos = seq.find('M')
 		if pos != -1:
 			corr_seq = seq[pos:]
-			cds_start = int(ID.split("\t")[l-1].split("|")[4])+pos
-			cds_end = int(ID.split("\t")[l-1].split("|")[5]) - 3  # without stop codon
-			ID_mod = ID.split()[0].strip() 
-			corrORF_file.write(">"+ID+"\n"+corr_seq+"\n")
-			orfLenDicc[ID_mod] = myQueryProteins(cds_start, cds_end, len(corr_seq))
+			cds_start = int(ID.split("\t")[l-1].split("|")[4])+pos*3
+			cds_end = int(ID.split("\t")[l-1].split("|")[5])  
+			strand = ID.split("\t")[l-1].split("|")[3]
+			ID_mod = ID.split()[0].strip()+"\t"+"isoform|GeneMark.hmm|"+ str(len(corr_seq)) + "_aa|" + strand + "|" + str(cds_start) +"|" + str(cds_end)
+			corrORF_file.write(">"+ID_mod+"\n"+corr_seq+"\n")
+
+			orfLenDicc[ID.split()[0].strip()] = myQueryProteins(cds_start, (cds_start+len(corr_seq)*3-1), len(corr_seq))
+			if ID.split()[0].strip()=="PB.5245.7" or ID.split()[0].strip()=="PB.5245.8":
+				print ID_mod
+				print str(cds_start)
+				print str(cds_end-3)
+				print str(len(corr_seq))
+				print corr_seq
+
 	corrORF_file.close()
 
 	os.remove(ORF)
@@ -1359,7 +1373,12 @@ def run(args):
  		sys.stderr.write("\nWARNING: Coverage files not provided.\n")
 
  	## run indel computation
-	(indelsJunc, indelsTotal) = indels(corrSAM)
+ 	if os.path.exists(corrSAM):
+		(indelsJunc, indelsTotal) = indels(corrSAM)
+	else:
+		indelsJunc = []
+		indelsTotal = {}
+
 
  	## analysis of query transcripts	
  	queryAnnotation = open(queryFile, 'r')
