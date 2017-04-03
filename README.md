@@ -1,7 +1,7 @@
 # **Welcome to SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** #
 
 
-### You can find the pre-print version of SQANTI reference at BiorXiv:
+### You can find the preprint version of SQANTI reference at BiorXiv:
 * http://biorxiv.org/content/early/2017/03/18/118083 
 
 ##**Summary**##
