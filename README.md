@@ -1,6 +1,9 @@
 # **Welcome to SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** #
 
- 
+
+### You can find the preprint of the SQANTI paper at BiorXiv:
+* http://biorxiv.org/content/early/2017/03/18/118083 
+
 ##**Summary**##
 
 SQANTI is a pipeline for the in-depth characterization of isoforms obtained by full-length transcript sequencing, which are commonly returned in a fasta file format without any extra information about gene/transcript annotation or attribute description. SQANTI provides a wide range of descriptors of transcript quality and generates a graphical report to aid in the interpretation of the sequencing results.
