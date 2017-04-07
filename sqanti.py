@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms
 # Authors: Lorena de la Fuente and Hector del Risco
 
@@ -1315,12 +1315,6 @@ def correctionPlusORFpred(args):
 			corrORF_file.write(">"+ID_mod+"\n"+corr_seq+"\n")
 
 			orfLenDicc[ID.split()[0].strip()] = myQueryProteins(cds_start, (cds_start+len(corr_seq)*3-1), len(corr_seq))
-			if ID.split()[0].strip()=="PB.5245.7" or ID.split()[0].strip()=="PB.5245.8":
-				print ID_mod
-				print str(cds_start)
-				print str(cds_end-3)
-				print str(len(corr_seq))
-				print corr_seq
 
 	corrORF_file.close()
 
