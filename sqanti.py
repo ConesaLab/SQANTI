@@ -1021,6 +1021,37 @@ def fasta_parser(fastaFile):
 				seq = ''
 			elif line.strip()!="":
 				seq += line.rstrip()
+		if index>0:
+			seqDicc[name] = seq
+
+		fasta.close()
+
+	except IOError:
+		sys.stderr.write('File %s without fasta format' % fastaFile)
+		raise SystemExit(1)
+
+	return(seqDicc)
+
+def genome_parser(fastaFile):
+
+	try:
+		fasta = open(fastaFile, "r")
+	except IOError:
+		sys.stderr.write('ERROR: Unable to read %s file\n' % fastaFile)
+		raise SystemExit(1)
+	try:
+		seqDicc = {}
+		index = 0
+		for line in fasta:
+			if line.startswith(">"):
+				if index > 0:
+					seqDicc[name] = seq
+				index+=1
+				name = line[1:].rstrip().split()[0]
+				#name = line[1:].split()[0].rstrip()
+				seq = ''
+			elif line.strip()!="":
+				seq += line.rstrip()
 		seqDicc[name] = seq
 
 		fasta.close()
@@ -1218,12 +1249,13 @@ def correctionPlusORFpred(args):
 			tmpFasta_file = open(tmpFasta, "w")
 
 			for ID in fastaDicc:
-				if len(ID.split("|"))>4: # Refseq fasta header
+				if len(ID.split("|"))>2 and ID[0:2]=="PB": # PacBio fasta header (including chained format)
+					ID_mod = ID.split("|")[0].split(" ")[0]
+				elif len(ID.split("|"))>4: # Refseq fasta header
 					ID_mod = ID.split("|")[3]
-				elif len(ID.split("|"))==3 or len(ID.split("|"))==4: # PacBio fasta header
-					ID_mod = ID.split("|")[0]
 				else:
 					ID_mod = ID.split()[0] # Ensembl fasta header
+
 				tmpFasta_file.write(">"+ID_mod+"\n"+fastaDicc[ID]+"\n")
 			tmpFasta_file.close()
 
@@ -1355,7 +1387,7 @@ def run(args):
  	transcripts_chrom_1exon, transcripts_chrom_exons, transcripts_gene, transcripts_gene_chrom = reference_parser(referenceFiles) 
 
  	## read genome file
-	seq = fasta_parser(args.genome)
+	seq = genome_parser(args.genome)
 
  	## read coverage files if provided
  	coverage_header = ""

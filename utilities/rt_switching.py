@@ -449,7 +449,8 @@ def rts(args):
     # get command line arguments
     args = get_args(args)
     # Output file
-    rts_dir = "./RTS"
+    absDir = os.path.dirname(os.path.abspath(args.sjFilepath))    
+    rts_dir = absDir+"/RTS"
     if not os.path.exists(rts_dir):
         os.makedirs(rts_dir)
 
