@@ -30,8 +30,9 @@ SQANTI pipeline steps:
 
 ## **Required software** ##
 
-* Python
+* Python 2.7
 * Pysam python module
+* Psutil python module
 * Perl
 * Gmap aligner (>= 2014-12-31)
 * R (>= 3.3.2)
