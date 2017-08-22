@@ -1,0 +1,445 @@
+
+
+
+-------------------------------------------------
+start time            : Mon Aug 21 14:09:15 2017
+working directory     : /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/GMST
+command line          : /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta -faa --strand direct --fnn --output all.good.5merge.collapsed.longest_rep16_corrected
+output file with predictions : all.good.5merge.collapsed.longest_rep16_corrected
+input sequence        : /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta
+number of bins        : 0
+filter                : 1
+strand                : direct
+markov chain order    : cod = 4, non = 2
+genetic code          : 1
+search for motif      : 1
+motif width           : 12
+prestart length       : 6
+fixed motif position  : 1
+off overlap           : 1
+identity threshold    : 0.99
+maximum iteration     : 10
+gene overlap off      : 1
+strand to predict on  : direct
+GeneMarkS parameters  : /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default
+initial hmm model     : 
+output format         : LST
+output nucleotides    : 1
+output proteins       : 1
+gibbs_version         : 3
+
+         run starts here:
+prepare sequence
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --clean_join sequence --seq /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 558 555
+All letters - 1511214   1536205
+Unambiguous letters - 1511214 1508505
+A - 405578 404903
+C - 345225 344561
+G - 362534 361869
+T - 397877 397172
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --stat_fasta --seq /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta > initial.meta.lst.feature 
+system call done
+min_GC=35  max_GC=58 total_seq_length=1511214
+(44)->(564191)
+(47)->(796141)
+(50)->(1089209)
+bin number = 3
+GC range = 35,44,50,58
+prepare sequence
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_1 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 194 194
+All letters - 564191   573841
+Unambiguous letters - 564191 564191
+A - 165316 165316
+C - 110686 110686
+G - 122160 122160
+T - 166029 166029
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.252 0.233 0.330 0.184
+2 0.194 0.184 0.311 0.311
+3 0.204 0.359 0.320 0.117
+4 0.398 0.184 0.184 0.233
+5 0.359 0.223 0.223 0.194
+6 0.340 0.311 0.165 0.184
+
+7 0.641 0.010 0.282 0.068
+8 0.010 0.010 0.010 0.971
+9 0.010 0.010 0.971 0.010
+
+10 0.282 0.087 0.456 0.175
+11 0.359 0.291 0.107 0.243
+12 0.233 0.155 0.311 0.301
+
+system call done
+prediction, iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.4132
+build model: itr_2.mod for iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.233 0.259 0.345 0.164
+2 0.207 0.181 0.336 0.276
+3 0.250 0.328 0.336 0.086
+4 0.517 0.155 0.250 0.078
+5 0.388 0.198 0.181 0.233
+6 0.267 0.371 0.241 0.121
+
+7 0.974 0.009 0.009 0.009
+8 0.009 0.009 0.009 0.974
+9 0.009 0.009 0.974 0.009
+
+10 0.293 0.069 0.483 0.155
+11 0.353 0.353 0.095 0.198
+12 0.216 0.164 0.336 0.284
+
+system call done
+prediction, iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9524
+build model: itr_3.mod for iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.225 0.242 0.375 0.158
+2 0.192 0.192 0.350 0.267
+3 0.250 0.333 0.333 0.083
+4 0.500 0.150 0.275 0.075
+5 0.400 0.183 0.183 0.233
+6 0.258 0.375 0.250 0.117
+
+7 0.975 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.300 0.058 0.483 0.158
+11 0.358 0.350 0.100 0.192
+12 0.208 0.158 0.367 0.267
+
+system call done
+prediction, iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9819
+build model: itr_4.mod for iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_4.mod --seq sequence --geneset itr_3.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.233 0.242 0.367 0.158
+2 0.192 0.192 0.350 0.267
+3 0.250 0.333 0.333 0.083
+4 0.492 0.150 0.283 0.075
+5 0.392 0.183 0.192 0.233
+6 0.258 0.383 0.242 0.117
+
+7 0.975 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.300 0.058 0.483 0.158
+11 0.358 0.342 0.100 0.200
+12 0.208 0.158 0.367 0.267
+
+system call done
+prediction, iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_4.mod  -o itr_4.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_4.lst --target itr_3.lst
+compare itr_3.lst and itr_4.lst: 0.9939
+Stopped iterations on identity: 0.9939
+create: seq_bin_1.mod
+cp itr_4.mod seq_bin_1.mod
+system call done
+prepare sequence
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_2 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 200 198
+All letters - 525018   532947
+Unambiguous letters - 525018 523097
+A - 140187 139694
+C - 122030 121567
+G - 128506 128056
+T - 134295 133780
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.280 0.127 0.305 0.288
+2 0.212 0.297 0.271 0.220
+3 0.246 0.263 0.331 0.161
+4 0.475 0.093 0.314 0.119
+5 0.246 0.356 0.246 0.153
+6 0.297 0.263 0.237 0.203
+
+7 0.754 0.008 0.144 0.093
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.229 0.144 0.458 0.169
+11 0.373 0.314 0.102 0.212
+12 0.195 0.280 0.347 0.178
+
+system call done
+prediction, iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.5516
+build model: itr_2.mod for iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.213 0.074 0.410 0.303
+2 0.197 0.262 0.270 0.270
+3 0.230 0.320 0.352 0.098
+4 0.574 0.082 0.270 0.074
+5 0.303 0.344 0.172 0.180
+6 0.270 0.262 0.311 0.156
+
+7 0.975 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.221 0.131 0.467 0.180
+11 0.279 0.410 0.131 0.180
+12 0.180 0.238 0.369 0.213
+
+system call done
+prediction, iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9294
+build model: itr_3.mod for iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.211 0.062 0.438 0.289
+2 0.203 0.234 0.297 0.266
+3 0.219 0.320 0.359 0.102
+4 0.602 0.094 0.258 0.047
+5 0.336 0.336 0.164 0.164
+6 0.289 0.258 0.320 0.133
+
+7 0.977 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.977
+9 0.008 0.008 0.977 0.008
+
+10 0.234 0.102 0.484 0.180
+11 0.297 0.422 0.133 0.148
+12 0.180 0.227 0.359 0.234
+
+system call done
+prediction, iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9781
+build model: itr_4.mod for iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_4.mod --seq sequence --geneset itr_3.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.195 0.062 0.453 0.289
+2 0.211 0.227 0.297 0.266
+3 0.203 0.320 0.375 0.102
+4 0.594 0.102 0.258 0.047
+5 0.328 0.336 0.164 0.172
+6 0.281 0.266 0.320 0.133
+
+7 0.977 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.977
+9 0.008 0.008 0.977 0.008
+
+10 0.234 0.102 0.484 0.180
+11 0.281 0.430 0.141 0.148
+12 0.172 0.227 0.359 0.242
+
+system call done
+prediction, iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_4.mod  -o itr_4.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_4.lst --target itr_3.lst
+compare itr_3.lst and itr_4.lst: 0.9927
+Stopped iterations on identity: 0.9927
+create: seq_bin_2.mod
+cp itr_4.mod seq_bin_2.mod
+system call done
+prepare sequence
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --clean_join sequence --seq seq_bin_3 --log gms.log
+Clean-Join      IN   OUT
+Contigs - 164 163
+All letters - 422005   429317
+Unambiguous letters - 422005 421217
+A - 100075 99893
+C - 112509 112308
+G - 111868 111653
+T - 97553 97363
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+run initial prediction
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/MetaGeneMark_v1.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.182 0.264 0.364 0.190
+2 0.207 0.281 0.322 0.190
+3 0.314 0.248 0.256 0.182
+4 0.331 0.149 0.372 0.149
+5 0.306 0.339 0.281 0.074
+6 0.223 0.364 0.256 0.157
+
+7 0.752 0.008 0.165 0.074
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.207 0.124 0.570 0.099
+11 0.281 0.281 0.248 0.190
+12 0.157 0.231 0.471 0.140
+
+system call done
+prediction, iteration: 1
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.5436
+build model: itr_2.mod for iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.168 0.261 0.420 0.151
+2 0.185 0.387 0.252 0.176
+3 0.303 0.261 0.311 0.126
+4 0.378 0.084 0.445 0.092
+5 0.353 0.328 0.252 0.067
+6 0.218 0.395 0.319 0.067
+
+7 0.975 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.185 0.143 0.555 0.118
+11 0.277 0.370 0.176 0.176
+12 0.176 0.235 0.395 0.193
+
+system call done
+prediction, iteration: 2
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9462
+build model: itr_3.mod for iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.161 0.258 0.435 0.145
+2 0.169 0.387 0.250 0.194
+3 0.298 0.282 0.306 0.113
+4 0.395 0.081 0.435 0.089
+5 0.363 0.339 0.234 0.065
+6 0.210 0.395 0.331 0.065
+
+7 0.976 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.976
+9 0.008 0.008 0.976 0.008
+
+10 0.177 0.145 0.565 0.113
+11 0.282 0.379 0.161 0.177
+12 0.177 0.226 0.387 0.210
+
+system call done
+prediction, iteration: 3
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 0.9892
+build model: itr_4.mod for iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --mkmod itr_4.mod --seq sequence --geneset itr_3.lst --ORDM 4 --order_non 2 --revcomp_non 1 --fixmotif --PRE_START_WIDTH 6 --width 12 --log gms.log
+Pos   A   C   G   T
+1 0.164 0.254 0.434 0.148
+2 0.172 0.385 0.246 0.197
+3 0.303 0.279 0.311 0.107
+4 0.393 0.082 0.434 0.090
+5 0.369 0.328 0.238 0.066
+6 0.213 0.393 0.328 0.066
+
+7 0.975 0.008 0.008 0.008
+8 0.008 0.008 0.008 0.975
+9 0.008 0.008 0.975 0.008
+
+10 0.180 0.139 0.566 0.115
+11 0.279 0.385 0.164 0.172
+12 0.172 0.230 0.385 0.213
+
+system call done
+prediction, iteration: 4
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d   sequence  -m itr_4.mod  -o itr_4.lst -r
+system call done
+compare:
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/probuild --par /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/par_1.default --compare --source itr_4.lst --target itr_3.lst
+compare itr_3.lst and itr_4.lst: 1.0000
+Stopped iterations on identity: 1.0000
+create: seq_bin_3.mod
+cp itr_4.mod seq_bin_3.mod
+system call done
+output: GeneMark_hmm.mod
+cp final_model GeneMark_hmm.mod
+system call done
+predict genes using native model with motif
+/ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/utilities/gmst/gmhmmp -p 0 -s d  -b  -A all.good.5merge.collapsed.longest_rep16_corrected.faa  -D all.good.5merge.collapsed.longest_rep16_corrected.fnn  -r -m GeneMark_hmm.mod -o all.good.5merge.collapsed.longest_rep16_corrected  /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta
+system call done
+rm -f sequence initial.meta.lst initial.meta.lst.fna initial.meta.lst.feature sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst itr_4.mod itr_4.lst sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst itr_4.mod itr_4.lst sequence itr_0.lst itr_1.mod itr_1.lst itr_2.mod itr_2.lst itr_3.mod itr_3.lst itr_4.mod itr_4.lst final_model with_seq.out
+system call done
+End: Mon Aug 21 14:09:21 2017
+

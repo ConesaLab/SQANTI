@@ -55,7 +55,7 @@ def rts(args):
                 #print("Loaded {} lines in {} seconds.".format(lenlines, time.time() - tstart))
                 idx = 0
                 for line in lines:
-                    if idx > 0 and line[0] != "#":
+                    if idx >= 0 and line[0] != "#":
                         fields = line.split("\t")
                         if len(fields) == 5:
                             # [offset, length, baseCnt, charCnt]
@@ -129,10 +129,10 @@ def rts(args):
                                 index[trans] = []
                                 
                             # check for unique splice junctions, does not make sense to use duplicates
-                            sjUName = fields[2] + fields[3] + fields[4] + fields[5]
+                            sjUName = fields[1] + fields[2] + fields[4] + fields[5]
                             if sjUName not in sjUnique:
                                 sjUnique[sjUName] = 1
-                                index[trans].append(SpliceJunctions(trans, fields[1], fields[2], fields[3], int(fields[4]), int(fields[5]), int(fields[6]), fields[7], fields[8], fields[9], fields[14]))
+                                index[trans].append(SpliceJunctions(trans, fields[3], fields[1], fields[2], int(fields[4]), int(fields[5]), int(fields[6]), fields[7], fields[8], fields[9], fields[14]))
                                 if fields[7] == "known":
                                     if fields[14] == "canonical":
                                         kcCnt += 1
@@ -448,9 +448,11 @@ def rts(args):
     # Process command line request
     # get command line arguments
     args = get_args(args)
+    #print(args)
     # Output file
     absDir = os.path.dirname(os.path.abspath(args.sjFilepath))    
     rts_dir = absDir+"/RTS"
+    #print(rts_dir)
     if not os.path.exists(rts_dir):
         os.makedirs(rts_dir)
 
@@ -462,6 +464,7 @@ def rts(args):
     # load required data
 
     chrIdx = loadRefGenomeIdx(args.mmfaiFilepath)
+    #print(chrIdx)
     sjIdx, sjCounts = loadSpliceJunctions(args.sjFilepath)
 
     # # perform RTS analysis
@@ -472,4 +475,5 @@ def rts(args):
 
 if __name__ == "__main__":
     import sys
+    #print(sys.argv)
     rts(sys.argv[1:])

@@ -1,0 +1,12 @@
+ROC, Sens, Spec on the test set
+0.9986264 1 0.8269231
+ROC, Sens, Spec on the test set
+0.9986264 1 0.8269231
+ROC, Sens, Spec on the test set
+0.995283 1 0.8113208
+Area under precision-recall curve, Precision, Recall, F 
+0.8486111 0.4444444 1 0.6153846
+ROC, Sens, Spec on the test set
+0.995283 1 0.9622642
+Area under precision-recall curve, Precision, Recall, F 
+0.8486111 0.8 1 0.8888889

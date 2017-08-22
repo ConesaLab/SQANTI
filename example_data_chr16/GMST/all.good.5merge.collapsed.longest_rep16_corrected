@@ -1,0 +1,4436 @@
+GeneMark.hmm PROKARYOTIC (Version 3.20)
+Date: Mon Aug 21 14:09:20 2017
+Sequence file name: /ufrc/conesa/lfuente/SQANTI_conesaLab/sqanti/example_data_chr16/all.good.5merge.collapsed.longest_rep16_corrected.fasta
+Model file name: GeneMark_hmm.mod
+RBS: true
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2598.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+    1        +        1519        2163          645        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2599.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    2        +         472        1650         1179        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2600.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2601.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    3        +         413        1363          951        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2602.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    4        +         661        1194          534        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2602.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    5        +         176        1732         1557        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2602.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    6        +         255        1616         1362        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2602.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    7        +         145         873          729        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2602.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2602.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    8        +          63         461          399        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2602.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+    9        +          45         623          579        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2603.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   10        +          <1        1371         1371        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2604.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   11        +          19        2139         2121        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2604.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2604.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   12        +          32       >1324         1293        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2605.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2606.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   13        +          <3       >2756         2754        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2607.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   14        +          80        2848         2769        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2607.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   15        +         364         735          372        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2608.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   16        +         769        1494          726        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2608.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   17        +          28        1260         1233        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2608.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   18        +          26        1468         1443        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2608.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   19        +          25        1386         1362        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2609.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   20        +         316        1215          900        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2610.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   21        +         147        1094          948        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2610.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   22        +          <2        1081         1080        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2610.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   23        +          <3        1106         1104        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2611.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   24        +         176         802          627        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2611.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+   25        +        1100        1453          354        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   26        +         286         912          627        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   27        +         166         792          627        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2610.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+   28        +        1089        1442          354        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   29        +         195         821          627        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+   30        +        1109        1462          354        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2611.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   31        +         241         867          627        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2611.9
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   32        +          <1         360          360        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   33        +         143        1879         1737        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   34        +         140        1804         1665        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   35        +         140        1738         1599        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   36        +         140        1876         1737        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   37        +         135        1799         1665        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   38        +         135        1607         1473        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   39        +         132        1802         1671        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2612.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   40        +         131         502          372        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2613.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   41        +         131         676          546        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2613.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   42        +         100         465          366        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2614.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   43        +          95        2062         1968        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2615.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   44        +          43         894          852        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   45        +          19        1230         1212        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   46        +          14         883          870        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   47        +          17        1120         1104        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   48        +          54        1712         1659        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   49        +          21         428          408        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   50        +          20        1438         1419        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   51        +          28        1668         1641        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2616.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   52        +         245        1057          813        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2617.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   53        +          <1         600          600        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2618.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   54        +          33        1049         1017        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2618.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   55        +          <1        1470         1470        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2619.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   56        +          41        1048         1008        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2619.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   57        +          11        1000          990        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2620.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   58        +         133        1302         1170        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2620.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   59        +         706        1245          540        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2621.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   60        +         163        1497         1335        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2621.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   61        +         161        1528         1368        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2621.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   62        +         141        1643         1503        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2621.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   63        +         140         910          771        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2621.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   64        +         136        1638         1503        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2622.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   65        +          <3         683          681        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2622.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   66        +         485         844          360        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2622.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   67        +         466         825          360        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2623.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   68        +          <3         788          786        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2623.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   69        +         117         776          660        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   70        +          <2         496          495        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   71        +          <3         329          327        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   72        +          <2         499          498        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   73        +          <2         676          675        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   74        +          <3         497          495        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   75        +          <1         324          324        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2624.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   76        +          <1         501          501        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2625.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   77        +          <3        1745         1743        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2626.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   78        +          <1         663          663        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2627.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   79        +         179         697          519        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2627.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   80        +         221        1072          852        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2628.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   81        +          <1         729          729        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2629.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   82        +         549         851          303        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2629.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   83        +         153         794          642        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2629.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   84        +         311         979          669        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2629.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   85        +         356         658          303        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2629.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   86        +         323         625          303        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2630.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   87        +          <1         552          552        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2631.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   88        +         112        3024         2913        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2631.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   89        +         106        2100         1995        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2631.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   90        +         123        1040          918        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2632.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   91        +          49        1407         1359        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2633.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   92        +          <1        1341         1341        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2634.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   93        +          <1         855          855        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2634.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   94        +          <2        1141         1140        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2634.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   95        +          <3        1028         1026        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2635.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   96        +          70        2790         2721        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2636.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   97        +         159         740          582        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2636.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2637.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   98        +          <1        1725         1725        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2637.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+   99        +          <1        2031         2031        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2638.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  100        +         207        1559         1353        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2638.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  101        +         254        1231          978        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2638.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  102        +         327        1265          939        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2638.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  103        +         154        1506         1353        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2638.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2639.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2640.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2641.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  104        +          32        2002         1971        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2642.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  105        +          58         990          933        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2642.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  106        +          45         863          819        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  107        +          <3        2405         2403        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  108        +          <1        1644         1644        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  109        +          <1        2175         2175        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  110        +          <2        2530         2529        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  111        +          <3        2423         2421        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2643.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  112        +          <3        2435         2433        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2644.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2644.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  113        +          <2         340          339        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2644.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  114        +          18         602          585        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2645.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  115        +         178         789          612        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2645.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  116        +         147        1061          915        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2646.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  117        +         234         659          426        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2646.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  118        +         116        1150         1035        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2646.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  119        +         116        1069          954        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2646.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  120        +         185         529          345        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2646.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  121        +          99        1052          954        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2647.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2647.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  122        +          43         567          525        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2647.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  123        +          15         341          327        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2647.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  124        +          46         438          393        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2647.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2648.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  125        +          <2        4618         4617        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2649.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  126        +          29         466          438        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2649.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  127        +          24         461          438        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2650.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  128        +         341        2782         2442        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2650.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  129        +          <3         794          792        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2650.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  130        +         268        2613         2346        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2651.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  131        +          <3        2369         2367        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2652.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  132        +          14        1531         1518        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2652.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  133        +          43        2844         2802        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  134        +         100        2310         2211        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  135        +         101        2272         2172        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  136        +          <1        1626         1626        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  137        +         100        2277         2178        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  138        +          85        2301         2217        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  139        +         101        2200         2100        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  140        +          98        2347         2250        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.9
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  141        +          <3        2096         2094        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  142        +         101        2233         2133        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2653.10
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  143        +         507        2270         1764        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2654.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  144        +         131        1654         1524        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  145        +         189        2777         2589        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2655.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  146        +         177         974          798        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  147        +         264        2852         2589        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  148        +         287        2875         2589        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  149        +         606        2903         2298        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  150        +         310        2898         2589        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2655.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  151        +         174        2762         2589        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2656.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  152        +         790        1437          648        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2656.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  153        +         103        1089          987        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2656.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  154        +         693        1556          864        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2656.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  155        +         100        1458         1359        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2657.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  156        +           8        1084         1077        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2657.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2657.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2658.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  157        +          <3        1139         1137        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2658.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  158        +          51        1616         1566        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2658.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  159        +         365        1396         1032        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2658.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  160        +          <3        1574         1572        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2658.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  161        +          <3         467          465        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  162        +          <2         496          495        1
+
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  163        +          10         474          465        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  164        +          <3         398          396        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2659.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  165        +          <1         396          396        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2660.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  166        +          <3        5075         5073        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2661.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  167        +         119         901          783        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2662.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  168        +         478        1389          912        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2663.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  169        +          <1        2169         2169        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2663.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  170        +          <3        2582         2580        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2663.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  171        +          53        2152         2100        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2663.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  172        +         749        2263         1515        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2663.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  173        +         410        2329         1920        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2664.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  174        +          79        1986         1908        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2664.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  175        +         185        2092         1908        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2664.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  176        +          65        1987         1923        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2665.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  177        +         123        2507         2385        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2665.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  178        +          <1        2529         2529        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2665.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  179        +        2859        4136         1278        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2666.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  180        +          26         697          672        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2666.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  181        +          85        2241         2157        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2667.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  182        +         121        2025         1905        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2667.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  183        +         712        1275          564        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2667.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  184        +          <2        1966         1965        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2668.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  185        +         230        1879         1650        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2668.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  186        +         203        1843         1641        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2669.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2670.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  187        +          16        1458         1443        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2671.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  188        +         204        2045         1842        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2672.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  189        +          <2        1627         1626        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2672.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  190        +          <3        2054         2052        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2673.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  191        +          60         890          831        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2673.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  192        +         229        1059          831        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2675.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  193        +         158         955          798        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2675.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  194        +         140         937          798        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2674.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  195        +          40        1596         1557        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2676.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2677.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  196        +          88        1788         1701        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2677.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  197        +          27        1589         1563        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2678.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  198        +          <3        1037         1035        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2678.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  199        +         197         991          795        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2679.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  200        +        1095        2105         1011        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2679.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  201        +         995        2005         1011        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2679.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  202        +         873        1883         1011        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2680.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  203        +          41        1873         1833        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2681.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  204        +         275        1798         1524        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2681.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  205        +         160        1287         1128        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2681.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  206        +         223        2025         1803        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2681.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  207        +         159        1961         1803        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2681.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  208        +         399        1922         1524        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2682.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2683.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  209        +         411        1679         1269        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2684.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  210        +          44        1096         1053        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2684.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  211        +          62        1195         1134        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2684.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2685.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  212        +          <3        2282         2280        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2685.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  213        +          <3        4451         4449        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2685.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  214        +           3        2480         2478        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2686.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  215        +         158       >1276         1119        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2686.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2686.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  216        +         166         780          615        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2687.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  217        +          <3        1079         1077        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2688.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2688.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2689.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  218        +          <2        1360         1359        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2689.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  219        +         124        1431         1308        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2689.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  220        +         111        1418         1308        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2689.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  221        +         119        1354         1236        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2690.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  222        +          27        2156         2130        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2690.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  223        +         588        1340          753        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2690.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  224        +          14        1603         1590        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2690.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  225        +           1        2007         2007        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2690.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  226        +          <2        1297         1296        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2691.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  227        +          10        1326         1317        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2691.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  228        +         546        1238          693        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2692.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  229        +          <2        2467         2466        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2693.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  230        +          93        2819         2727        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2693.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  231        +          34       >1917         1884        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2693.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  232        +          14         829          816        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2693.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  233        +          11        2632         2622        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2693.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  234        +          <1        2823         2823        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2693.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  235        +         165        2501         2337        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2694.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2695.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  236        +          <1         372          372        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2696.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  237        +         276        4559         4284        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2696.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2696.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  238        +         250        4254         4005        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2697.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2698.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  239        +          <2        1423         1422        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2698.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  240        +          <3        1493         1491        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2699.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  241        +          <2        1756         1755        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2699.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  242        +         439        1260          822        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2700.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  243        +         129         905          777        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2701.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  244        +        1402        1968          567        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2701.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  245        +         151        1017          867        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2701.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  246        +         733        1299          567        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2702.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  247        +         181        1713         1533        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2703.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  248        +         148        1905         1758        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2703.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  249        +         246        1904         1659        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2703.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  250        +         807        2465         1659        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2703.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  251        +         820       >1947         1128        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2704.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  252        +          <3        1166         1164        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  253        +         204         995          792        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  254        +          35        1117         1083        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  255        +         189         980          792        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  256        +         186        1118          933        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  257        +         186         983          798        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  258        +         146        1183         1038        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.9
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  259        +          34        1260         1227        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.10
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  260        +          34        1122         1089        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.11
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  261        +          34        1122         1089        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  262        +         185         982          798        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2705.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  263        +          34        1257         1224        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2706.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  264        +         162        1256         1095        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2706.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  265        +         362         994          633        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2707.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  266        +         674        1885         1212        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2707.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  267        +         488        1699         1212        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2707.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  268        +         186        1397         1212        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2708.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  269        +          <3        2252         2250        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2709.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  270        +          <3         842          840        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2710.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  271        +        2528        2842          315        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2711.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2712.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  272        +         180        1262         1083        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2712.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  273        +         138        2195         2058        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2712.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  274        +         133        1845         1713        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2713.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  275        +          35         952          918        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2714.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  276        +          12        1481         1470        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2715.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  277        +          32         535          504        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2716.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  278        +         163        3045         2883        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2716.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  279        +         162        3155         2994        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2717.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  280        +          72        1406         1335        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2717.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  281        +         434        1468         1035        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2717.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  282        +          <2        1261         1260        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2718.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  283        +         715        1146          432        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2718.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  284        +          18        1952         1935        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2719.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  285        +          <3         953          951        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2720.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2721.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  286        +         244        1275         1032        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2722.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  287        +         116         586          471        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2723.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  288        +         108         500          393        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2724.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  289        +          <1        2436         2436        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2725.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  290        +          <1         582          582        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2726.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  291        +         411         902          492        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2727.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  292        +         575        3778         3204        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2728.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  293        +          <2        1132         1131        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2728.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  294        +         265        1341         1077        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2729.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  295        +          <1        1485         1485        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2730.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  296        +         102        1205         1104        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2731.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2732.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  297        +         101        2392         2292        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2732.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  298        +         134        2314         2181        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2732.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  299        +          80        2371         2292        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2732.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  300        +         240        2531         2292        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2732.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  301        +         295        2586         2292        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2733.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  302        +         228        3032         2805        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2733.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  303        +         471        3113         2643        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2734.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  304        +          83        1036          954        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2734.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  305        +          82         744          663        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2734.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  306        +          <2         640          639        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2735.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2736.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  307        +         100        1359         1260        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2736.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  308        +         105        1364         1260        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2737.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2738.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  309        +          62        1414         1353        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2738.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  310        +          <2        1276         1275        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2738.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  311        +          <2       >1339         1338        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2739.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  312        +         417        2801         2385        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2739.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  313        +         894       >2573         1680        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2739.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  314        +          <2        2215         2214        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2739.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  315        +          <2        1603         1602        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2740.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2741.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  316        +          35        1414         1380        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2742.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2743.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  317        +          <2        1528         1527        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2744.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  318        +          23        1468         1446        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2744.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  319        +         403        1314          912        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2744.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  320        +         763        1326          564        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2745.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2746.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  321        +          <1         909          909        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2746.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  322        +          <1         990          990        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2746.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  323        +          <2         967          966        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2747.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  324        +          <1        1536         1536        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2748.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  325        +          88        1539         1452        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2749.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  326        +          76        2322         2247        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2750.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  327        +         301        2793         2493        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2750.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  328        +         116        2716         2601        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2751.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  329        +         160        1776         1617        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2752.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  330        +         314        1300          987        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2753.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  331        +          <1         507          507        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2754.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2755.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  332        +         117        1046          930        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2756.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  333        +          42        2264         2223        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2756.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  334        +          12         791          780        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2757.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  335        +         167        1495         1329        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2758.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  336        +         120        1442         1323        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2759.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  337        +          17         727          711        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2759.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  338        +          15         653          639        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2760.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  339        +         131         889          759        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2760.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  340        +         117         587          471        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2760.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  341        +          98        1018          921        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2760.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  342        +          96         959          864        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2761.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2762.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  343        +          <3         605          603        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2763.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2764.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2765.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2766.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2767.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2768.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2769.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  344        +          <2        1261         1260        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2770.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2771.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2772.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  345        +         474        1427          954        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2772.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  346        +          <1        1224         1224        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2772.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  347        +          58        1113         1056        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2772.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  348        +          <1         867          867        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2773.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  349        +         393        1502         1110        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2773.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  350        +         350        1810         1461        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2774.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  351        +         584        1090          507        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2775.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2776.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  352        +          42        1127         1086        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2777.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  353        +          67         750          684        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  354        +         390        2630         2241        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2778.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  355        +         423        2429         2007        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  356        +         761        2986         2226        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  357        +         454        2679         2226        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  358        +         460        2466         2007        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  359        +         373        2598         2226        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2778.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  360        +         394        2619         2226        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2778.9
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2779.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  361        +          <2        1567         1566        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2780.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2781.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2782.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2783.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2784.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  362        +         120        1370         1251        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2785.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  363        +          77        2767         2691        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2786.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  364        +         112        1965         1854        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2786.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  365        +         115        1968         1854        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2786.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  366        +          <3        1544         1542        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2786.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  367        +          <1        1773         1773        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2786.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  368        +          <3        2069         2067        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2787.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  369        +         210         716          507        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2787.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  370        +          22         531          510        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2788.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  371        +          <3        2534         2532        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2788.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  372        +          <2        2659         2658        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2788.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  373        +          <3       >2576         2574        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2789.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  374        +          27         884          858        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2790.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  375        +         124        1437         1314        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2790.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  376        +         311        1624         1314        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2790.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2791.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  377        +         442        1041          600        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2792.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  378        +          80         973          894        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2792.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  379        +          13         573          561        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2792.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  380        +         119         727          609        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2792.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  381        +          76        1011          936        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2793.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  382        +          <3        1292         1290        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2794.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2795.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  383        +         223       >1575         1353        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2796.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  384        +          90       >2525         2436        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2796.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  385        +         423        2663         2241        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2796.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  386        +          56        2779         2724        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2797.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  387        +          <3        2261         2259        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2797.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  388        +         297       >1634         1338        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2797.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  389        +         289       >1503         1215        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2798.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  390        +          52        2622         2571        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2799.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2800.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  391        +         411         746          336        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2800.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  392        +          <1         330          330        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2800.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  393        +          13         549          537        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2800.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  394        +          <1         492          492        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2801.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  395        +         307        1551         1245        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2802.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  396        +          57        3170         3114        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2803.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  397        +         255        1436         1182        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2803.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  398        +         238        1431         1194        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2804.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  399        +          <3         902          900        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2805.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  400        +          16        2070         2055        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2806.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  401        +          <1         384          384        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2807.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2808.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  402        +          62         757          696        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2808.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  403        +          96         857          762        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2808.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  404        +          <3         905          903        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2808.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  405        +          <2         412          411        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2808.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  406        +          <2         856          855        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2809.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  407        +         167        1564         1398        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2810.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  408        +          <2        1069         1068        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2811.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  409        +         257         817          561        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.1450.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  410        +          33        1496         1464        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2812.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  411        +         104        2023         1920        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2812.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  412        +         104        2131         2028        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2813.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  413        +          80        1126         1047        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2814.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  414        +         453         956          504        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2815.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  415        +          <1         894          894        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2816.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  416        +          <3        2135         2133        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2817.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  417        +         624        4190         3567        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2818.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  418        +          <3        1448         1446        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2818.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2818.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  419        +          17         787          771        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2818.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  420        +          17         913          897        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2819.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  421        +         687        4172         3486        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2820.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  422        +          <3        1217         1215        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2820.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  423        +          <1        1161         1161        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2820.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  424        +          <2        1183         1182        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2820.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  425        +         584        1108          525        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2821.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2822.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2823.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  426        +         246        1115          870        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2823.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  427        +         289         918          630        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2824.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  428        +         115        1479         1365        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2824.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  429        +         194        1558         1365        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2825.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  430        +         124        2379         2256        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2825.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  431        +           9        1676         1668        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2825.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  432        +          <1        2460         2460        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2825.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  433        +          <3        1496         1494        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2826.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2827.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  434        +          10         654          645        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2828.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  435        +          <3        5363         5361        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2828.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  436        +          <3       >3086         3084        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2829.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  437        +          <3        2420         2418        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2829.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  438        +         115        2592         2478        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2829.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  439        +         946        2325         1380        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2830.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  440        +          83        1729         1647        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2831.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2832.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2833.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2834.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  441        +         100         714          615        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2835.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  442        +         109        1431         1323        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2836.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  443        +        1052        1702          651        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2837.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  444        +        1493        2785         1293        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2839.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  445        +         579        1217          639        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2838.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2840.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  446        +          56        1828         1773        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2841.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2842.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  447        +         146         622          477        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2843.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  448        +         374        2710         2337        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2843.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  449        +          <2        2794         2793        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2843.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  450        +         250        3282         3033        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2843.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  451        +         104        3136         3033        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2843.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  452        +         106        1407         1302        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2844.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  453        +          <3       >1406         1404        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2845.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  454        +         140         499          360        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2846.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  455        +          <1        1137         1137        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2846.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  456        +          <2         793          792        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2846.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  457        +         311         733          423        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2847.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2848.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  458        +          <2         490          489        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2848.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2848.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2849.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2850.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2850.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2851.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  459        +          55       >1212         1158        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2851.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  460        +          31        2859         2829        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=70
+
+FASTA definition line: PB.2852.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  461        +          <3        1799         1797        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  462        +         209       >2803         2595        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  463        +         318       >1436         1119        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  464        +         309       >2630         2322        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  465        +          <1       >3150         3150        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2853.5
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  466        +         291        5027         4737        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.6
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  467        +         170       >1576         1407        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.8
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  468        +        1115       >3184         2070        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.7
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  469        +         234       >2558         2325        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2853.9
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  470        +          <1       >3894         3894        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.10
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  471        +         424       >2748         2325        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.12
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  472        +         425       >3562         3138        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.11
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+  473        +         616       >2685         2070        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.13
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  474        +         450       >2519         2070        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2853.14
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  475        +          <1       >3540         3540        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2853.15
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  476        +          <2        2902         2901        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2853.16
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  477        +          <1       >2163         2163        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2853.17
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  478        +         267        1238          972        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2854.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  479        +          42         935          894        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2855.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  480        +         105        2396         2292        1
+
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2856.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2857.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2857.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2858.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  481        +         156         527          372        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2858.2
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  482        +          79         603          525        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2858.3
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  483        +          76         720          645        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=50
+
+FASTA definition line: PB.2858.4
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  484        +          55         474          420        1
+
+Model information: GeneMarkS_default_gcode_1_GC<=44
+
+FASTA definition line: PB.2859.1
+Predicted genes
+   Gene    Strand    LeftEnd    RightEnd       Gene     Class
+    #                                         Length
+  485        +         101        1960         1860        1
+
