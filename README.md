@@ -23,7 +23,7 @@ SQANTI pipeline steps:
 
 4. Finally, it carries out a **deep characterization of isoforms at both transcript and junction level** and **generates a report** with several plots describing in detail the mayor attributes that catalog your set of sequenced isoforms.
 
-5. Together with SQANTI_qc function, the user can use the **SQANTI filter function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI-defined attributes to create a classifier of artifacts.
+5. Together with SQANTI_qc function, the user can use the **SQANTI filter function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI_qc attributes to create a classifier of artifacts.
 
 
 ![SQANTI WORKFLOW](/Users/LorenaDeLaFuente/Downloads/Figure_1b.png)
