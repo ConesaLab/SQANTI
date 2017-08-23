@@ -790,7 +790,7 @@ def transcriptsKnownSpliceSites(transcripts_chrom_1exon, transcripts_chrom_exons
 	# print(str(downTTS.count('A')))
 	# print(percA)
 
-	myTranscript_Assoc = myQueryTranscripts("", "NA","NA",len(EXON_s),isoLength, "", chrom=CHROM, strand=STRAND, subtype="no_subtype",  percAdownTTS=str(percA))
+	myTranscript_Assoc = myQueryTranscripts("", "NA","NA",len(EXON_s),isoLength, "", chrom=CHROM, strand=STRAND, subtype="no_subcategory",  percAdownTTS=str(percA))
 
 	#print(line_split[0]+"\t"+str(percA)+str(downTTS))
 
@@ -805,7 +805,7 @@ def transcriptsKnownSpliceSites(transcripts_chrom_1exon, transcripts_chrom_exons
 				index_chrom_exons[CHROM] = 0
 			
 			for k in range(index_chrom_exons[CHROM], len(transcripts_chrom_exons[CHROM])):
-				subtype = "no_subtype"
+				subtype = "no_category"
 				ref_transcript = transcripts_chrom_exons[CHROM][k]
 				junctions_s = ref_transcript.junctions[0]
 				junctions_e = ref_transcript.junctions[1]
@@ -914,7 +914,7 @@ def transcriptsKnownSpliceSites(transcripts_chrom_1exon, transcripts_chrom_exons
 							gene = ref_transcript.gene
 							type = "anyKnownSpliceSite"
 							if myTranscript_Assoc.str_class=="":
-									myTranscript_Assoc = myQueryTranscripts("novel", "NA", "NA", len(EXON_s), isoLength, type, chrom=CHROM, strand=STRAND, subtype="no_subtype", percAdownTTS=str(percA)) 
+									myTranscript_Assoc = myQueryTranscripts("novel", "NA", "NA", len(EXON_s), isoLength, type, chrom=CHROM, strand=STRAND, subtype="no_subcategory", percAdownTTS=str(percA)) 
 							myTranscript_Assoc.genes.append(ref_transcript.gene)
 
 
@@ -1029,12 +1029,12 @@ def novelIsoformsKnownGenes(assoc, line_split, transcripts_gene):
 					assoc.subtype = "no_combination_of_known_junctions"
 		else:
 			assoc.str_class="novel_not_in_catalog"
-			assoc.subtype = "shared_donors_acceptors"
+			assoc.subtype = "any annotated donor/acceptor"
 
 	return(assoc)
 def associationOverlapping(assoc, line_split, transcripts_gene_chrom, index_genes, over_nt):
 
-	assoc.subtype = "no_subtype"
+	assoc.subtype = "no_subcategory"
 	assoc.str_class = "intergenic"
 	assoc.transcript = "novel"
 
@@ -1100,7 +1100,7 @@ def associationOverlapping(assoc, line_split, transcripts_gene_chrom, index_gene
 									MAX_coordinate = EXON_e[-1]
 									if (MIN_coordinate >= min_coordinate and MAX_coordinate <= max_coordinate):
 										assoc.str_class = "novel_not_in_catalog"
-										assoc.subtype = "not_shared_splice_sites"		
+										assoc.subtype = "not any annotated donor/acceptor"		
 
 							elif assoc.str_class != "genic":
 								assoc.str_class = "antisense" 
@@ -1744,7 +1744,7 @@ def run(args):
 
 	#### Printing output file:
 
-	sys.stdout.write("\nWriting output files...\n")
+	sys.stdout.write("\n**** Writing output files...\n")
 
 	with open(outputClassPath, "w") as newFile:
 
@@ -1777,6 +1777,17 @@ def run(args):
 	os.remove(outputJuncPath+"_tmp")
 	os.remove(queryFile)
 	os.remove(referenceFiles)
+
+
+	## Generating report
+
+	sys.stdout.write("\n**** Generating SQANTI report...\n")
+	rscriptPath = distutils.spawn.find_executable('Rscript')
+	subprocess.call ([rscriptPath, utilitiesPath+"SQANTI_report.R", outputClassPath, outputJuncPath])
+	stop3 = timeit.default_timer()
+
+
+	print stop3 - start3
 
 def main():
 

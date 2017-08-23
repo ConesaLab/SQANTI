@@ -75,7 +75,7 @@ PB.2604.1	chr16	-	junction_6	4046066	4049350	1407	known	known	known	0	0	FALSE	GT
 PB.2604.1	chr16	-	junction_7	4049499	4052864	1259	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1111	174	221	286	430
 PB.2604.1	chr16	-	junction_8	4052935	4053480	1189	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	2134	328	490	474	842
 PB.2604.1	chr16	-	junction_9	4053602	4054753	1068	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	2268	331	544	515	878
-PB.2604.1	chr16	-	junction_10	4054910	4055796	912	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	874	135	202	229	308
+PB.2604.1	chr16	-	junction_10	4054910	4055796	912	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	874	135	202	229	308
 PB.2604.1	chr16	-	junction_11	4055871	4056329	838	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1232	205	281	315	431
 PB.2604.1	chr16	-	junction_12	4056440	4060756	728	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1349	207	307	284	551
 PB.2604.1	chr16	-	junction_13	4060918	4062329	567	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1574	235	340	390	609
@@ -116,7 +116,7 @@ PB.2606.1	chr16	-	junction_18	4124215	4124635	201	known	known	known	0	0	FALSE	GT
 PB.2606.1	chr16	-	junction_19	4124808	4125644	29	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	30	10	7	2	11
 PB.2607.1	chr16	-	junction_1	4627500	4627609	2842	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	259	37	77	71	74
 PB.2607.1	chr16	-	junction_2	4627697	4628183	2755	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	150	23	48	43	36
-PB.2607.1	chr16	-	junction_3	4628276	4628675	2663	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	64	10	18	17	19
+PB.2607.1	chr16	-	junction_3	4628276	4628675	2663	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	64	10	18	17	19
 PB.2607.1	chr16	-	junction_4	4628812	4629055	2527	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	104	21	27	32	24
 PB.2607.1	chr16	-	junction_5	4629173	4630187	2410	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	171	33	48	49	41
 PB.2607.1	chr16	-	junction_6	4630278	4630363	2320	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	207	31	56	54	66
@@ -370,7 +370,7 @@ PB.2614.1	chr16	-	junction_3	4942295	4942692	1901	known	known	known	0	0	FALSE	GT
 PB.2614.1	chr16	-	junction_4	4942779	4943078	1815	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	95	19	17	26	33
 PB.2614.1	chr16	-	junction_5	4943252	4943558	1642	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	106	24	27	33	22
 PB.2614.1	chr16	-	junction_6	4943701	4946054	1500	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	77	9	25	26	17
-PB.2614.1	chr16	-	junction_7	4946180	4947264	1375	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	111	27	31	35	18
+PB.2614.1	chr16	-	junction_7	4946180	4947264	1375	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	111	27	31	35	18
 PB.2614.1	chr16	-	junction_8	4947433	4947648	1207	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	81	18	26	20	17
 PB.2614.1	chr16	-	junction_9	4947759	4948225	1097	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	126	40	28	30	28
 PB.2614.1	chr16	-	junction_10	4948364	4950612	959	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	151	35	37	36	43
@@ -1046,7 +1046,7 @@ PB.2644.3	chr16	+	junction_2	13944737	13946557	398	known	known	known	0	0	FALSE	G
 PB.2644.3	chr16	+	junction_3	13946588	13946751	428	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	354	23	145	116	70
 PB.2645.1	chr16	+	junction_1	13986894	14049382	280	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	497	54	153	192	98
 PB.2645.1	chr16	+	junction_2	14049507	14088945	404	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	394	42	141	131	80
-PB.2645.1	chr16	+	junction_3	14089020	14093888	478	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	201	26	55	85	35
+PB.2645.1	chr16	+	junction_3	14089020	14093888	478	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	201	26	55	85	35
 PB.2645.1	chr16	+	junction_4	14094004	14095903	593	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	39	9	6	18	6
 PB.2645.1	chr16	+	junction_5	14095987	14099792	676	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	294	30	94	116	54
 PB.2645.2	chr16	+	junction_1	13986894	14049382	249	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	497	54	153	192	98
@@ -1140,7 +1140,7 @@ PB.2649.2	chr16	-	junction_3	15581208	15594459	39	known	known	known	0	0	FALSE	GT
 PB.2650.1	chr16	-	junction_1	15624770	15625561	2689	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	591	238	40	50	263
 PB.2650.1	chr16	-	junction_2	15625696	15626035	2555	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	684	291	51	58	284
 PB.2650.1	chr16	-	junction_3	15626265	15627648	2326	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	159	57	11	14	77
-PB.2650.1	chr16	-	junction_4	15627857	15628592	2118	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	562	212	48	50	252
+PB.2650.1	chr16	-	junction_4	15627857	15628592	2118	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	562	212	48	50	252
 PB.2650.1	chr16	-	junction_5	15628721	15629301	1990	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1235	464	97	81	593
 PB.2650.1	chr16	-	junction_6	15629668	15630260	1624	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	413	160	42	42	169
 PB.2650.1	chr16	-	junction_7	15630521	15631698	1364	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1491	582	114	92	703
@@ -1420,7 +1420,7 @@ PB.2654.1	chr16	-	junction_8	16787399	16792496	418	known	known	known	0	0	FALSE	G
 PB.2654.1	chr16	-	junction_9	16792664	16829019	251	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	3	48	1	23	24	0
 PB.2654.1	chr16	-	junction_10	16829116	16829194	155	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	3	34	2	10	22	0
 PB.2655.1	chr16	+	junction_1	16870830	16877831	73	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	40	3	6	18	13
-PB.2655.1	chr16	+	junction_2	16878017	16878956	258	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	117	18	30	33	36
+PB.2655.1	chr16	+	junction_2	16878017	16878956	258	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	117	18	30	33	36
 PB.2655.1	chr16	+	junction_3	16879089	16879318	390	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	82	16	15	23	28
 PB.2655.1	chr16	+	junction_4	16879426	16880603	497	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	25	5	3	6	11
 PB.2655.1	chr16	+	junction_5	16880679	16882500	572	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	16	3	1	5	7
@@ -1430,7 +1430,7 @@ PB.2655.1	chr16	+	junction_8	16884353	16885834	1040	known	known	known	0	0	FALSE	
 PB.2655.1	chr16	+	junction_9	16885926	16886604	1131	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	131	32	22	34	43
 PB.2655.1	chr16	+	junction_10	16886760	16886879	1286	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	95	10	26	21	38
 PB.2655.1	chr16	+	junction_11	16886986	16887576	1392	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	108	21	22	25	40
-PB.2655.1	chr16	+	junction_12	16887724	16887831	1539	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	89	17	24	19	29
+PB.2655.1	chr16	+	junction_12	16887724	16887831	1539	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	89	17	24	19	29
 PB.2655.1	chr16	+	junction_13	16888006	16889482	1713	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	141	26	33	28	54
 PB.2655.1	chr16	+	junction_14	16889612	16890111	1842	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	105	27	17	26	35
 PB.2655.1	chr16	+	junction_15	16890262	16890581	1992	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	70	13	15	26	16
@@ -1958,7 +1958,7 @@ PB.2673.2	chr16	-	junction_5	18310984	18312638	493	known	known	known	0	0	FALSE	G
 PB.2673.2	chr16	-	junction_6	18312759	18316645	373	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	167	26	55	51	35
 PB.2673.2	chr16	-	junction_7	18316735	18324356	284	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	137	19	43	53	22
 PB.2673.2	chr16	-	junction_8	18324451	18347870	190	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	2	35	0	13	22	0
-PB.2675.2	chr16	-	junction_1	18408041	18410682	751	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	731	95	211	213	212
+PB.2675.2	chr16	-	junction_1	18408041	18410682	751	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	731	95	211	213	212
 PB.2675.2	chr16	-	junction_2	18410815	18411126	619	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	669	110	214	189	156
 PB.2675.2	chr16	-	junction_3	18411321	18411689	425	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1240	160	395	383	302
 PB.2675.2	chr16	-	junction_4	18411958	18424303	157	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	386	69	87	126	104
@@ -2002,7 +2002,7 @@ PB.2677.1	chr16	-	junction_13	18801850	18805381	629	known	known	known	0	0	FALSE	
 PB.2677.1	chr16	-	junction_14	18805438	18807279	573	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	301	115	14	16	156
 PB.2677.1	chr16	-	junction_15	18807424	18808731	429	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	248	89	19	13	127
 PB.2677.1	chr16	-	junction_16	18808870	18810388	291	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	211	84	14	6	107
-PB.2677.1	chr16	-	junction_17	18810482	18811304	198	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	117	40	8	3	66
+PB.2677.1	chr16	-	junction_17	18810482	18811304	198	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	117	40	8	3	66
 PB.2677.1	chr16	-	junction_18	18811365	18811514	138	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	234	88	14	11	121
 PB.2677.2	chr16	-	junction_1	18780574	18781895	1591	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	156	59	11	7	79
 PB.2677.2	chr16	-	junction_2	18781963	18784805	1524	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	117	54	5	5	53
@@ -2354,7 +2354,7 @@ PB.2691.2	chr16	-	junction_7	20608890	20608986	305	known	known	known	0	0	FALSE	G
 PB.2691.2	chr16	-	junction_8	20609087	20610542	205	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	954	217	194	153	390
 PB.2692.1	chr16	+	junction_1	20630048	20630351	214	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	53	2	22	24	5
 PB.2692.1	chr16	+	junction_2	20630439	20630780	301	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	44	1	18	21	4
-PB.2692.1	chr16	+	junction_3	20630911	20631096	431	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	35	1	11	20	3
+PB.2692.1	chr16	+	junction_3	20630911	20631096	431	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	35	1	11	20	3
 PB.2692.1	chr16	+	junction_4	20631313	20632531	647	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	58	1	33	22	2
 PB.2692.1	chr16	+	junction_5	20632657	20632747	772	known	known	known	0	0	FALSE	GCAG	canonical	FALSE	FALSE	4	62	2	28	28	4
 PB.2692.1	chr16	+	junction_6	20632895	20633049	919	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	63	4	19	31	9
@@ -2489,7 +2489,7 @@ PB.2696.1	chr16	+	junction_16	21475323	21476473	1739	known	known	known	0	0	FALSE
 PB.2696.1	chr16	+	junction_17	21476510	21477485	1775	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	97	21	13	24	39
 PB.2696.1	chr16	+	junction_18	21477577	21477844	1866	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	50	12	15	10	13
 PB.2696.1	chr16	+	junction_19	21477892	21478393	1913	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	105	22	15	19	49
-PB.2696.1	chr16	+	junction_20	21478484	21495879	2003	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	3	10	0	1	2	7
+PB.2696.1	chr16	+	junction_20	21478484	21495879	2003	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	3	10	0	1	2	7
 PB.2696.1	chr16	+	junction_21	21495927	21500187	2050	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	53	15	6	17	15
 PB.2696.1	chr16	+	junction_22	21500411	21504397	2273	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	123	20	27	30	46
 PB.2696.1	chr16	+	junction_23	21504488	21506769	2363	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	95	24	12	22	37
@@ -3194,7 +3194,7 @@ PB.2736.1	chr16	-	junction_3	33020646	33029014	999	known	known	known	0	0	FALSE	G
 PB.2736.1	chr16	-	junction_4	33029090	33030774	924	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	51	3	20	26	2
 PB.2736.1	chr16	-	junction_5	33030937	33035540	762	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	55	1	28	20	6
 PB.2736.1	chr16	-	junction_6	33035623	33040763	680	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	55	2	24	25	4
-PB.2736.1	chr16	-	junction_7	33040893	33045519	551	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	88	4	35	45	4
+PB.2736.1	chr16	-	junction_7	33040893	33045519	551	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	88	4	35	45	4
 PB.2736.1	chr16	-	junction_8	33045702	33049851	369	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	80	2	29	47	2
 PB.2736.1	chr16	-	junction_9	33050114	33053623	107	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	75	1	30	38	6
 PB.2736.1	chr16	-	junction_10	33053695	33056150	36	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	3	59	1	18	40	0
@@ -3393,7 +3393,7 @@ PB.2756.1	chr16	-	junction_6	36756097	36756224	1580	known	known	known	0	0	FALSE	
 PB.2756.1	chr16	-	junction_7	36756390	36757121	1415	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	102	20	26	23	33
 PB.2756.1	chr16	-	junction_8	36757257	36757779	1280	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	71	7	18	23	23
 PB.2756.1	chr16	-	junction_9	36757862	36759225	1198	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	142	13	45	44	40
-PB.2756.1	chr16	-	junction_10	36759315	36760070	1109	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	95	21	20	33	21
+PB.2756.1	chr16	-	junction_10	36759315	36760070	1109	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	95	21	20	33	21
 PB.2756.1	chr16	-	junction_11	36760104	36761429	1076	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	92	19	19	26	28
 PB.2756.1	chr16	-	junction_12	36761475	36761563	1031	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	91	14	24	24	29
 PB.2756.1	chr16	-	junction_13	36761654	36761822	941	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	133	19	30	37	47
@@ -3894,7 +3894,7 @@ PB.2798.1	chr16	-	junction_3	55915632	55918537	1069	known	known	known	0	0	FALSE	
 PB.2798.1	chr16	-	junction_4	55918663	55919402	944	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	47	14	6	10	17
 PB.2798.1	chr16	-	junction_5	55919568	55922070	779	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	3	10	2	0	2	6
 PB.2798.1	chr16	-	junction_6	55922238	55922926	612	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	15	6	3	1	5
-PB.2798.1	chr16	-	junction_7	55923041	55924968	498	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	52	12	9	12	19
+PB.2798.1	chr16	-	junction_7	55923041	55924968	498	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	52	12	9	12	19
 PB.2798.1	chr16	-	junction_8	55925071	55927720	396	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	130	41	17	21	51
 PB.2798.1	chr16	-	junction_9	55927880	55930465	237	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	115	34	20	20	41
 PB.2798.1	chr16	-	junction_10	55930609	55934752	94	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	79	22	13	5	39
@@ -3968,7 +3968,7 @@ PB.2805.1	chr16	-	junction_3	57173160	57177931	1657	known	known	known	0	0	FALSE	
 PB.2805.1	chr16	-	junction_4	57178021	57182850	1568	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	93	13	29	23	28
 PB.2805.1	chr16	-	junction_5	57182991	57184379	1428	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	104	12	34	31	27
 PB.2805.1	chr16	-	junction_6	57184487	57186637	1321	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	33	4	2	18	9
-PB.2805.1	chr16	-	junction_7	57186681	57189261	1278	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	119	18	33	38	30
+PB.2805.1	chr16	-	junction_7	57186681	57189261	1278	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	119	18	33	38	30
 PB.2805.1	chr16	-	junction_8	57189433	57191473	1107	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	214	43	46	58	67
 PB.2805.1	chr16	-	junction_9	57191567	57192608	1014	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	178	22	47	45	64
 PB.2805.1	chr16	-	junction_10	57192732	57198280	891	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	106	12	22	28	44
@@ -4066,7 +4066,7 @@ PB.2816.1	chr16	+	junction_3	70401850	70433544	455	known	known	known	0	0	FALSE	G
 PB.2816.1	chr16	+	junction_4	70433671	70434513	581	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	106	12	32	35	27
 PB.2816.1	chr16	+	junction_5	70434650	70436927	717	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	130	13	34	39	44
 PB.2816.1	chr16	+	junction_6	70437019	70441109	808	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	51	4	16	17	14
-PB.2816.1	chr16	+	junction_7	70441320	70478305	1018	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	65	10	20	14	21
+PB.2816.1	chr16	+	junction_7	70441320	70478305	1018	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	65	10	20	14	21
 PB.2816.1	chr16	+	junction_8	70478422	70483820	1134	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	163	18	48	47	50
 PB.2816.1	chr16	+	junction_9	70483949	70488027	1262	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	149	15	31	39	64
 PB.2816.1	chr16	+	junction_10	70488127	70491933	1361	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	46	5	11	12	18
@@ -4143,7 +4143,7 @@ PB.2820.4	chr16	+	junction_4	78333518	78334168	581	known	known	known	0	0	FALSE	G
 PB.2820.4	chr16	+	junction_5	78334292	78334821	704	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	276	106	22	21	127
 PB.2820.4	chr16	+	junction_6	78334961	78336187	843	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	182	65	16	21	80
 PB.2823.1	chr16	+	junction_1	84774554	84801569	285	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	521	97	102	124	198
-PB.2823.1	chr16	+	junction_2	84801639	84806834	354	known	known	known	0	0	FALSE	GTAG	canonical	TRUE	FALSE	4	569	102	140	145	182
+PB.2823.1	chr16	+	junction_2	84801639	84806834	354	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	569	102	140	145	182
 PB.2823.1	chr16	+	junction_3	84806943	84809343	462	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	267	50	69	73	75
 PB.2823.1	chr16	+	junction_4	84809497	84812898	615	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	748	138	168	194	248
 PB.2823.1	chr16	+	junction_5	84813099	84815168	815	known	known	known	0	0	FALSE	GTAG	canonical	FALSE	FALSE	4	1221	248	258	301	414

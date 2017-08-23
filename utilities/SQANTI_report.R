@@ -5,15 +5,15 @@
 ### Author: Lorena de la Fuente
 ### Date: 14/10/2016
 
-#********************** Taking argument from python script
+#********************** Taking arguments from python script
 
 args <- commandArgs(trailingOnly = TRUE)
 class.file = args[1]
 junc.file = args[2]
-report.file = paste(strsplit(class.file, "_classification.txt")[[1]][1], "Report.pdf", sep="_")
+report.file = paste(strsplit(class.file, "_classification.txt")[[1]][1], "report.pdf", sep="_")
 
 
-#********************** Packages (installed if not found)
+#********************** Packages (install if not found)
 
 list.of.packages <- c("ggplot2", "scales", "reshape", "gridExtra", "grid")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -34,188 +34,36 @@ library(grid)
 sqantiData = read.table(file=class.file, header=T, as.is=T, sep="\t")
 rownames(sqantiData) = sqantiData$isoform
 
-sorted <- sqantiData[order(sqantiData$isoExp, decreasing = T),]
-FSMhighestExpIsoPerGene <- sorted[(!duplicated(sorted$associatedGene) & sorted$structuralCategory=="full-splice_match"),"isoform"]
-sqantiData[which(sqantiData$isoform%in%FSMhighestExpIsoPerGene),"RTS_stage"] <- FALSE
-write.table(sqantiData, file=class.file, row.names=FALSE, quote=F, sep="\t")
+if (!all(is.na(sqantiData$iso_exp))){
+  sorted <- sqantiData[order(sqantiData$iso_exp, decreasing = T),]
+  FSMhighestExpIsoPerGene <- sorted[(!duplicated(sorted$associated_gene) & sorted$structural_category=="full-splice_match"),"isoform"]
+  sqantiData[which(sqantiData$isoform%in%FSMhighestExpIsoPerGene),"RTS_stage"] <- FALSE
+  write.table(sqantiData, file=class.file, row.names=FALSE, quote=F, sep="\t")
+}
 
 xaxislabelsF1 = c("FSM", "ISM", "NIC", "NNC", "Genic\nGenomic",  "Antisense", "Fusion","Intergenic", "Genic\nIntron")
-sqantiData$structuralCategory = factor(sqantiData$structuralCategory, 
+sqantiData$structural_category = factor(sqantiData$structural_category, 
                                        labels = xaxislabelsF1, 
                                        levels = c("full-splice_match","incomplete-splice_match","novel_in_catalog","novel_not_in_catalog", "genic","antisense","fusion","intergenic","genic_intron"), 
                                        ordered=TRUE)
 
 
-
-
 ########### Junction information
 
 junctionsData = read.table(file=junc.file, header=T, as.is=T, sep="\t")
-junctionsData[which(junctionsData$isoform%in%FSMhighestExpIsoPerGene),"RTS_junction"] <- FALSE
-write.table(junctionsData, file=junc.file, row.names=FALSE, quote=F, sep="\t")
 
-
-########### Handling information 
-
-sqantiData[grep("novelGene",  sqantiData$associatedGene), "novelGene"] <- "Novel Genes"
-sqantiData[is.na(sqantiData$novelGene), "novelGene"] <- "Annotated Genes"
-sqantiData[which(sqantiData$exons>1), "exonCat"] <- "MultiExon"
-sqantiData[-which(sqantiData$exons>1), "exonCat"] <- "MonoExon"
-#sorted <- sqantiData[order(sqantiData$isoExp, decreasing = T),]
-#sorted$highestExpIso <- !duplicated(sorted$associatedGene)
-#sqantiData = sorted
-#sqantiData[which(sqantiData$highestExpIso==TRUE & sqantiData$structuralCategory=="FSM"),"RTS_stage"] <- "FALSE"
-
-junctionsData$canonical_known = with(junctionsData, paste(junctionCategory,canonical,"SJ", sep="_"))
-junctionsData$canonical_known=as.factor(junctionsData$canonical_known)
-junctionsData$canonical_known = factor(junctionsData$canonical_known, levels=c("known_canonical_SJ", "known_non_canonical_SJ", "novel_canonical_SJ", "novel_non_canonical_SJ"),
-                                       labels=c("Known\ncanonical ", "Known\nNon-canonical ", "Novel\ncanonical ", "Novel\nNon-canonical "), order=T) 
-junctionsData$structuralCategory = sqantiData[junctionsData$isoform,"structuralCategory"]
-junctionsData$TSSrange =cut(junctionsData$transcriptCoord, breaks = c(0,40,80,120,160,200,10000000), labels = c("0-40", "41-80", "81-120", "121-160", "161-200",">200"))
-
-
-
-# Gene level information
-isoPerGene = aggregate(sqantiData$isoform, by = list("associatedGene" = sqantiData$associatedGene, "novelGene" = sqantiData$novelGene, "FSM_class" = sqantiData$FSM_class, "geneExp"=sqantiData$geneExp), length)
-colnames(isoPerGene)[ncol(isoPerGene)] <- "nIso"
-
-isoPerGene$range =cut(isoPerGene$nIso, breaks = c(0,1,3,5,2500), labels = c("1", "2-3", "4-5", ">=6"))
-
-FL_gene = aggregate(as.integer(sqantiData$FL), by = list("associatedGene" = sqantiData$associatedGene), sum)
-colnames(FL_gene)[ncol(FL_gene)] <- "FL_gene"
-gene = merge(isoPerGene, FL_gene, by="associatedGene")
-gene$FSM_class2 = factor(gene$FSM_class, 
-                         levels = c("A", "B", "C"), 
-                         labels = c("MonoIsoform Gene", "MultiIsoform Genes\nwithout expression\nof a FSM", "MultiIsoform Genes\nexpressing at least\none FSM"), 
-                         ordered=TRUE)
-
-
-# Genes expression only FSM, only NNC and both
-FSM_just_genes = unique(sqantiData[sqantiData$FSM_class=="A" & sqantiData$structuralCategory=="FSM","associatedGene"]) 
-NNC_just_genes = unique(sqantiData[sqantiData$FSM_class=="A" & sqantiData$structuralCategory=="NNC","associatedGene"]) 
-FSMandNNCgenes = unique(sqantiData[sqantiData$FSM_class=="C" & sqantiData$structuralCategory=="NNC","associatedGene"]) 
-gene[gene$associatedGene %in% FSMandNNCgenes, "FSM_NNC_class"] <- "Genes expressing\nboth NNC and\n FSM isoforms"
-gene[gene$associatedGene %in% NNC_just_genes, "FSM_NNC_class"] <- "Genes expressing\n only NNC isoforms"
-gene[gene$associatedGene %in% FSM_just_genes, "FSM_NNC_class"] <- "Genes expressing\n only FSM isoforms"
-sqantiData[sqantiData$associatedGene %in% FSMandNNCgenes, "class"] <- "Genes expressing\nboth NNC and\n FSM isoforms"
-sqantiData[sqantiData$associatedGene %in% NNC_just_genes, "class"] <- "Genes expressing\n only NNC isoforms"
-sqantiData[sqantiData$associatedGene %in% FSM_just_genes, "class"] <- "Genes expressing\n only FSM isoforms"
-
-gene$FSM_NNC_class = factor(gene$FSM_NNC_class, levels=c("Genes expressing\nboth NNC and\n FSM isoforms","Genes expressing\n only NNC isoforms","Genes expressing\n only FSM isoforms"),
-                                       labels=c("Genes expressing\nboth NNC and\n FSM isoforms","Genes expressing\n only NNC isoforms","Genes expressing\n only FSM isoforms"), order=T)
-
-# NNC expression genes vs not NNC expression genes
-
-NNC_genes = unique(sqantiData[sqantiData$structuralCategory=="NNC","associatedGene"]) #1680
-notNNC_genes = unique(sqantiData[-which(sqantiData$associatedGene%in%NNC_genes),"associatedGene"]) #6014
-gene[gene$associatedGene %in% notNNC_genes, "NNC_class"] <- "Genes not expressing\n NNC isoforms"
-gene[gene$associatedGene %in% NNC_genes, "NNC_class"] <- "Genes expressing\n NNC isoforms"
-
-gene$NNC_class = factor(gene$NNC_class, levels=c("Genes expressing\n NNC isoforms","Genes not expressing\n NNC isoforms"),
-                            labels=c("Genes expressing\n NNC isoforms","Genes not expressing\n NNC isoforms"), order=T)
-
-
-#attribute by structural classification
-
-sqantiData[which(sqantiData$MinCov==0), "Not coverage SJ"] <- "Not coverage SJ"
-a = sqantiData[,c("AllCanonical", "Not coverage SJ", "RTS_stage", "isoform", "structuralCategory")]
-a$RTS_stage = as.factor(a$RTS_stage)
-a$`Not coverage SJ` = as.factor(a$`Not coverage SJ`)
-b = melt(a, id.vars = c("isoform", "structuralCategory"), na.rm = T)
-b = b[-which(b$value=="FALSE" | b$value=="canonical"),]
-b$value <- factor(b$value)
-b$value = factor(b$value, 
-                 labels = c("Non-canonical SJ","RT-switching", "Not coverage SJ"), 
-                 levels = c("non_canonical", "TRUE", "Not coverage SJ"), 
-                 ordered=TRUE)
-attribute.df = table(b$structuralCategory,b$value)
-attribute.df2 = merge(as.data.frame(attribute.df), as.data.frame(table(sqantiData$structuralCategory)), by = 1)
-attribute.df2$perc = attribute.df2$Freq.x / attribute.df2$Freq.y * 100
-
-
-
-# attribute by class (Check)
-
-
-# sqantiData$category = with(sqantiData, paste(class,structuralCategory, sep=":"))
-# #sqantiData$category = factor(sqantiData$category, levels=c("Genes expressing\n NNC isoforms:NNC","Genes not expressing\n NNC isoforms"),
-#  #                       labels=c("Genes expressing\n NNC isoforms","Genes not expressing\n NNC isoforms"), order=T)
-# 
-# 
-# a.2 = sqantiData[!is.na(sqantiData$class),c("AllCanonical", "Not coverage SJ", "RTS_stage", "isoform", "category")]
-# a.2 = a.2[,c("AllCanonical", "Not coverage SJ", "RTS_stage", "isoform", "category")]
-# a.2$RTS_stage = as.factor(a.2$RTS_stage)
-# a.2$`Not coverage SJ` = as.factor(a.2$`Not coverage SJ`)
-# 
-# 
-# b.2 = melt(a.2, id.vars = c("isoform", "category"), na.rm = T)
-# b.2 = b.2[-which(b.2$value=="FALSE" | b.2$value=="canonical"),]
-# b.2$value <- factor(b.2$value)
-# b.2$value = factor(b.2$value, 
-#                    labels = c("Non-canonical SJ","RT-switching", "Not coverage SJ"), 
-#                    levels = c("non_canonical", "TRUE", "Not coverage SJ"), 
-#                    ordered=TRUE)
-# attribute.df.2 = table(b.2$category,b.2$value)
-# attribute.df.2.2 = merge(as.data.frame(attribute.df.2), as.data.frame(table(sqantiData$category)), by = 1)
-# attribute.df.2.2$perc = attribute.df.2.2$Freq.x / attribute.df.2.2$Freq.y * 100
-
-
-
-
-# Coverage information
-
-perfect_match = sqantiData[which(sqantiData$structuralCategory=="FSM"), 
-                           c("isoform", "length", "exons", "associatedGene", "refLength", "refExons" ,"diffToTSS", "diffToTTS")]
-
-# NEW: removing full-splice match hits that are monoexons
-
-perfect_match = perfect_match[which(perfect_match$exons!=1),]
-
-if (nrow(perfect_match)!=0){
-    
-    
-  #5' end
-  perfect_match[which(perfect_match$diffToTSS<0),"end5_state"] <- "longer"
-  perfect_match[which(perfect_match$diffToTSS>0),"end5_state"] <- "shorter"
-  perfect_match[which(perfect_match$diffToTSS==0),"end5_state"] <- "equal"
-  
-  perfect_match$end5_perc_coverage = (perfect_match$refLength-perfect_match$diffToTSS)/perfect_match$refLength * 100 
-  perfect_match$end5_perc_coverage_MAX100 = perfect_match$end5_perc_coverage
-  perfect_match[which(perfect_match$end5_perc_coverage>100),"end5_perc_coverage_MAX100"] <- 100
-  perfect_match$end5_perc_coverage_NA = perfect_match$end5_perc_coverage
-  perfect_match[which(perfect_match$end5_perc_coverage>100),"end5_perc_coverage_NA"] <- NA
-  
-  perfect_match$range5 =cut(perfect_match$end5_perc_coverage_NA, breaks = seq(0,100,by = 5))
-  
-  #3' end
-  perfect_match[which(perfect_match$diffToTTS<0),"end3_state"] <- "longer"
-  perfect_match[which(perfect_match$diffToTTS>0),"end3_state"] <- "shorter"
-  perfect_match[which(perfect_match$diffToTTS==0),"end3_state"] <- "equal"
-  
-  perfect_match$end3_perc_coverage = (perfect_match$refLength-perfect_match$diffToTTS)/perfect_match$refLength* 100 
-  perfect_match$end3_perc_coverage_MAX100 = perfect_match$end3_perc_coverage
-  perfect_match$end3_perc_coverage_NA = perfect_match$end3_perc_coverage
-  perfect_match[which(perfect_match$end3_perc_coverage>(100)),"end3_perc_coverage_NA"] <- NA
-  perfect_match$end3_perc_coverage_MAX100 = perfect_match$end3_perc_coverage
-  perfect_match[which(perfect_match$end3_perc_coverage>(100)),"end3_perc_coverage_MAX100"] <- 100
-  
-  
-  q_5 = quantile(perfect_match[perfect_match$diffToTSS>=0,"diffToTSS"], probs = seq(0,1,0.1))
-  q_3 = quantile(perfect_match[perfect_match$diffToTTS>=0,"diffToTTS"], probs = seq(0,1,0.1))
-  to = data.frame(diff = c(perfect_match$diffToTSS, perfect_match$diffToTTS), type = rep(c("Nt to TSS", "Nt to TTS"), each=nrow(perfect_match)))
-  to = to[to$diff>=0,]
-  quantile95 = aggregate(to[1], to[c(2)], function(x) quantile(x,0.95))
-
+if (!all(is.na(sqantiData$iso_exp))){
+  junctionsData[which(junctionsData$isoform%in%FSMhighestExpIsoPerGene),"RTS_junction"] <- FALSE
+  write.table(junctionsData, file=junc.file, row.names=FALSE, quote=F, sep="\t")
 }
 
-#** Global plot parameters
 
-#myPalette = c("#6BAED6","#FC8D59","#78C679","coral2","#969696","#66C2A4", "goldenrod1", "darksalmon", "#7BCCC4" ,"#FE9929", "#41B6C4", "#67A9CF")
+########## Generating plots
+
+
+#*** Global plot parameters
 
 myPalette = c("#6BAED6","#FC8D59","#78C679","coral2","#969696","#66C2A4", "goldenrod1", "darksalmon", "#41B6C4","tomato3", "#FE9929")
-
-#myPalette = c("#66C2A4","#FC8D59","#6BAED6","coral2","goldenrod1","#7BCCC4","#969696", "darksalmon","#78C679" , "#FE9929", "#41B6C4", "#67A9CF")
-
 
 mytheme <- theme_classic(base_family = "Helvetica") +
   theme(axis.line.x = element_line(color="black", size = 0.4),
@@ -243,13 +91,43 @@ mytheme_bw <- theme_bw(base_family = "Helvetica") +
   #theme(legend.justification=c(1,1), legend.position=c(1,1)) +
   theme(plot.margin = unit(c(2.5,1,1,1), "cm")) 
 
+roundUp = function(x) 10^ceiling(log10(x))
+RoundUp = function(from,to) ceiling(from/to)*to
+
+#*** PLOT 0: Number Isoforms per Gene
+
+sqantiData[grep("novelGene",  sqantiData$associated_gene), "novelGene"] <- "Novel Genes"
+sqantiData[-grep("novelGene",  sqantiData$associated_gene), "novelGene"] <- "Annotated Genes"
+sqantiData$novelGene = factor(sqantiData$novelGene, 
+                                          levels = c("Novel Genes","Annotated Genes"), 
+                                          ordered=TRUE)
+sqantiData[which(sqantiData$exons>1), "exonCat"] <- "MultiExon"
+sqantiData[which(sqantiData$exons==1), "exonCat"] <- "MonoExon"
+sqantiData$exonCat = factor(sqantiData$exonCat, 
+                                    levels = c("MultiExon","MonoExon"), 
+                                    ordered=TRUE)
+
+isoPerGene = aggregate(sqantiData$isoform, 
+                       by = list("associatedGene" = sqantiData$associated_gene, 
+                                 "novelGene" = sqantiData$novelGene, 
+                                 "FSM_class" = sqantiData$FSM_class, 
+                                 "geneExp"=sqantiData$gene_exp), 
+                                  length)
+colnames(isoPerGene)[ncol(isoPerGene)] <- "nIso"
 
 
+isoPerGene$FSM_class2 = factor(isoPerGene$FSM_class, 
+                               levels = c("A", "B", "C"), 
+                               labels = c("MonoIsoform Gene", "MultiIsoform Genes\nwithout expression\nof a FSM", "MultiIsoform Genes\nexpressing at least\none FSM"), 
+                               ordered=TRUE)
 
-#*** Generating plots
+isoPerGene$novelGene = factor(isoPerGene$novelGene, 
+                              levels = c("Annotated Genes", "Novel Genes"), 
+                              ordered=TRUE)
 
+maxiso = max(isoPerGene$nIso)+1
 
-# PLOT 1
+isoPerGene$range =cut(isoPerGene$nIso, breaks = c(0,1,3,5,maxiso), labels = c("1", "2-3", "4-5", ">=6"))
 
 legendLabelF1 = tools::toTitleCase(gsub("_", " ", levels(as.factor(sqantiData$coding))))
 
@@ -261,20 +139,15 @@ p0 <- ggplot(isoPerGene, aes(x=range, fill=range)) +
   labs(x ="# Isoforms per Gene", title="Distribution of isoforms per gene\n\n\n", y = "% Genes") +
   mytheme
 
-# p0.2 <- ggplot(isoPerGene, aes(x=range, fill=range)) +
-#   geom_bar(stat = "count",  color="black", size=0.3, width=0.7) +
-#   guides(fill=FALSE) +
-#   scale_y_continuous(expand = c(0,0)) +
-#   scale_fill_manual(values = myPalette[c(2:5)]) +
-#   labs(x ="# Isoforms per Gene", title="Distribution of isoforms per gene\n\n\n", y = "# Genes") +
-#   mytheme
 
 
+#*** PLOT 1: Structural Classification
 
-p1 <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
-  geom_bar(aes(y = (..count..)/sum(..count..), alpha=coding, fill=structuralCategory), color="black", size=0.3, width=0.7) +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
+p1 <- ggplot(data=sqantiData, aes(x=structural_category)) +
+  geom_bar(aes(y = (..count..)/sum(..count..), alpha=coding, fill=structural_category), color="black", size=0.3, width=0.7) +
+  scale_y_continuous(labels = percent, expand = c(0,0), limits = c(0,1)) +
   geom_text(aes(y = ((..count..)/sum(..count..)), label = scales::percent((..count..)/sum(..count..))), stat = "count", vjust = -0.25)  +
+  scale_x_discrete(drop=FALSE) +
   scale_alpha_manual(values=c(1,0.3), 
                      name = "Coding prediction", 
                      labels = legendLabelF1)+
@@ -282,47 +155,53 @@ p1 <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
   xlab("") + 
   ylab("% Transcripts") +
   mytheme + 
-  geom_blank(aes(y=1.05*((..count..)/sum(..count..))), stat = "count") +
+  geom_blank(aes(y=((..count..)/sum(..count..))), stat = "count") +
   theme(axis.text.x = element_text(angle = 45)) +
   ggtitle("Isoform distribution across structural categories\n\n" ) +
   theme(axis.title.x=element_blank()) +  theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12)) +
   theme(legend.justification=c(1,1), legend.position=c(1,1)) 
 
 
+#*** PLOTS 2-3: refLength and refExons for ISM and FSM transcripts. Plot if any ISM or FSM transcript
 
 
-
-# PLOT 2
-
-
-if (nrow(sqantiData[sqantiData$structuralCategory%in%c("FSM","ISM"),])!=0){
+if (nrow(sqantiData[sqantiData$structural_category%in%c("FSM","ISM"),])!=0){
   
-  p2 <- ggplot(data=sqantiData[sqantiData$structuralCategory%in%c("FSM","ISM"),], aes(x=structuralCategory, y=refLength, fill=structuralCategory)) +
-    geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme_bw +
+  sqantiFSMISM = sqantiData[sqantiData$structural_category%in%c("FSM","ISM"),]
+  sqantiFSMISM$structural_category = factor(sqantiFSMISM$structural_category, 
+                                          levels = c("FSM","ISM"), 
+                                          ordered=TRUE)
+
+  p2 <- ggplot(data=sqantiFSMISM, aes(x=structural_category, y=ref_length, fill=structural_category)) +
+    geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme +
     scale_fill_manual(values = myPalette) +
+    scale_x_discrete(drop=FALSE) +
     guides(fill=FALSE) +
-    xlab("Structural Classification") +  
+    xlab("") +  
     ylab("Matched Reference Length (bp)") +
-    ggtitle("Length distribution of matched reference transcripts\n\n" ) 
-  
-  
-  # PLOT 3
-  
-  p3 <- ggplot(data=sqantiData[sqantiData$structuralCategory%in%c("FSM","ISM"),], aes(x=structuralCategory, y=refExons, fill=structuralCategory)) +
+    labs(title="Length distribution of matched reference transcripts\n\n\n",  
+         subtitle="Just applicable to FSM and ISM categories\n\n") 
+
+
+  p3 <- ggplot(data=sqantiFSMISM, aes(x=structural_category, y=ref_exons, fill=structural_category)) +
     geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +   
-    xlab("Structural Classification") +  
+    scale_x_discrete(drop=FALSE) +
+    xlab("") +  
     ylab("Matched Reference exon number") +
     scale_fill_manual(values = myPalette) +
     guides(fill=FALSE) +
-    mytheme_bw +
-    ggtitle("Exon Number distribution of matched reference transcripts\n\n" )
+    mytheme +
+    labs(title="Exon number distribution of matched reference transcripts\n\n\n",  
+         subtitle="Just applicable to FSM and ISM categories\n\n") 
 
 }
 
-# PLOT 4 
 
-p4 <- ggplot(data=sqantiData, aes(x=structuralCategory, y=length, fill=structuralCategory)) +
+# PLOT 4: Transcript length by category
+
+p4 <- ggplot(data=sqantiData, aes(x=structural_category, y=length, fill=structural_category)) +
   geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+  scale_x_discrete(drop=FALSE) +
   ylab("Transcript Length (bp)") +
   scale_fill_manual(values = myPalette) +
   guides(fill=FALSE) +
@@ -330,28 +209,28 @@ p4 <- ggplot(data=sqantiData, aes(x=structuralCategory, y=length, fill=structura
   theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
   ggtitle("Transcript length distribution by structural classification\n\n" ) +  
   theme(axis.title.x=element_blank()) 
-#theme(plot.margin = unit(c(1.5,1,0,1), "cm")) 
 
 
-# PLOT 5
+# PLOT 5: Exon number by category 
 
-p5 <- ggplot(data=sqantiData, aes(x=structuralCategory, y=exons, fill=structuralCategory)) +
+p5 <- ggplot(data=sqantiData, aes(x=structural_category, y=exons, fill=structural_category)) +
   geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  ylab("Number of exons per transcript") +
+  ylab("Number of exons") +
+  scale_x_discrete(drop=FALSE) +
   scale_fill_manual(values = myPalette) +
   guides(fill=FALSE) +
   mytheme  + theme(axis.text.x = element_text(angle = 45)) + 
   theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
   ggtitle("Exon number distribution by structural classification\n\n" ) +
-  theme(axis.title.x=element_blank()) 
-#theme(plot.margin = unit(c(1.5,1,0,1), "cm")) 
+  theme(axis.title.x=element_blank())
 
 
-# PLOT 6
+# PLOT 6: Exon number vs gene type
 
 p6 <- ggplot(data=sqantiData, aes(x=novelGene)) +
   geom_bar(position="fill",aes(y = (..count..)/sum(..count..), fill=exonCat), color="black", size=0.3, width=0.5) +
   #geom_text(aes(y = (..count..), label=(..count..)), stat = "count", vjust = -0.25)  +
+  scale_x_discrete(drop=FALSE) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
   scale_fill_manual(name = "Transcript type", 
                     values = myPalette[c(2:5)]) +
@@ -363,11 +242,12 @@ p6 <- ggplot(data=sqantiData, aes(x=novelGene)) +
 
 
 
-# PLOT 7
+# PLOT 7: number of Iso per gene vs gene type
 
-p7 <- ggplot(data=gene, aes(x=novelGene)) +
+p7 <- ggplot(data=isoPerGene, aes(x=novelGene)) +
   geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=range), color="black", size=0.3, width=0.5) +
   scale_y_continuous(labels = percent, expand = c(0,0)) +
+  scale_x_discrete(drop=FALSE) +
   scale_fill_manual(name = "# Isoforms Per Gene",
                     values = myPalette[c(2:5)]) +
   ylab("% Genes ") +  
@@ -377,36 +257,40 @@ p7 <- ggplot(data=gene, aes(x=novelGene)) +
   theme(legend.position="bottom") +   
   guides(fill = guide_legend(keywidth = 0.9, keyheight = 0.9)) +
   ggtitle("Distribution of number of isoforms\n\n\n\n" ) 
-#theme(plot.margin = unit(c(1.5,1,0,1), "cm")) 
+
+
+# PLOT 8: Expression, if isoform expression provided
+
+if (!all(is.na(sqantiData$iso_exp))){
+  
+  p8 <- ggplot(data=sqantiData, aes(x=structural_category, y=log2(iso_exp+1), fill=structural_category)) +
+    geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+    scale_x_discrete(drop=FALSE) +
+    ylab("log2(transcript expression +1)") +
+    scale_fill_manual(values = myPalette) +
+    guides(fill=FALSE) +
+    mytheme  + theme(axis.text.x = element_text(angle = 45)) + 
+    theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+    theme(axis.title.x=element_blank()) + 
+    #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
+    ggtitle("Transcript expression by structural category\n\n" )
+
+}
 
 
 
-
-# PLOT 8
-
-p8 <- ggplot(data=sqantiData, aes(x=structuralCategory, y=log2(isoExp+1), fill=structuralCategory)) +
-  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  ylab("log2(transcript expression +1)") +
-  scale_fill_manual(values = myPalette) +
-  guides(fill=FALSE) +
-  mytheme  + theme(axis.text.x = element_text(angle = 45)) + 
-  theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
-  theme(axis.title.x=element_blank()) + 
-  #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
-  ggtitle("Transcript expression by structural category\n\n" )
-
-
-# PLOT 9 
+# PLOT 9: FL number, if FL count provided
 
 if (!all(is.na(sqantiData$FL))){
   
-  p9 <- ggplot(data=sqantiData, aes(x=structuralCategory, y=log2(FL+1), fill=structuralCategory)) +
+  p9 <- ggplot(data=sqantiData, aes(x=structural_category, y=log2(FL+1), fill=structural_category)) +
     geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
     ylab("log2( # FL reads + 1)") +
+    scale_x_discrete(drop=FALSE) +
     scale_fill_manual(values = myPalette) +
     guides(fill=FALSE) +
     mytheme +
-    mytheme  + theme(axis.text.x = element_text(angle = 45)) + 
+    theme(axis.text.x = element_text(angle = 45)) + 
     theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
     theme(axis.title.x=element_blank()) + 
     #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
@@ -414,506 +298,585 @@ if (!all(is.na(sqantiData$FL))){
   
 }
 
-# PLOT 10 
 
-p10 <- ggplot(data=gene, aes(x=novelGene, y=log2(geneExp+1), fill=novelGene)) +
-  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  xlab("Structural Classification") +  
-  ylab("log2( # Short reads + 1)") +
-  scale_fill_manual(values = myPalette[c(3:4)]) +
-  guides(fill=FALSE) +
-  mytheme_bw +
-  theme(axis.title.x=element_blank()) + 
-  #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
-  ggtitle("Gene expression by type of gene annotation\n\n" )
+# PLOT 10: Gene Expression, if expresion provided
+
+if (!all(is.na(isoPerGene$geneExp))){
+
+  p10 <- ggplot(data=isoPerGene, aes(x=novelGene, y=log2(geneExp+1), fill=novelGene)) +
+    geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+    scale_x_discrete(drop=FALSE) +
+    xlab("Structural Classification") +  
+    ylab("log2( # Short reads + 1)") +
+    scale_fill_manual(values = myPalette[c(3:4)]) +
+    guides(fill=FALSE) +
+    mytheme +
+    theme(axis.title.x=element_blank()) + 
+    #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
+    ggtitle("Gene expression by type of gene annotation\n\n" )
+}
 
 
-# PLOT 11
+
+# PLOT 11: Gene FL number, if FL count provided
 
 if (!all(is.na(sqantiData$FL))){
   
-  p11 <- ggplot(data=gene, aes(x=novelGene, y=log2(FL_gene+1), fill=novelGene)) +
+  FL_gene = aggregate(as.integer(sqantiData$FL), by = list("associatedGene" = sqantiData$associated_gene), sum)
+  colnames(FL_gene)[ncol(FL_gene)] <- "FL_gene"
+  isoPerGene = merge(isoPerGene, FL_gene, by="associatedGene")
+  
+  p11 <- ggplot(data=isoPerGene, aes(x=novelGene, y=log2(FL_gene+1), fill=novelGene)) +
     geom_boxplot(color="black", size=0.3,outlier.size = 0.2) +
+    scale_x_discrete(drop=FALSE) +
     ylab("log2( # FL reads + 1)") +
     scale_fill_manual(values = myPalette[c(3:4)]) +
     guides(fill=FALSE) +
-    mytheme_bw +
+    mytheme +
     theme(axis.title.x=element_blank()) + 
     #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
     ggtitle("Number of FL reads per Gene by type of gene annotation\n\n" )
   
 }
 
-# PLOT 12
 
 
-if (nrow(gene[!is.na(gene$NNC_class),])!=0){
+# PLOT 12: NNC expression genes vs not NNC expression genes
 
-p12 <- ggplot(data=gene[!is.na(gene$NNC_class),], aes(x=NNC_class, y=log2(geneExp+1), fill=NNC_class)) +
-  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  xlab("") +  
-  ylab("log2(# Short reads per gene + 1)") +
-  scale_fill_manual(values = c(myPalette[4],"grey38")) +
-  guides(fill=FALSE) +
-  mytheme_bw +
-  theme(axis.title.x=element_blank()) + 
-  ggtitle("Gene expression levels between NNC and not NNC containing genes\n\n" ) 
+# NNC expression genes vs not NNC expression genes
 
 
-# PLOT 13
+if (!all(is.na(sqantiData$gene_exp))){
+  
+  if (nrow(sqantiData[sqantiData$structural_category=="NNC",])!=0){
+    
+    NNC_genes = unique(sqantiData[sqantiData$structural_category=="NNC","associated_gene"]) 
+    notNNC_genes = unique(sqantiData[!sqantiData$associated_gene%in%NNC_genes,"associated_gene"]) 
+    isoPerGene[isoPerGene$associatedGene %in% notNNC_genes, "NNC_class"] <- "Genes not expressing\n NNC isoforms"
+    isoPerGene[isoPerGene$associatedGene %in% NNC_genes, "NNC_class"] <- "Genes expressing\n NNC isoforms"
+    
+    isoPerGene$NNC_class = factor(isoPerGene$NNC_class, levels=c("Genes expressing\n NNC isoforms","Genes not expressing\n NNC isoforms"),
+                            labels=c("Genes expressing\n NNC isoforms","Genes not expressing\n NNC isoforms"), order=T)
+    
+    p12 <- ggplot(data=isoPerGene[!is.na(isoPerGene$NNC_class),], aes(x=NNC_class, y=log2(geneExp+1), fill=NNC_class)) +
+      geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+      xlab("") +  
+      ylab("log2(# Short reads per gene + 1)") +
+      scale_x_discrete(drop=FALSE) +
+      scale_fill_manual(values = c(myPalette[4],"grey38")) +
+      guides(fill=FALSE) +
+      mytheme +
+      theme(axis.title.x=element_blank()) + 
+      ggtitle("Gene expression levels between NNC and not NNC containing genes\n\n" ) 
+    }
+}
 
-p13 <- ggplot(data=gene[!is.na(gene$FSM_NNC_class),], aes(x=FSM_NNC_class, y=log2(geneExp+1), fill=FSM_NNC_class)) +
-  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  ylab("log2( # Short reads per gene + 1)") +
-  theme(axis.title.x=element_blank()) +
-  #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
-  scale_fill_manual(values = c("grey38",myPalette[[4]],myPalette[[1]])) +
-  guides(fill=FALSE) +
-  mytheme_bw +
-  theme(axis.title.x=element_blank()) +
-  ggtitle("Gene Expression level in NNC/FSM containing genes\n\n" ) +
-  scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms",
-                            "Genes expressing\n only FSM isoforms",
-                            "Genes expressing\n only NNC isoforms"),
-                   labels=c("NNC/FSM genes",
-                            "FSM genes",
-                            "NNC genes")) 
+
+# PLOT 13: Genes expression to only FSM Genes, only NNC Genes and both containing genes
+
+if (!all(is.na(sqantiData$gene_exp))){
+  
+  
+  if (nrow(sqantiData[sqantiData$structural_category=="NNC",])!=0 & nrow(sqantiData[sqantiData$structural_category=="FSM",])!=0 ){
+    
+    FSM_just_genes = unique(sqantiData[sqantiData$FSM_class=="A" & sqantiData$structural_category=="FSM","associated_gene"])
+    NNC_just_genes = unique(sqantiData[sqantiData$FSM_class=="A" & sqantiData$structural_category=="NNC","associated_gene"])
+    FSMandNNCgenes = unique(sqantiData[sqantiData$FSM_class=="C" & sqantiData$structural_category=="NNC","associated_gene"])
+    isoPerGene[isoPerGene$associatedGene %in% FSMandNNCgenes, "FSM_NNC_class"] <- "Genes expressing\nboth NNC and\n FSM isoforms"
+    isoPerGene[isoPerGene$associatedGene %in% NNC_just_genes, "FSM_NNC_class"] <- "Genes expressing\n only NNC isoforms"
+    isoPerGene[isoPerGene$associatedGene %in% FSM_just_genes, "FSM_NNC_class"] <- "Genes expressing\n only FSM isoforms"
+    sqantiData[sqantiData$associated_gene %in% FSMandNNCgenes, "class"] <- "Genes expressing\nboth NNC and\n FSM isoforms"
+    sqantiData[sqantiData$associated_gene %in% NNC_just_genes, "class"] <- "Genes expressing\n only NNC isoforms"
+    sqantiData[sqantiData$associated_gene %in% FSM_just_genes, "class"] <- "Genes expressing\n only FSM isoforms"
+    
+    isoPerGene$FSM_NNC_class = factor(isoPerGene$FSM_NNC_class, levels=c("Genes expressing\nboth NNC and\n FSM isoforms","Genes expressing\n only NNC isoforms","Genes expressing\n only FSM isoforms"),
+                                labels=c("Genes expressing\nboth NNC and\n FSM isoforms","Genes expressing\n only NNC isoforms","Genes expressing\n only FSM isoforms"), order=T)
+    
+    p13 <- ggplot(data=isoPerGene[!is.na(isoPerGene$FSM_NNC_class),], aes(x=FSM_NNC_class, y=log2(geneExp+1), fill=FSM_NNC_class)) +
+      geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+      ylab("log2( # Short reads per gene + 1)") +
+      theme(axis.title.x=element_blank()) +
+      #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
+      scale_fill_manual(values = c("grey38",myPalette[[4]],myPalette[[1]])) +
+      guides(fill=FALSE) +
+      mytheme +
+      theme(axis.title.x=element_blank()) +
+      ggtitle("Gene expression level in NNC/FSM containing genes\n\n" ) +
+      scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms",
+                                "Genes expressing\n only FSM isoforms",
+                                "Genes expressing\n only NNC isoforms"),
+                       labels=c("NNC/FSM genes",
+                                "FSM genes",
+                                "NNC genes"), drop=FALSE) 
+    
+    
+    p13.c <- ggplot(data=sqantiData[!is.na(sqantiData$class),], aes(x=class, y=log2(iso_exp+1), fill=structural_category)) +
+      geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
+      ylab("log2( # Short reads per transcript + 1)") +
+      theme(axis.title.x=element_blank()) +
+      #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
+      scale_fill_manual(values = myPalette) +
+      guides(fill=FALSE) +
+      mytheme +
+      theme(axis.title.x=element_blank()) +
+      ggtitle("Transcript expression level in NNC/FSM containing genes\n\n" ) +
+      scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms",
+                                "Genes expressing\n only FSM isoforms",
+                                "Genes expressing\n only NNC isoforms"),
+                       labels=c("NNC/FSM genes",
+                                "FSM genes",
+                                "NNC genes"), drop=F) 
+    
+  }
+}
 
 
-p13.c <- ggplot(data=sqantiData[!is.na(sqantiData$class),], aes(x=class, y=log2(isoExp+1), fill=structuralCategory)) +
-  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
-  ylab("log2( # Short reads per transcript + 1)") +
-  theme(axis.title.x=element_blank()) +
-  #theme(plot.margin = unit(c(1.5,1,0.5,1), "cm")) +
-  scale_fill_manual(values = myPalette) +
-  guides(fill=FALSE) +
-  mytheme_bw +
-  theme(axis.title.x=element_blank()) +
-  ggtitle("Transcript Expression level in NNC/FSM containing genes\n\n" ) +
-  scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms",
-                            "Genes expressing\n only FSM isoforms",
-                            "Genes expressing\n only NNC isoforms"),
-                   labels=c("NNC/FSM genes",
-                            "FSM genes",
-                            "NNC genes")) 
+
+# PLOT 23: Junction categories
+
+if (nrow(junctionsData) > 0){
+    
+    junctionsData$junctionLabel = with(junctionsData, paste(chrom, strand,genomic_start_coord, genomic_end_coord, sep="_"))
+  
+    junctionsData$canonical_known = with(junctionsData, paste(junction_category,canonical,"SJ", sep="_"))
+    junctionsData$canonical_known=as.factor(junctionsData$canonical_known)
+    junctionsData$canonical_known = factor(junctionsData$canonical_known, levels=c("known_canonical_SJ", "known_non_canonical_SJ", "novel_canonical_SJ", "novel_non_canonical_SJ"),
+                                           labels=c("Known\ncanonical ", "Known\nNon-canonical ", "Novel\ncanonical ", "Novel\nNon-canonical "), order=T) 
+    junctionsData$structural_category = sqantiData[junctionsData$isoform,"structural_category"]
+    junctionsData$TSSrange =cut(junctionsData$transcript_coord, breaks = c(0,40,80,120,160,200,10000000), labels = c("0-40", "41-80", "81-120", "121-160", "161-200",">200"))
+    
+    p23 <- ggplot(data=junctionsData, aes(x=structural_category)) +
+      geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black",  size=0.3, width = 0.7) +
+      scale_y_continuous(labels = percent, expand = c(0,0)) +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      ylab("% Splice junctions") +
+      mytheme +
+      guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.3))+
+      theme(legend.position="bottom", legend.title=element_blank())  +
+      theme(axis.text.x = element_text(angle = 45)) +
+      theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+      theme(axis.title.x=element_blank()) +
+      #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
+      ggtitle("Distribution of SJ type among structural classification\n\n\n")
+    
+    sqantiData$AllCanonical = factor(sqantiData$all_canonical, 
+                                     levels = c("canonical","non_canonical"), 
+                                     ordered=TRUE)
+    
+    p23.b <- ggplot(data=sqantiData[which(sqantiData$exons>1),], aes(x=structural_category)) +
+      geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", size=0.3, width = 0.7) +
+      scale_y_continuous(labels = percent, expand = c(0,0)) +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      ylab("% Transcripts ") +  
+      mytheme +
+      guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.3))+
+      theme(legend.position="bottom", legend.title=element_blank())  +
+      theme(axis.text.x = element_text(angle = 45)) + 
+      theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+      theme(axis.title.x=element_blank()) + 
+      #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
+      labs(   title="Distribution of transcripts by splice junction category\n\n\n",
+              subtitle="Non canonical transcripts are those with at least one non-canonical junction\n\n") 
+    
+    #alpha
+    # p23.c <- ggplot(data=sqantiData, aes(x=structural_category, alpha=all_canonical, fill=structural_category)) +
+    #   geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black",  size=0.3,width = 0.7) +
+    #   scale_fill_manual(values = myPalette, guide='none' )  +
+    #   scale_y_continuous(labels = percent, expand = c(0,0)) +
+    #   scale_alpha_manual(values=c(1,0.3)) +
+    #   ylab("% Transcripts ") +  
+    #   mytheme +
+    #   theme(legend.position="bottom", axis.title.x = element_blank()) +
+    #   theme(axis.text.x = element_text(angle = 45)) + 
+    #   theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+    #   theme(axis.title.x=element_blank()) + 
+    #   #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
+    #   labs(   title="Distribution of transcripts by splice junction category\n\n\n",
+    #           subtitle="Non canonical transcripts are those with at least one non-canonical junction\n\n") 
+    # 
+}
+
+
+# PLOT 24-26: Junction distance to TSS
+
+if (nrow(junctionsData) > 0){
+  
+  p24 <- ggplot(data=junctionsData, aes(x=transcript_coord, fill = canonical_known)) +
+    geom_density(alpha=0.7,  size=0.3) +
+    scale_y_continuous(expand = c(0,0))  +
+    scale_x_continuous(expand = c(0,0)) +
+    scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+    #geom_vline(xintercept = 200, linetype = "longdash", color="red") +
+    mytheme +
+    guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.7))+
+    theme(legend.position="bottom" ) +
+    labs(list(fill = "Junction Type", x= "Distance to TSS (bp)", 
+              title = "Distribution of splice junctions distance to TSS\n\n") )
+
+  p25 <- ggplot(data=junctionsData, aes(x=TSSrange, fill=canonical_known)) +
+    geom_bar(aes(y = (..count..)/sum(..count..)), color="black", size=0.3, width=0.7, position="fill") +
+    scale_y_continuous(labels = percent, expand = c(0,0)) +
+    scale_x_discrete(drop=FALSE) +
+    scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=F) +
+    mytheme +
+    theme(legend.position="bottom") +
+    guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.7))+
+    labs(list(fill = "Junction Type", x= "TSS distance range (bp)", y="% Junctions",
+              title = "Splice junction distance to TSS across junction type\n\n\n") ) +
+    theme(axis.title.x  = element_text(margin=margin(10,0,0,0), size=12))
+
+  p26 <- ggplot(data=junctionsData, aes(x=canonical_known, fill=TSSrange)) +
+    geom_bar(aes(y = (..count..)/sum(..count..)), color="black", size=0.3, width=0.7, position="fill") +
+    scale_y_continuous(labels = percent, expand = c(0,0)) +
+    scale_fill_manual(values = myPalette, drop=F) +
+    scale_x_discrete(drop=FALSE) +
+    ylab("% Junctions") +
+    mytheme +
+    theme(legend.position="bottom") +
+    guides(fill = guide_legend(title = "TSS distance range (bp)")) +
+    ggtitle( "Splice junction distance to TSS across junction type\n\n\n") +
+    theme(axis.title.x=element_blank()) 
   
 }
 
-# PLOT 21
-roundUp = function(x) 10^ceiling(log10(x))
-RoundUp = function(from,to) ceiling(from/to)*to
 
-if (nrow(perfect_match)!=0){
+# PLOT 29: RT-switching
 
-  max = max(c(perfect_match$diffToTTS, perfect_match$diffToTSS)) 
-  perfect_match$rangeDiffTTS = cut(-(perfect_match$diffToTTS), breaks = c((max+1)*(-1),seq(-200, 200, by = 20),max+1))
-  perfect_match$rangeDiffTSS = cut(-(perfect_match$diffToTSS), breaks = c((max+1)*(-1),seq(-200, 200, by = 20),(max+1)))
+if (nrow(junctionsData) > 0){
+  
+  if (nrow(junctionsData[junctionsData$RTS_junction=="TRUE",])!=0){
+    
+    a = data.frame(table(junctionsData$canonical_known))
+    b = data.frame(table(junctionsData[which(junctionsData$RTS_junction==TRUE),"canonical_known"]))
+    
+    a_b_Rts = merge(a,b, by="Var1")
+    a_b_Rts$perc = a_b_Rts$Freq.y/a_b_Rts$Freq.x *100
+    a_b_Rts[is.na(a_b_Rts$perc),"perc"] <- 0
+    
+    max_height_rts = max(a_b_Rts$perc)
+    mm_rts = roundUp(max_height_rts)/10
+    max_height_rounded_rts = RoundUp(max_height_rts, mm_rts)
+    
+    p29 <- ggplot(data=a_b_Rts, aes(x=Var1, y=perc, fill=Var1)) +
+      geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=F) +
+      ylab("% RT-switching junctions") +
+      ggtitle( "RT-switching by splice junction category \n\n" ) +
+      mytheme +
+      guides(fill=FALSE) +
+      scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded_rts)) +
+      theme(axis.text.x = element_text(size=11))
+    
+    
+    uniqJuncRTS =unique(junctionsData[,c("junctionLabel","canonical_known", "RTS_junction")])
+    
+    c = data.frame(table(uniqJuncRTS$canonical_known))
+    d = data.frame(table(uniqJuncRTS[which(uniqJuncRTS$RTS_junction==TRUE),"canonical_known"]))
+    
+    c_d_Rts = merge(c,d, by="Var1")
+    c_d_Rts$perc = c_d_Rts$Freq.y/c_d_Rts$Freq.x *100
+    c_d_Rts[is.na(c_d_Rts$perc),"perc"] <- 0
+    
+    max_height_rts = max(c_d_Rts$perc)
+    mm_rts = roundUp(max_height_rts)/10
+    max_height_rounded_rts = RoundUp(max_height_rts, mm_rts)
+    
+    p29.a <- ggplot(data=c_d_Rts, aes(x=Var1, y=perc, fill=Var1)) +
+      geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      ylab("% RT-switching junctions") +
+      ggtitle( "RT-switching by splice junction category (unique junctions) \n\n" ) +
+      mytheme +
+      guides(fill=FALSE) +
+      scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded_rts)) +
+      theme(axis.text.x = element_text(size=11))
+    
+  }
+}
+
+# PLOT pn4-5: Splice Junction Coverage (if coverage provided)
+
+if (nrow(junctionsData) > 0){
+    
+  if (!all(is.na(junctionsData$total_coverage))){
+    
+    uniqJuncCov =unique(junctionsData[,c("junctionLabel","canonical_known", "total_coverage")])
+    
+    e = data.frame(table(uniqJuncCov$canonical_known))
+    f = data.frame(table(uniqJuncCov[which(uniqJuncCov$total_coverage==0),"canonical_known"]))
+    
+    e_f_Rts = merge(e,f, by="Var1")
+    e_f_Rts$perc = e_f_Rts$Freq.y/e_f_Rts$Freq.x *100
+    e_f_Rts[is.na(e_f_Rts$perc),"perc"] <- 0
+    
+    max_height_rts = max(e_f_Rts$perc)
+    mm_rts = roundUp(max_height_rts)/10
+    max_height_rounded_rts = RoundUp(max_height_rts, mm_rts)
+    
+    pn4 <-ggplot(data=e_f_Rts, aes(x=Var1,fill=Var1, y=Freq.y)) +
+      geom_bar(stat="identity", position = position_dodge(), color="black", size=0.3, width=0.7) +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      scale_y_continuous( expand = c(0,0)) +
+      ylab("# Splice Junctions without coverage") + 
+      xlab("Junction Type") +
+      mytheme +
+      guides(fill=FALSE) +
+      ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
+    
+    
+    pn5 <- ggplot(data=e_f_Rts, aes(x=Var1, y=perc, fill=Var1)) +
+      geom_bar(position=position_dodge(), stat="identity", color="black", size=0.3, width=0.7) +
+      guides(fill=FALSE) +
+      scale_y_continuous( expand = c(0,0)) +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      ylab("% Splice Junctions without coverage") + 
+      xlab("Junction Type") +
+      mytheme +
+      guides(fill=FALSE) +
+      ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
+    
+    
+  }
+}
+  
+  
+# PLOT pn1.2: Splice Junction relative coverage (if coverage and expression provided)
+
+if (nrow(junctionsData) > 0){
+    
+  if (!all(is.na(junctionsData$total_coverage)) & !all(is.na(sqantiData$iso_exp))){
+    
+    junctionsData$isoExp = sqantiData[junctionsData$isoform, "iso_exp"]
+  
+    total = aggregate(cbind(total_coverage,isoExp,transcript_coord) ~ junctionLabel, data = junctionsData, 
+                      FUN = function(x) c(mn = sum(x), n = min(x) ) )
+    
+    total$relCov = total$total_coverage[,"n"] / total$isoExp[,"mn"]
+    total$minTSS = total$transcript_coord[,"n"]
+    
+    uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known", "total_coverage")])
+    uniqJunc$notCov = uniqJunc$total_coverage==0
+    
+    uniqueJunc_nonCov = as.data.frame(table(uniqJunc[uniqJunc$totalCoverage==0,"canonical_known"])/table(uniqJunc$canonical_known)*100)
+    
+    uniqJunc2 = merge(total, uniqJunc, by=1)
+    uniqJunc2$TSSrange =cut(uniqJunc2$minTSS, breaks = c(0,40,80,120,160,200,10000000), labels = c("0-40", "41-80", "81-120", "121-160", "161-200",">200"))
+    
+
+
+    # calculate total expression associated to each unique junction
+    sumExpPerJunc = tapply(junctionsData$isoExp, junctionsData$junctionLabel, sum)  
+    
+    junctionsData$sumIsoExp = sumExpPerJunc[junctionsData$junctionLabel]
+    
+    junctionsData$relCov = junctionsData$total_coverage / junctionsData$sumIsoExp
+    
+    max_dist = max(junctionsData$transcript_coord) +1
+    
+    junctionsData$TSSrange = cut(junctionsData$transcript_coord, breaks = c(0,20,40,60,80,100,120,140,160,180,200,max_dist), labels = c("0-20", "21-40","41-80","61-80", "81-100","101-120", "121-140","141-160", "161-180", "181-200", ">200"))
+    
+    pn1.2 <-ggplot(data=junctionsData[junctionsData$relCov<1,], aes(y=relCov,x=TSSrange,fill=canonical_known)) +
+      geom_boxplot(outlier.size = 0.2, size=0.3) +
+      scale_fill_manual(values = myPalette[c(1,7,3,2)], drop=FALSE) +
+      ylab("Relative coverage") + 
+      xlab("# TSS distance range") +
+      mytheme_bw +
+      theme(legend.position="bottom", legend.title=element_blank())  +
+      ggtitle( "Relative Coverage of junctions\n\n\n") +
+      theme(axis.text.x = element_text(angle = 45,margin=margin(15,0,0,0), size=12)) 
+    
+    
+  }
+
+}
+
+
+
+
+# PLOT p21-22: Full-lengthness (if FSM transcripts)
+
+if (nrow(sqantiData[sqantiData$structural_category=="FSM",])!=0){
+
+  perfect_match = sqantiData[which(sqantiData$structural_category=="FSM"), 
+                             c("isoform", "length", "exons", "associated_gene", "ref_length", "ref_exons" ,"diff_to_TSS", "diff_to_TTS")]
+  
+  perfect_match = perfect_match[which(perfect_match$exons!=1),]
+
+  max = max(c(abs(perfect_match$diff_to_TTS), abs(perfect_match$diff_to_TSS))) 
+  perfect_match$rangeDiffTTS = cut(-(perfect_match$diff_to_TTS), breaks = c((max+1)*(-1),seq(-200, 200, by = 20),max+1))
+  perfect_match$rangeDiffTSS = cut(-(perfect_match$diff_to_TSS), breaks = c((max+1)*(-1),seq(-200, 200, by = 20),(max+1)))
   
   max_height = max(c(max(table(perfect_match$rangeDiffTSS)),max(table(perfect_match$rangeDiffTTS))))
   mm = roundUp(max_height)/10
   max_height_rounded = RoundUp(max_height, mm)
   
-  
   p21.bbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTTS)) +
-    geom_bar(fill=myPalette[4], color="black", size=0.3)+
+    geom_bar(fill=myPalette[4], color="black", size=0.3) +
     scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded))+
     mytheme +
+    scale_x_discrete(drop=F) +
     ylab("# FSM transcripts")+
     xlab("Distance to annotated TTS (bp)")+
     labs(     title="Distance distribution from sequenced to annotated TTS \n\n",
-              subtitle="Negative values indicate that the sequenced TTS is downstream annotated TTS\n\n") +
+              subtitle="Negative values indicate that the sequenced TTS is upstream annotated TTS\n\n") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
   
   p21.bbbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTTS)) +
     geom_bar(aes(y = (..count..)/sum(..count..)), fill=myPalette[4], color="black", size=0.3)+
     scale_y_continuous(labels = percent_format(), limits = c(0,1), expand = c(0,0))+
+    scale_x_discrete(drop=F) +
     mytheme +
     ylab("% FSM transcripts")+
     xlab("Distance to annotated TTS (bp)")+
     labs(     title="Distance distribution from sequenced to annotated TTS \n\n",
-              subtitle="Negative values indicate that the sequenced TTS is downstream annotated TTS\n\n") +
+              subtitle="Negative values indicate that the sequenced TTS is upstream annotated TTS\n\n") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
   
   
   p22.bbbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTSS)) +
     geom_bar(aes(y = (..count..)/sum(..count..)), fill=myPalette[6], color="black", size=0.3)+
     scale_y_continuous(labels = percent_format(), limits = c(0,1), expand = c(0,0))+
+    scale_x_discrete(drop=F) +
     mytheme +
     ylab("% FSM transcripts")+
     xlab("Distance to annotated TSS (bp)")+
     labs(     title="Distance distribution from sequenced to annotated TSS \n\n",
-              subtitle="Negative values indicate that the sequenced TSS is upsteam annotated TSS\n\n") +
+              subtitle="Negative values indicate that the sequenced TSS is downstream annotated TSS\n\n") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
   
   
   p22.bbbb <- ggplot(data=perfect_match, aes(x=rangeDiffTSS)) +
     geom_bar(fill=myPalette[6], color="black", size=0.3)+
     scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded))+
+    scale_x_discrete(drop=F) +
     mytheme +
     ylab("# FSM transcripts")+
     xlab("Distance to annotated TSS (bp)")+
     labs(     title="Distance distribution from sequenced to annotated TSS \n\n",
-              subtitle="Negative values indicate that the sequenced TSS is upstream annotated TSS\n\n") +
+              subtitle="Negative values indicate that the sequenced TSS is downstream annotated TSS\n\n") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
   
-
+  
 }
+  
 
-# PLOT 23
+# PLOT p28: Attribute summary if junctions
 
-p23 <- ggplot(data=junctionsData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=canonical_known), color="black",  size=0.3, width = 0.7) +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
-  scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-  ylab("% Splice junctions") +
-  mytheme +
-  guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.3))+
-  theme(legend.position="bottom", legend.title=element_blank())  +
-  theme(axis.text.x = element_text(angle = 45)) +
+if (nrow(junctionsData) > 0){
+  
+  if (!all(is.na(junctionsData$total_coverage))){
+    
+    sqantiData[which(sqantiData$min_cov==0), "Not coverage SJ"] <- "Not coverage SJ"
+    a = sqantiData[,c("all_canonical", "Not coverage SJ", "RTS_stage", "isoform", "structural_category")]
+    a$RTS_stage = as.factor(a$RTS_stage)
+    b = melt(a, id.vars = c("isoform", "structural_category"), na.rm = T)
+    b = b[-which(b$value=="FALSE" | b$value=="canonical"),]
+    b$value <- factor(b$value)
+    b$value = factor(b$value, 
+                     labels = c("Non-canonical SJ","RT-switching", "Not coverage SJ"), 
+                     levels = c("non_canonical", "TRUE", "Not coverage SJ"), 
+                     ordered=TRUE)
+
+    
+    numberPerCategory = as.data.frame(table(b$structural_category))
+    attribute.df2 = merge(numberPerCategory, as.data.frame(table(b$structural_category, b$value)), by="Var1")
+    attribute.df2$perc = attribute.df2$Freq.y / attribute.df2$Freq.x * 100
+    attribute.df2[is.na(attribute.df2$perc),"perc"] <- 0
+
+    p28.a <- ggplot(data=attribute.df2[attribute.df2$Var1%in%c("FSM", "NNC", "NIC"),], aes(x=Var1, y=perc, fill= Var2)) +
+      geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
+      scale_y_continuous(expand = c(0,0), limits = c(0,100)) +
+      scale_fill_manual(values = myPalette[9:11]) +
+      ylab("% Transcripts") + 
+      xlab("") +
+      mytheme +
+      theme(legend.position="bottom", axis.title.x = element_blank()) +
+      ggtitle( "Quality control attributes across structural categories\n\n" ) +
+      guides(fill = guide_legend(title = "QC Attributes") )
+    
+  }else{
+   
+    a = sqantiData[,c("all_canonical", "RTS_stage", "isoform", "structural_category")]
+    a$RTS_stage = as.factor(a$RTS_stage)
+    b = melt(a, id.vars = c("isoform", "structural_category"), na.rm = T)
+    numberPerCategory = as.data.frame(table(sqantiData$structural_category))
+    b = b[-which(b$value=="FALSE" | b$value=="canonical"),]
+    b$value <- factor(b$value)
+    b$value = factor(b$value, 
+                     labels = c("Non-canonical SJ","RT-switching"), 
+                     levels = c("non_canonical", "TRUE"), ordered=T)
+    attribute.df2 = merge(numberPerCategory, as.data.frame(table(b$structural_category, b$value)), by="Var1")
+    attribute.df2$perc = attribute.df2$Freq.y / attribute.df2$Freq.x * 100
+    attribute.df2[is.na(attribute.df2$perc),"perc"] <- 0
+
+    p28.a <- ggplot(data=attribute.df2[attribute.df2$Var1%in%c("FSM", "NNC", "NIC"),], aes(x=Var1, y=perc, fill= Var2)) +
+      geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
+      scale_y_continuous(expand = c(0,0), limits = c(0,100)) +
+      scale_fill_manual(values = myPalette[9:11]) +
+      ylab("% Transcripts") + 
+      xlab("") +
+      mytheme +
+      theme(legend.position="bottom", axis.title.x = element_blank()) +
+      ggtitle( "Quality control attributes across structural categories\n\n" ) +
+      guides(fill = guide_legend(title = "QC Attributes") )    
+    
+    
+    
+  }
+    }
+
+
+# PLOT p30,p31,p32: percA by subcategory
+
+
+p30 <- ggplot(data=sqantiData, aes(y=perc_A_downstream_TTS, x=structural_category, fill=subcategory)) +
+  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme +
+  ylab("% Adenines in gDNA window downstreamTTS") +
+  mytheme  + theme(axis.text.x = element_text(angle = 45)) +
+  theme(legend.position="bottom", legend.title=element_blank(), legend.direction = "horizontal", legend.box = "vertical") +
+  guides(fill=guide_legend(nrow=5,byrow=TRUE)) +
   theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+  ggtitle("Adenine enrichment downstream TTS (intra primming)\n\n" ) +
   theme(axis.title.x=element_blank()) +
-  #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
-  ggtitle("Distribution of SJ type among structural classification\n\n\n")
+  scale_fill_manual(values=myPalette, breaks=c("3prime_fragment", "internal_fragment", "5prime_fragment",
+                            "mono-exon", "multi-exon", "combination_of_known_junctions", 
+                            "no_combination_of_known_junctions", "mono-exon_by_intron_retention/s",
+                            "not any annotated donor/acceptor", "any annotated donor/acceptor", "no_subtype"),
+                   labels=c("3' fragment", "Internal fragment", "5' fragment",
+                            "Mono-exon", "Multi-exon", "Combination of annotated junctions", 
+                            "Not combination of annotated junctions", "Mono-exon by intron retention",
+                            "Without annotated donors/acceptors", "At least one annotated donor/acceptor", "Not subcategory"), drop=F) 
 
-sqantiData$AllCanonical = factor(sqantiData$AllCanonical, 
-                                       levels = c("canonical","non_canonical"), 
-                                       ordered=TRUE)
-
-p23.b <- ggplot(data=sqantiData, aes(x=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..), fill=AllCanonical), color="black", size=0.3, width = 0.7) +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
-  scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-  ylab("% Transcripts ") +  
-  mytheme +
-  guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.3))+
-  theme(legend.position="bottom", legend.title=element_blank())  +
+p31 <- ggplot(data=sqantiData, aes(y=perc_A_downstream_TTS, x=structural_category, fill=exonCat)) +
+  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme +
+  scale_fill_manual(breaks=c("MonoExon", "MultiExon"),
+                 labels=c("Mono-exon Isoforms", "Multi-exon Isoforms"), values=myPalette) +
+  ylab("% Adenines in gDNA window downstreamTTS") +
+  theme(legend.position="bottom", legend.title=element_blank()) +
   theme(axis.text.x = element_text(angle = 45)) + 
   theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
-  theme(axis.title.x=element_blank()) + 
-  #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
-  labs(   title="Distribution of transcripts by splice junction category\n\n\n",
-          subtitle="Non canonical transcripts are those with at least one non-canonical junction\n\n") 
-
-#alpha
-p23.c <- ggplot(data=sqantiData, aes(x=structuralCategory, alpha=AllCanonical, fill=structuralCategory)) +
-  geom_bar(position="fill", aes(y = (..count..)/sum(..count..)), color="black",  size=0.3,width = 0.7) +
-  scale_fill_manual(values = myPalette, guide='none' )  +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
-  scale_alpha_manual(values=c(1,0.3)) +
-  ylab("% Transcripts ") +  
-  mytheme +
-  theme(legend.position="bottom", axis.title.x = element_blank()) +
-  theme(axis.text.x = element_text(angle = 45)) + 
-  theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
-  theme(axis.title.x=element_blank()) + 
-  #theme(plot.margin = unit(c(1.5,1,0,1), "cm")) +
-  labs(   title="Distribution of transcripts by splice junction category\n\n\n",
-          subtitle="Non canonical transcripts are those with at least one non-canonical junction\n\n") 
-  
-
-# PLOT 24
-
-p24 <- ggplot(data=junctionsData, aes(x=transcriptCoord, fill = canonical_known)) +
-  geom_density(alpha=0.7,  size=0.3) +
-  scale_y_continuous(expand = c(0,0))  +
-  scale_x_continuous(expand = c(0,0)) +
-  scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-  geom_vline(xintercept = 200, linetype = "longdash", color="red") +
-  mytheme +
-  guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.7))+
-  theme(legend.position="bottom" ) +
-  labs(list(fill = "Junction Type", x= "Distance to TSS (bp)", 
-            title = "Distribution of splice junctions distance to TSS\n\n") )
-
-
-# PLOT 25
-
-p25 <- ggplot(data=junctionsData, aes(x=TSSrange, fill=canonical_known)) +
-  geom_bar(aes(y = (..count..)/sum(..count..)), color="black", size=0.3, width=0.7, position="fill") +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
-  scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-  mytheme +
-  theme(legend.position="bottom") +
-  guides(fill = guide_legend(keywidth = 0.7, keyheight = 0.7))+
-  labs(list(fill = "Junction Type", x= "TSS distance range (bp)", y="% Junctions",
-            title = "Splice junction distance to TSS across junction type\n\n\n") ) +
-  theme(axis.title.x  = element_text(margin=margin(10,0,0,0), size=12))
-
-
-
-
-# PLOT 26
-
-p26 <- ggplot(data=junctionsData, aes(x=canonical_known, fill=TSSrange)) +
-  geom_bar(aes(y = (..count..)/sum(..count..)), color="black", size=0.3, width=0.7, position="fill") +
-  scale_y_continuous(labels = percent, expand = c(0,0)) +
-  scale_fill_manual(values = myPalette) +
-  ylab("% Junctions") +
-  mytheme +
-  theme(legend.position="bottom") +
-  guides(fill = guide_legend(title = "TSS distance range (bp)")) +
-  ggtitle( "Splice junction distance to TSS across junction type\n\n\n") +
+  ggtitle("Adenine enrichment downstream TTS (intra primming)\n\n" ) +  
   theme(axis.title.x=element_blank()) 
-#theme(plot.margin = unit(c(1.5,1,0,1), "cm")) 
-
-# PLOT 27
-
-junctionsData$isoExp = sqantiData[junctionsData$isoform, "isoExp"]
-junctionsData$junctionLabel = with(junctionsData, paste(chrom, strand,genomicStartCoord, genomicEndCoord, sep="_"))
-
-if (!all(is.na(sqantiData$MinCov))){
-
-  total = aggregate(cbind(totalCoverage,isoExp,transcriptCoord) ~ junctionLabel, data = junctionsData, 
-                    FUN = function(x) c(mn = sum(x), n = min(x) ) )
-  
-  total$relCov = total$totalCoverage[,"n"] / total$isoExp[,"mn"]
-  total$minTSS = total$transcriptCoord[,"n"]
-  
-  uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known", "totalCoverage")])
-  uniqJunc$notCov = uniqJunc$totalCoverage==0
-  
-  uniqueJunc_nonCov = as.data.frame(table(uniqJunc[uniqJunc$totalCoverage==0,"canonical_known"])/table(uniqJunc$canonical_known)*100)
-  
-  uniqJunc2 = merge(total, uniqJunc, by=1)
-  uniqJunc2$TSSrange =cut(uniqJunc2$minTSS, breaks = c(0,40,80,120,160,200,10000000), labels = c("0-40", "41-80", "81-120", "121-160", "161-200",">200"))
-  
-  
-  # pn1 <- ggplot(data=uniqJunc2, aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-  #   geom_boxplot(outlier.size = 0.2) +
-  #   scale_y_continuous(limits = c(0,1)) +
-  #   scale_fill_manual(values = myPalette) +
-  #   ylab("Relative coverage") + 
-  #   xlab("# TSS distance range") +
-  #   mytheme_bw +
-  #   theme(legend.position="bottom", legend.title=element_blank())  +
-  #   ggtitle( "Relative Coverage of junctions (unique junctions)\n\n\n")
-  #   
-  # 
-  # 
-  # pn2 <-ggplot(data=uniqJunc2, aes(y=log(relCov+1),x=TSSrange,fill=canonical_known)) +
-  #   geom_boxplot(outlier.size = 0.2) +
-  #   scale_fill_manual(values = myPalette) +
-  #   ylab("log(Relative coverage)") + 
-  #   xlab("# TSS distance range") +
-  #   mytheme_bw +
-  #   theme(legend.position="bottom", legend.title=element_blank())  +
-  #   ggtitle( "Relative Coverage of junctions (unique junctions) \n\n\n") 
-  # 
-  # 
-  # pn3 <-ggplot(data=uniqJunc2, aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-  #   geom_boxplot(outlier.size = 0.1) +
-  #   scale_fill_manual(values = myPalette) +
-  #   ylab("Relative coverage") + 
-  #   xlab("# TSS distance range") +
-  #   mytheme_bw +
-  #   theme(legend.position="bottom", legend.title=element_blank())  +
-  #   ggtitle( "Relative Coverage of junctions (unique junctions) \n\n\n") 
-  
-  pn4 <-ggplot(data=uniqJunc[uniqJunc$notCov==TRUE,], aes(x=canonical_known,fill=canonical_known)) +
-    geom_bar(color="black", size=0.3, width=0.7) +
-    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-    ylab("# Splice Junctions without coverage") + 
-    xlab("Junction Type") +
-    mytheme +
-    guides(fill=FALSE) +
-    ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
-
-  
-  pn5 <- ggplot(data=uniqueJunc_nonCov, aes(x=Var1, y=Freq, fill=Var1)) +
-    geom_bar(position=position_dodge(), stat="identity", color="black", size=0.3, width=0.7) +
-    guides(fill=FALSE) +
-    scale_y_continuous( expand = c(0,0)) +
-    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-    ylab("% Splice Junctions without coverage") + 
-    xlab("Junction Type") +
-    mytheme +
-    guides(fill=FALSE) +
-    ggtitle( "Splice junctions without short-read coverage (unique junctions) \n\n\n") 
-  
-  # same but using all the junctions
-  
-  junctionsData$isoExp = sqantiData[junctionsData$isoform, "isoExp"]
-  junctionsData$junctionLabel = with(junctionsData, paste(chrom, strand,genomicStartCoord, genomicEndCoord, sep="_"))
-  
-  # calculate sum of mean expression of transcripts where each junction
-  sumExpPerJunc = tapply(junctionsData$isoExp, junctionsData$junctionLabel, sum)  #71387 uniq junction
-  
-  junctionsData$sumIsoExp = sumExpPerJunc[junctionsData$junctionLabel]
-  
-  junctionsData$relCov = junctionsData$totalCoverage / junctionsData$sumIsoExp
-  
-  junctionsData$TSSrange =cut(junctionsData$transcriptCoord, breaks = c(0,20,40,60,80,100,120,140,160,180,200,10000000), labels = c("0-20", "21-40","41-80","61-80", "81-100","101-120", "121-140","141-160", "161-180", "181-200", ">200"))
-  
-  
-  pn1.2 <-ggplot(data=junctionsData[junctionsData$relCov<1,], aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-    geom_boxplot(outlier.size = 0.2, size=0.3) +
-    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-    ylab("Relative coverage") + 
-    xlab("# TSS distance range") +
-    mytheme_bw +
-    theme(legend.position="bottom", legend.title=element_blank())  +
-    ggtitle( "Relative Coverage of junctions\n\n\n") +
-    theme(axis.text.x = element_text(angle = 45,margin=margin(15,0,0,0), size=12)) 
-    
-  
-  
-  # pn2.2 <-ggplot(data=junctionsData, aes(y=log(relCov+1),x=TSSrange,fill=canonical_known)) +
-  #   geom_boxplot(outlier.size = 0.1) +
-  #   scale_fill_manual(values = myPalette) +
-  #   ylab("log(Relative coverage)") + 
-  #   xlab("# TSS distance range") +
-  #   mytheme_bw +
-  #   theme(legend.position="bottom", legend.title=element_blank())  +
-  #   ggtitle( "Relative Coverage of junctions\n\n\n") 
-  # 
-  # 
-  # pn3.2 <-ggplot(data=junctionsData, aes(y=relCov,x=TSSrange,fill=canonical_known)) +
-  #   geom_boxplot(outlier.size = 0.1) +
-  #   scale_fill_manual(values = myPalette) +
-  #   ylab("Relative coverage") + 
-  #   xlab("# TSS distance range") +
-  #   mytheme_bw +
-  #   theme(legend.position="bottom", legend.title=element_blank())  +
-  #   ggtitle( "Relative Coverage of junctions\n\n\n") 
-  
-}
-
-# PLOT 28
-
-# p28 <- ggplot(data=attribute.df2[attribute.df2$Var1%in%c("FSM", "NNC", "NIC"),], aes(x=Var1, y=perc, fill=Var1, alpha= Var2)) +
-#   geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-#   scale_y_continuous(expand = c(0,0)) +
-#   scale_fill_manual(values = myPalette[c(1,3,4)], guide='none' ) +
-#   scale_alpha_manual(values=c(1,0.4,0.1), name = "QC Attributes") +
-#   ylab("% Transcripts") + 
-#   xlab("") +
-#   mytheme +
-#   theme(legend.position="bottom", axis.title.x = element_blank()) +
-#   ggtitle( "Quality control attributes across structural categories\n\n" ) 
 
 
-p28.a <- ggplot(data=attribute.df2[attribute.df2$Var1%in%c("FSM", "NNC", "NIC"),], aes(x=Var1, y=perc, fill= Var2)) +
-  geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-  scale_y_continuous(expand = c(0,0)) +
-  scale_fill_manual(values = myPalette[9:11]) +
-  ylab("% Transcripts") + 
-  xlab("") +
-  mytheme +
-  theme(legend.position="bottom", axis.title.x = element_blank()) +
-  ggtitle( "Quality control attributes across structural categories\n\n" ) +
-  guides(fill = guide_legend(title = "QC Attributes") )
-
-
-# 
-# 
-# attribute.df.2.2$structuralCategory = unlist(lapply(strsplit(as.character(attribute.df.2.2$Var1), split=":"), function(x) x[[2]]))
-# 
-# 
-# p28.c <- ggplot(data=attribute.df.2.2[attribute.df.2.2$structuralCategory%in%c("FSM","NNC"),], aes(x=Var1, y=perc, fill=Var2)) +
-#   geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-#   scale_y_continuous(expand = c(0,0)) +
-#   scale_fill_manual(values = myPalette[9:11]) +
-#   ylab("% Transcripts") + 
-#   xlab("") +
-#   mytheme +
-#   theme(legend.position="bottom", axis.title.x = element_blank()) +
-# labs ( title= "Quality control attributes across structural categories\n\n",
-#          subtitle="Categories are divided into NNC/FSM containing genes") + 
-#   guides(fill = guide_legend(title = "QC Attributes") ) +
-#   scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms:FSM", 
-#                           "Genes expressing\nboth NNC and\n FSM isoforms:NNC",
-#                           "Genes expressing\n only FSM isoforms:FSM",
-#                           "Genes expressing\n only NNC isoforms:NNC"),
-#                  labels=c("FSM\nNNC/FSM genes", 
-#                           "NNC\nNNC/FSM genes",
-#                           "FSM\nFSM genes",
-#                           "NNC\nNNC genes")) +
-#   theme(axis.text.x = element_text(size=10))
-#         
-# 
-# 
-# 
-# p28.d <- ggplot(data=attribute.df.2.2, aes(x=Var1, y=perc, fill=Var2)) +
-#   geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-#   scale_y_continuous(expand = c(0,0)) +
-#   scale_fill_manual(values =  myPalette[9:11]) +
-#   ylab("% Transcripts") + 
-#   xlab("") +
-#   mytheme +
-#   theme(legend.position="bottom", axis.title.x = element_blank()) +
-#   ggtitle( "Quality control attributes across structural categories\n\n" ) +
-#   guides(fill = guide_legend(title = "QC Attributes") ) +
-#   scale_x_discrete(breaks=c("Genes expressing\nboth NNC and\n FSM isoforms:FSM", 
-#                             "Genes expressing\nboth NNC and\n FSM isoforms:Genic\nGenomic",
-#                             "Genes expressing\nboth NNC and\n FSM isoforms:ISM",
-#                             "Genes expressing\nboth NNC and\n FSM isoforms:NIC",
-#                             "Genes expressing\nboth NNC and\n FSM isoforms:NNC",
-#                             "Genes expressing\n only FSM isoforms:FSM",
-#                             "Genes expressing\n only NNC isoforms:NNC"),
-#                    labels=c("FSM\nNNC/FSM genes", 
-#                             "Genic Genomic\nNNC/FSM genes",
-#                             "ISM\nNNC/FSM genes",
-#                             "NIC\nNNC/FSM genes",
-#                             "NNC\nNNC/FSM genes",
-#                             "FSM\nFSM genes",
-#                             "NNC\nNNC genes"))
+p32 <- ggplot(data=sqantiData, aes(y=perc_A_downstream_TTS, x=structural_category, fill=coding)) +
+  geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme +
+  scale_fill_manual(breaks=c("coding", "non_coding"),
+                    labels=c("Coding Isoforms", "Non-coding Isoforms"), values=myPalette[3:4]) +
+  ylab("% Adenines in gDNA window downstreamTTS") +
+  theme(legend.position="bottom", legend.title=element_blank() ) +
+  theme(axis.text.x = element_text(angle = 45)) + 
+  theme(axis.text.x  = element_text(margin=margin(17,0,0,0), size=12))+
+  ggtitle("Adenine enrichment downstream TTS (intra primming)\n\n" ) +  
+  theme(axis.title.x=element_blank()) 
 
 
 
 
-# PLOT 29
 
-if (nrow(junctionsData[junctionsData$RTS_junction=="TRUE",])!=0){
-  
-  
-  b = table(junctionsData$canonical, junctionsData$junctionCategory)
-  
-  a = table(junctionsData[junctionsData$RTS_junction=="TRUE","canonical"], junctionsData[junctionsData$RTS_junction=="TRUE","junctionCategory"])
-  
-  rts_junction = as.data.frame(a/b*100)
-  rts_junction$`Junction Type` = with(rts_junction, paste(Var2,Var1, sep="\n"))
-  rts_junction$`Junction Type` = factor(rts_junction$`Junction Type`, levels=c("known\ncanonical", "known\nnon_canonical","novel\ncanonical","novel\nnon_canonical"),
-                                         labels=c("Known\ncanonical ", "Known\nNon-canonical ", "Novel\ncanonical ", "Novel\nNon-canonical "), order=T) 
-  
-  max_height_rts = max(rts_junction$Freq)
-  mm_rts = roundUp(max_height_rts)/10
-  max_height_rounded_rts = RoundUp(max_height_rts, mm_rts)
-  
-  p29 <- ggplot(data=rts_junction, aes(x=`Junction Type`, y=Freq, fill=`Junction Type`)) +
-    geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-    ylab("% RT-switching junctions") +
-    ggtitle( "RT-switching by splice junction category \n\n" ) +
-    mytheme +
-    guides(fill=FALSE) +
-    scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded_rts)) +
-    theme(axis.text.x = element_text(size=11))
-  
-    
-  
-  
-  
-  uniqJuncRTS =unique(junctionsData[,c("junctionLabel","canonical_known", "RTS_junction")])
-  c = table(uniqJuncRTS$canonical_known)
-  d = table(uniqJuncRTS[uniqJuncRTS$RTS_junction==TRUE, "canonical_known"])
-  rts_junction_uniq = as.data.frame(d/c*100)
-  
-  max_height_rts_u = max(rts_junction_uniq$Freq)
-  mm_rts_u = roundUp(max_height_rts_u)/10
-  max_height_rounded_rts_u = RoundUp(max_height_rts_u, mm_rts_u)
-  
-  p29.a <- ggplot(data=rts_junction_uniq, aes(x=Var1, y=Freq, fill=Var1)) +
-    geom_bar(position = position_dodge(), stat="identity", width = 0.7,  size=0.3, color="black") +
-    scale_fill_manual(values = myPalette[c(1,7,3,2)]) +
-    ylab("% RT-switching junctions") +
-    ggtitle( "RT-switching by splice junction category (unique junctions)\n\n" ) +
-    mytheme +
-    guides(fill=FALSE) +
-    scale_y_continuous(expand = c(0,0), limits = c(0,max_height_rounded_rts_u)) +
-    theme(axis.text.x = element_text(size=11))
-  
 
-}
+
+
 
 ###** Output plots
 
@@ -927,7 +890,7 @@ cover <- textGrob("SQANTI report",
 grid.draw(cover)
 
 # t1
-freqCat = as.data.frame(table(sqantiData$structuralCategory))
+freqCat = as.data.frame(table(sqantiData$structural_category))
 freqCat = freqCat[order(freqCat$Freq,decreasing = T),]
 table <- tableGrob(freqCat, rows = NULL, cols = c("category","# isoforms"))
 title <- textGrob("Characterization of transcripts\n based on splice junctions", gp=gpar(fontface="italic", fontsize=17), vjust = -3.5)
@@ -961,82 +924,120 @@ grid.arrange(s,gt2,gt3,gt1, layout_matrix = cbind(c(1,2,3),c(1,4,4)))
 #1. general parameters
 s <- textGrob("Gene characterization", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
 grid.arrange(s)
-#p0.2
 p0
-p6
 p7
-p10
-if (!all(is.na(sqantiData$FL))){
-  p11
+p6
+if (!all(is.na(isoPerGene$geneExp))){
+  print(p10)
 }
+if (!all(is.na(sqantiData$FL))){
+  print(p11)
+}
+print(p31)
+print(p32)
 
 #2. general parameters by structual categories
 
 s <- textGrob("Structrual Isoform characterization\nbased on splice junctions", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
 grid.arrange(s)
-p1
-p4
-p5
-p8
+print(p1)
+print(p4)
+print(p5)
+if (!all(is.na(sqantiData$iso_exp))){
+  print(p8)
+}
 if (!all(is.na(sqantiData$FL))){
   print(p9)
 }
+print(p30)
 
-if (nrow(sqantiData[sqantiData$structuralCategory%in%c("FSM","ISM"),])!=0){
-print(p2)
-print(p3)
+if (nrow(sqantiData[sqantiData$structural_category%in%c("FSM","ISM"),])!=0){
+  print(p2)
+  print(p3)
 }
-
-if (nrow(gene[!is.na(gene$NNC_class),])!=0){
-print(p13)
-print(p13.c)
-print(p12)
+if (!all(is.na(sqantiData$gene_exp))){
+  if (nrow(sqantiData[sqantiData$structural_category=="NNC",])!=0){
+    print(p12)
+  }
+}
+if (!all(is.na(sqantiData$gene_exp))){
+  if (nrow(sqantiData[sqantiData$structural_category=="NNC",])!=0 & nrow(sqantiData[sqantiData$structural_category=="FSM",])!=0 ){
+    print(p13)
+    print(p13.c)
+  }
 }
 
 
 #3. splice junction
 
-s <- textGrob("Splice junction characterization", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
-grid.arrange(s)
-p23.c
-p23.b
-p23
-p24
-p25
-p26
-if (!all(is.na(sqantiData$MinCov))){
-  print(pn1.2)
-  print(pn4)
-  print(pn5)
+if (nrow(junctionsData) > 0){
+ 
+  s <- textGrob("Splice junction characterization", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+  grid.arrange(s)
+  print(p23.b)
+  print(p23)
+  print(p24)
+  print(p25)
+  print(p26)
+  
+  if (!all(is.na(junctionsData$total_coverage)) & !all(is.na(sqantiData$iso_exp))){
+    print(pn1.2)
+  }
+  
+  if (!all(is.na(junctionsData$total_coverage))){
+    print(pn4)
+    print(pn5)
+  }
+  
+  if (nrow(junctionsData[junctionsData$RTS_junction=="TRUE",])!=0){
+    print(p29)
+    print(p29.a)
+  }
+} else{
+  s <- textGrob("Splice junction characterization can be plotted:  Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+  grid.arrange(s)
 }
-if (nrow(junctionsData[junctionsData$RTS_junction=="TRUE",])!=0){
-print(p29)
-print(p29.a)
-}
+
 
 #4. full-lengthness
 
-if (nrow(perfect_match)!=0){
-
+if (nrow(sqantiData[sqantiData$structural_category=="FSM",])!=0){
   s <- textGrob("Full-lengthness characterization of isoforms", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
   grid.arrange(s)
   print(p21.bbbb)
   print(p21.bbbbb)
   print(p22.bbbb)
   print(p22.bbbbb)
-
+  
 }
 
-s <- textGrob("Quality control attributes", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
-grid.arrange(s)
-#p28a
-p28.a
-#p28.c
+if (nrow(junctionsData) > 0){
+  s <- textGrob("Quality control attributes", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+  grid.arrange(s)
+  print(p28.a)
+} else{  s <- textGrob("Quality control attributes can be computed: Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+grid.arrange(s)}
+
 
 
 dev.off()
 
 
 print("SQANTI report successfully generated!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
