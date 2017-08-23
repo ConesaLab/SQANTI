@@ -137,7 +137,7 @@ Expression values can be computed with any software design to calculate transcri
 
 #
 
-**Note: You can check format of input files in "example_dataset" folder which contains a real example.**
+**Note: You can check format of input files in "example_dataset" folder which contains an example.**
 
 
 ##Output Files:##
@@ -154,7 +154,7 @@ Expression values can be computed with any software design to calculate transcri
 
 **6. *name*_junctions.txt:** File with attribute information at splice junction level.
 
-**7. *name*_Report.pdf:** PDF file showing different quality control and descriptive plots. 
+**7. *name*_report.pdf:** PDF file showing different quality control and descriptive plots. 
 
 
 
