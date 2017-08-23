@@ -2,11 +2,5 @@ rows:predictions
 columns:reference 
 
 "NEG" "POS"
-"NEG" 8 10
-"POS" 0 43
-rows:predictions 
-columns:reference 
-
-"NEG" "POS"
-"NEG" 8 2
-"POS" 0 51
+"NEG" 8 3
+"POS" 0 50

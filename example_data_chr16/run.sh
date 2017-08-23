@@ -3,7 +3,6 @@
 ## Software requirments
 
 # python 2.7
-# Python 2.7
 # Pysam python module
 # Psutil python module
 # Perl
@@ -25,7 +24,7 @@ sj_covIllumina="SJcoverageIllumina" # path to folder or comma-separeted list of 
 
 refGenome="referenceFiles/mm10_chr16.fa" 
 refGTF="referenceFiles/refseq_ensembl16.gtf"
-gmapIndex="referenceFiles/mm10_chr16_index/mm10_chr16_index"  
+gmapIndex="referenceFiles/mm10_chr16_index/mm10_chr16_index"  # not provided with the example dataset
 
 
 # Running SQANTI QC 

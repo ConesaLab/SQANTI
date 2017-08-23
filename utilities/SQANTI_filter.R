@@ -371,7 +371,7 @@ if(flag==TRUE){
   a=data.frame(pred,obs=Class[-inTraining],POS=test_pred_prob$POS,NEG=test_pred_prob$NEG)
   print("ROC, Sens, Spec on the test set")
   print(twoClassSummary(a,lev=levels(a$obs)))
-  write("ROC, Sens, Spec on the test set",file=paste(opt$dir,'/statistics_testset.txt',sep=''),append=TRUE)
+  write("ROC, Sens, Spec on the test set",file=paste(opt$dir,'/statistics_testset.txt',sep=''))
   write(twoClassSummary(a,lev=levels(a$obs)),file=paste(opt$dir,'/statistics_testset.txt',sep=''), append=TRUE)
   
   print("Area under precision-recall curve, Precision, Recall, F ")
