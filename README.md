@@ -17,7 +17,6 @@ SQANTI pipeline steps:
 1. First, as long-read sequencing usually has a high rate of errors along sequences, it performs a **reference-based correction of sequences**.
 
 2. Secondly, it **generates genes models** and **classifies transcripts based on splice junctions**.
-      ![Transcript Classification](https://bitbucket.org/repo/kpnA5g/images/803890880-Diapositiva1.png)
 
 3. Third, it **predicts ORFs** for each transcript, obtaining information about the coding potential of each sequence. 
 
@@ -25,8 +24,6 @@ SQANTI pipeline steps:
 
 5. Together with SQANTI_qc function, the user can use the **SQANTI filter function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI_qc attributes to create a classifier of artifacts.
 
-
-![SQANTI WORKFLOW](Figure_1b.png)
 
 ## **Required software** ##
 
@@ -231,13 +228,3 @@ lfuente@cipf.es
 manueltar@ufl.edu
 
 
-##**Appendix**##
-
-* Attributes at isoform level defined by SQANTI in **name_classification.txt** file
-
-![table_supp1_HOJA1-1.png](https://bitbucket.org/repo/kpnA5g/images/3507259918-table_supp1_HOJA1-1.png)
-
-
-* Attributes at splice junction level defined by SQANTI in **name_junctions.txt** file
-
-![table_supp1_HOJA2-1 2.png](https://bitbucket.org/repo/kpnA5g/images/2891116287-table_supp1_HOJA2-1%202.png)
