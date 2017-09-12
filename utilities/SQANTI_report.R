@@ -643,7 +643,7 @@ if (nrow(junctionsData) > 0){
 # PLOT pn1.2: Splice Junction relative coverage (if coverage and expression provided)
 
 if (nrow(junctionsData) > 0){
-    
+  
   if (!all(is.na(junctionsData$total_coverage)) & !all(is.na(sqantiData$iso_exp))){
     
     junctionsData$isoExp = sqantiData[junctionsData$isoform, "iso_exp"]
@@ -655,7 +655,8 @@ if (nrow(junctionsData) > 0){
     total$minTSS = total$transcript_coord[,"n"]
     
     uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known", "total_coverage")])
-    uniqJunc$notCov = uniqJunc$total_coverage==0
+    print("hola")
+    uniqJunc$notCov = uniqJunc$total_coverage == 0
     
     uniqueJunc_nonCov = as.data.frame(table(uniqJunc[uniqJunc$totalCoverage==0,"canonical_known"])/table(uniqJunc$canonical_known)*100)
     
@@ -686,7 +687,8 @@ if (nrow(junctionsData) > 0){
       theme(axis.text.x = element_text(angle = 45,margin=margin(15,0,0,0), size=12)) 
     
     
-  }
+  }else{    uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known")])
+}
 
 }
 
@@ -778,7 +780,7 @@ if (nrow(junctionsData) > 0){
                      ordered=TRUE)
 
     
-    numberPerCategory = as.data.frame(table(b$structural_category))
+    numberPerCategory = as.data.frame(table(sqantiData$structural_category))
     attribute.df2 = merge(numberPerCategory, as.data.frame(table(b$structural_category, b$value)), by="Var1")
     attribute.df2$perc = attribute.df2$Freq.y / attribute.df2$Freq.x * 100
     attribute.df2[is.na(attribute.df2$perc),"perc"] <- 0
@@ -903,12 +905,18 @@ title2 <- textGrob("Gene classification", gp=gpar(fontface="italic", fontsize=17
 gt2 <- gTree(children=gList(table2, title2))
 
 # t4
-freqCat = as.data.frame(table(uniqJunc$canonical_known))
-freqCat$Var1 = gsub(" ", "", freqCat$Var1)
-freqCat$Var1 = gsub("\n", " ", freqCat$Var1)
-table2 <- tableGrob(freqCat, rows = NULL, cols = c("category","# SJ"))
-title2 <- textGrob("SJ classification", gp=gpar(fontface="italic", fontsize=17), vjust = -5)
-gt3 <- gTree(children=gList(table2, title2))
+if (nrow(junctionsData) > 0){
+  freqCat = as.data.frame(table(uniqJunc$canonical_known))
+  freqCat$Var1 = gsub(" ", "", freqCat$Var1)
+  freqCat$Var1 = gsub("\n", " ", freqCat$Var1)
+  table2 <- tableGrob(freqCat, rows = NULL, cols = c("category","# SJ"))
+  title2 <- textGrob("SJ classification", gp=gpar(fontface="italic", fontsize=17), vjust = -5)
+  gt3 <- gTree(children=gList(table2, title2))
+}else{  
+  title2 <- textGrob("SJ classification", gp=gpar(fontface="italic", fontsize=17), vjust = -5)
+  freqCat = data.frame(Var1=c("Known canonical", "Known Non-canonical", "Novel canonical", "Novel Non-canonical"), Freq=c(0,0,0,0))
+  table2 <- tableGrob(freqCat, rows = NULL, cols = c("category","# SJ"))
+  gt3 <- gTree(children=gList(table2, title2))}
 
 # t3
 nGenes = nrow(isoPerGene)

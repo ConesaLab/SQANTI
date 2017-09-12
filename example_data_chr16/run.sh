@@ -5,13 +5,39 @@
 # python 2.7
 # Pysam python module
 # Psutil python module
+# Biopython
 # Perl
 # Gmap aligner (>= 2014-12-31)
 # R (>= 3.4.0)
+# R packages (Sqanti_QC function):
+	# ggplot2
+	# scales
+	# reshape
+	# gridExtra
+	# grid
+# R packages (Sqanti filter function):
+	# rpart
+	# ROCR
+	# caret
+	# optparse
+	# ggplot2
+	# lattice
+	# foreach
+	# e1071
+	# randomForest
+	# partykit
+	# ipred
+	# rpart.plot
+	# doMC
+	# nnet
+	# ROSE
+	# pROC
+	# MLmetrics
+
 
 ## Setting the working dir
 
-cd exampleData_chr16
+cd example_data_chr16
 
 ## Data files
 
@@ -29,13 +55,15 @@ gmapIndex="referenceFiles/mm10_chr16_index/mm10_chr16_index"  # not provided wit
 
 # Running SQANTI QC 
 
-python ../sqanti_qc.py $isoformsFasta $refGTF $refGenome -fl $fl_pacBio -c $sj_covIllumina -e $isoExpression -n -x $gmapIndex
+
+
+python ../sqanti_qc.py $isoformsFasta $refGTF $refGenome -fl $fl_pacbio -c $sj_covIllumina -e $isoExpression -n -x $gmapIndex
 
 
 # Running SQANTI filter
 
 SQANTIclass="all.good.5merge.collapsed.longest_rep16_classification.txt"
-corrFasta = "all.good.5merge.collapsed.longest_rep16_corrected.fasta"
+corrFasta="all.good.5merge.collapsed.longest_rep16_corrected.fasta"
 
 python sqanti_filter.py  $SQANTIclass -i $corrFasta
 

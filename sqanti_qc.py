@@ -16,8 +16,6 @@ from indels_annot import indels
 import psutil
 import gc
 import distutils.spawn
-from Bio import SeqIO
-
 
 class myQueryTranscripts:
 
@@ -491,6 +489,19 @@ def correctionPlusORFpred(args, chrom_names):
 
 		sys.stdout.write("\nSkipping aligning of sequences because gtf file was provided.\n")
 
+		ind = 0
+		with open(args.isoforms, 'r') as isoforms_gtf:
+			for line in isoforms_gtf:
+				if line[0] != "#" and len(line.split("\t"))!=9:
+					sys.stderr.write("\nERROR: input isoforms file with not gtf format.\n")
+					sys.exit()
+				elif len(line.split("\t"))==9:
+					ind += 1
+			if ind==0:
+					sys.stderr.write("\nERROR: gtf has not annotation lines.\n")
+					sys.exit()
+
+
 		# GFF to GTF (in case the user provides gff instead of gtf)
 		corrGTF_tpm = corrGTF+".tmp"
 		subprocess.call([utilitiesPath+"gffread", args.isoforms , '-T', '-o', corrGTF_tpm])
@@ -499,13 +510,14 @@ def correctionPlusORFpred(args, chrom_names):
 		with open(corrGTF, 'w') as corrGTF_out:
 			with open(corrGTF_tpm, 'r') as isoforms_gtf:
 				for line in isoforms_gtf:
-					chrom = line.split("\t")[0]
-					type = line.split("\t")[2]
-					if chrom not in chrom_names:
-						sys.stderr.write("\nERROR: gtf \"%s\" chromosome not found in genome reference file.\n" % (chrom))
-						sys.exit()
-					elif type=="exon":
-						corrGTF_out.write(line)
+					if line[0] != "#":
+						chrom = line.split("\t")[0]
+						type = line.split("\t")[2]
+						if chrom not in chrom_names:
+							sys.stderr.write("\nERROR: gtf \"%s\" chromosome not found in genome reference file.\n" % (chrom))
+							sys.exit()
+						elif type=="exon":
+							corrGTF_out.write(line)
 		os.remove(corrGTF_tpm)
 
 		if not os.path.exists(corrSAM):
@@ -549,6 +561,7 @@ def correctionPlusORFpred(args, chrom_names):
 
 	if len(orfLenDicc)==0:
  		sys.stderr.write("WARNING: All input isoforms were predicted as non-coding")
+
 	
 	os.remove(ORF)
 	os.rename(corrORF, ORF) 
@@ -556,6 +569,8 @@ def correctionPlusORFpred(args, chrom_names):
 	del ORFdicc
 	gc.collect()
 	return(orfLenDicc)
+
+
 def reference_parser(args, chrom_names):
 
 	global referenceFiles
@@ -564,11 +579,28 @@ def reference_parser(args, chrom_names):
  	sys.stdout.write("\n**** Parsing Reference Transcriptome...\n")
 
 
+	ind = 0
+	with open(args.annotation, 'r') as reference_gtf:
+		for line in reference_gtf:
+			if line[0] != "#" and len(line.split("\t"))!=9:
+				sys.stderr.write("\nERROR: reference annotation file with not gtf/gff format.\n")
+				sys.exit()
+			elif len(line.split("\t"))==9:
+				ind += 1
+		if ind==0:
+				sys.stderr.write("\nERROR: reference annotation file has not annotation lines.\n")
+				sys.exit()
+
+
 	## gtf to genePred
  	if args.name:
  		subprocess.call([utilitiesPath+"gtfToGenePred", args.annotation, referenceFiles, '-genePredExt', '-allErrors', '-ignoreGroupsWithoutExons', '-geneNameAsName2'])
  	else:
  		subprocess.call([utilitiesPath+"gtfToGenePred", args.annotation, referenceFiles, '-genePredExt', '-allErrors', '-ignoreGroupsWithoutExons'])
+
+ 	if not os.path.exists(referenceFiles):
+		sys.exit()
+
 
 	## parsing annotation while filtering miRNA RNAs  
 
@@ -786,13 +818,10 @@ def transcriptsKnownSpliceSites(transcripts_chrom_1exon, transcripts_chrom_exons
 		TTS = int(EXON_s[0])
 		downTTS = ReverseComplement(str(seq[CHROM][int(EXON_s[0]-(nPolyA+1)):(TTS-1)]))
 	percA = float(downTTS.count('A'))/nPolyA*100
-	# print(downTTS)
-	# print(str(downTTS.count('A')))
-	# print(percA)
+
 
 	myTranscript_Assoc = myQueryTranscripts("", "NA","NA",len(EXON_s),isoLength, "", chrom=CHROM, strand=STRAND, subtype="no_subcategory",  percAdownTTS=str(percA))
 
-	#print(line_split[0]+"\t"+str(percA)+str(downTTS))
 
 
 	##***************************************##
