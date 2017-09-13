@@ -33,6 +33,30 @@ SQANTI pipeline steps:
 * Perl
 * Gmap aligner (>= 2014-12-31)
 * R (>= 3.4.0)
+* R packages (Sqanti_QC function):
+        # ggplot2
+        # scales
+        # reshape
+        # gridExtra
+        # grid
+* R packages (Sqanti_filter function):
+        # rpart
+        # ROCR
+        # caret
+        # optparse
+        # ggplot2
+        # lattice
+        # foreach
+        # e1071
+        # randomForest
+        # partykit
+        # ipred
+        # rpart.plot
+        # doMC
+        # nnet
+        # ROSE
+        # pROC
+        # MLmetrics
 
 
 ## **Running** ##
@@ -118,22 +142,24 @@ where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl e
 
 *Note: It's recommended to discard smallRNAs (miRNAs, snoRNA, etc) to avoid a misannotation of novel genes.*
 # 
-**3. Genome:** Mandatory for the error-correction of sequences during genome mapping. It must be given in a unique fasta file. "fai" index file must be located in same folder as the fasta file.
+**3. Genome:** It must be given in a unique fasta file. "fai" index file must be located in same folder as the fasta file.
 
-#
-**4. Expression Matrix:** SQANTI needs information about the pre-computed expression of each given isoform to calculate some quality control attributes. The format must be tabulated file where the first column corresponds to the isoform identifiers. Next columns must represent the expression levels for each studied sample. The header must have a label for each studied sample.
-Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
 ##Optional Input Files:##
 
-**1. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
+#
+**1. Expression Matrix:** Isoform expression. The format must be a tabulated file where the first column corresponds to the isoform identifiers. Next columns must represent the expression levels for each studied sample. The header must have a label for each studied sample.
+Expression values can be computed with any software design to calculate transcript expression. We recommend to use short-reads sequencing followed by programs as RSEM, Kallisto or eXpress which allow to calculate accurately isoform expression. 
 
 #
-**2. FL_count:** As SQANTI was developed for the annotation and quality control of IsoSeq PacBio isoforms, you can provide PacBio abundance files where the number of Full-length reads associated to each PacBio-defined isoform is stored. Specifically, SQANTI uses the "*.abundance.txt" files.
+**2. Coverage:** Short-read coverage across junctions represents an informative measure for quality control of sequenced transcripts. STAR aligner output files are the required format files of SQANTI. More specifically, "SJ.out.tab" are the required ones ([STAR manual](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf)). To get them, short-read data must be align by using STAR aligner. Each sample must be run separately. 
 
 #
-**3. Gmap indexes:** Pre-computed genome indexes for GMAP aligner must be provided. 
+**3. FL_count:** As SQANTI was developed for the annotation and quality control of IsoSeq PacBio isoforms, you can provide PacBio abundance files where the number of Full-length reads associated to each PacBio-defined isoform is stored. Specifically, SQANTI uses the "*.abundance.txt" files.
+
+#
+**4. Gmap indexes:** Pre-computed genome indexes for GMAP aligner must be provided. 
 
 #
 
