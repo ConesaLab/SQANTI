@@ -842,11 +842,11 @@ p30 <- ggplot(data=sqantiData, aes(y=perc_A_downstream_TTS, x=structural_categor
   scale_fill_manual(values=myPalette, breaks=c("3prime_fragment", "internal_fragment", "5prime_fragment",
                             "mono-exon", "multi-exon", "combination_of_known_junctions", 
                             "no_combination_of_known_junctions", "mono-exon_by_intron_retention/s",
-                            "not any annotated donor/acceptor", "any annotated donor/acceptor", "no_subtype"),
+                            "not any annotated donor/acceptor", "any annotated donor/acceptor"),
                    labels=c("3' fragment", "Internal fragment", "5' fragment",
                             "Mono-exon", "Multi-exon", "Combination of annotated junctions", 
                             "Not combination of annotated junctions", "Mono-exon by intron retention",
-                            "Without annotated donors/acceptors", "At least one annotated donor/acceptor", "Not subcategory"), drop=F) 
+                            "Without annotated donors/acceptors", "At least one annotated donor/acceptor"), drop=F) 
 
 p31 <- ggplot(data=sqantiData, aes(y=perc_A_downstream_TTS, x=structural_category, fill=exonCat)) +
   geom_boxplot(color="black", size=0.3, outlier.size = 0.2) + mytheme +

@@ -1055,6 +1055,10 @@ def novelIsoformsKnownGenes(assoc, line_split, transcripts_gene):
 					assoc.str_class = "maxdiff"
 		else:
 			assoc.str_class = "fusion"
+			if len(EXON_s)==1:
+				assoc.subtype = "mono-exon"
+			else:
+				assoc.subtype = "multi-exon"
 
 	if assoc.str_class!="fusion" and len(set(assoc.genes))==1:
 		junctions_g = transcripts_gene[assoc.genes[0]].junctions
@@ -1077,6 +1081,7 @@ def novelIsoformsKnownGenes(assoc, line_split, transcripts_gene):
 			assoc.subtype = "any annotated donor/acceptor"
 
 	return(assoc)
+
 def associationOverlapping(assoc, line_split, transcripts_gene_chrom, index_genes, over_nt):
 
 	assoc.subtype = "no_subcategory"
@@ -1149,24 +1154,44 @@ def associationOverlapping(assoc, line_split, transcripts_gene_chrom, index_gene
 
 							elif assoc.str_class != "genic":
 								assoc.str_class = "antisense" 
+								if len(EXON_s)==1:
+									assoc.subtype = "mono-exon"
+								else:
+									assoc.subtype = "multi-exon"
 								assoc.genes = [] 
 								ASgene = "novelGene_"+ref_gene.gene+"_AS"
 								assoc.genes.append(ASgene)
 							break 
 
 					if assoc.str_class == "genic":
+						if len(EXON_s)==1:
+							assoc.subtype = "mono-exon"
+						else:
+							assoc.subtype = "multi-exon"
 						break
 				
 				# If not overlapping with exons of genes, we see if it is found in the genomic region of a gene (overlapping introns) 
 
 				if assoc.str_class == "intergenic":
+					if len(EXON_s)==1:
+						assoc.subtype = "mono-exon"
+					else:
+						assoc.subtype = "multi-exon"
 					min_coordinate = min(ref_gene.tss + ref_gene.tts)
 					max_coordinate = max(ref_gene.tss + ref_gene.tts)
 					for l in range(len(EXON_s)):
 						if (E_s >= min_coordinate and E_e <= max_coordinate) or (E_s <= min_coordinate and E_e >= max_coordinate) or (E_s<=min_coordinate<=E_e) or (E_s<=max_coordinate<=E_e):
 							assoc.str_class = "genic_intron" #Not associated gene
 							break
+
+	if assoc.str_class == "intergenic":
+		if len(EXON_s)==1:
+			assoc.subtype = "mono-exon"
+		else:
+			assoc.subtype = "multi-exon"						
+							
 	return(assoc)
+
 def single_exonAssociations(assoc, line_split, transcripts_gene):
 
 	subject_transcript = line_split[0] 

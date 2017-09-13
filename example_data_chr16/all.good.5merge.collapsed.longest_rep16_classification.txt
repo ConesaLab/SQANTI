@@ -469,7 +469,7 @@ PB.2622.3	chr16	-	2669	2	novel_not_in_catalog	Tmem186	novel	NA	NA	NA	NA	any anno
 PB.2709.1	chr16	+	1488	1	full-splice_match	A730098P11Rik	NR_038091	5159	1	210	3461	mono-exon	FALSE	canonical	NA	NA	NA	NA	6	0	NA	FALSE	2726.0625	2726.0625	1	A	coding	235	705	135	839	95
 PB.2652.1	chr16	-	3245	20	full-splice_match	Spidr	ENSMUST00000040248	3279	20	32	2	multi-exon	FALSE	canonical	4	17	982	114.869491163	21	0	0	FALSE	2903.77	2961.5	0.980506500084	C	coding	933	2799	43	2841	25
 PB.2622.2	chr16	-	2704	2	novel_not_in_catalog	Tmem186	novel	NA	NA	NA	NA	any annotated donor/acceptor	FALSE	canonical	4	12	196	NA	1	2	0	FALSE	840.92	2611.2475	0.322037646757	C	coding	119	357	485	841	25
-PB.2737.1	chr16	+	1283	1	intergenic	novelGene_5	novel	NA	NA	NA	NA	no_subcategory	FALSE	canonical	NA	NA	NA	NA	1	1	NA	FALSE	1	1	1	A	non_coding	NA	NA	NA	NA	85
+PB.2737.1	chr16	+	1283	1	intergenic	novelGene_5	novel	NA	NA	NA	NA	mono-exon	FALSE	canonical	NA	NA	NA	NA	1	1	NA	FALSE	1	1	1	A	non_coding	NA	NA	NA	NA	85
 PB.2705.9	chr16	+	1761	11	full-splice_match	Eif4a2	ENSMUST00000115341	1875	11	0	114	multi-exon	FALSE	canonical	4	361	62	401.664038719	1	0	0	FALSE	1044.065	12851.25	0.0812422916059	C	coding	408	1224	34	1257	25
 PB.2648.1	chr16	+	5920	31	full-splice_match	Abcc1	NM_008576	5935	31	7	8	multi-exon	FALSE	canonical	3	12	2146	24.6170672502	13	0	0	FALSE	1977	1977	1	A	coding	1528	4584	32	4615	30
 PB.2705.8	chr16	+	1890	11	full-splice_match	Eif4a2	ENSMUST00000023599	2208	11	315	3	multi-exon	FALSE	canonical	4	690	660	318.270325353	35	0	0	FALSE	6527.98	12851.25	0.507964594884	C	coding	407	1221	34	1254	20
