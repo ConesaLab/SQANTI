@@ -55,9 +55,12 @@ gmapIndex="referenceFiles/mm10_chr16_index/mm10_chr16_index"  # not provided wit
 
 # Running SQANTI QC 
 
-
-
 python ../sqanti_qc.py $isoformsFasta $refGTF $refGenome -fl $fl_pacbio -c $sj_covIllumina -e $isoExpression -n -x $gmapIndex
+
+# Running SQANTI_QC with GTF file (instead of fasta. Not alignment step)
+
+mkdir sqanti_output_fasta
+python ../sqanti_qc.py all.good.5merge.collapsed.longest_rep16_corrected.gtf $refGTF $refGenome -fl $fl_pacbio -c $sj_covIllumina -e $isoExpression -n -d sqanti_output_fasta -g
 
 
 # Running SQANTI filter

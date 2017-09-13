@@ -353,6 +353,7 @@ def getTranscriptJunctCoordinates(exons_starts, exons_ends, strand, junctions=No
 	end = max(starts_transcript, ends_transcript)				
 
 	return [start, end]
+
 def fasta_parser(fastaFile):
 
 	try:
@@ -375,20 +376,19 @@ def fasta_parser(fastaFile):
 				seq += line.rstrip()
 		if index>0:
 			seqDicc[name] = seq
-
 		fasta.close()
-
-	except IOError:
-		sys.stderr.write('File %s without fasta format' % fastaFile)
+	except (RuntimeError, TypeError, NameError):
+		sys.stderr.write('ERROR: File %s without fasta format.\n' % fastaFile)
 		raise SystemExit(1)
 
 	return(seqDicc)
+
 def genome_parser(fastaFile):
 
 	try:
 		fasta = open(fastaFile, "r")
 	except IOError:
-		sys.stderr.write('ERROR: Unable to read %s file\n' % fastaFile)
+		sys.stderr.write('ERROR: Unable to read %s file.\n' % fastaFile)
 		raise SystemExit(1)
 	try:
 		seqDicc = {}
@@ -404,14 +404,13 @@ def genome_parser(fastaFile):
 			elif line.strip()!="":
 				seq += line.rstrip()
 		seqDicc[name] = seq
-
 		fasta.close()
-
-	except IOError:
-		sys.stderr.write('File %s without fasta format' % fastaFile)
+	except (RuntimeError, TypeError, NameError):
+		sys.stderr.write('ERROR: File %s without fasta format.\n' % fastaFile)
 		raise SystemExit(1)
 
 	return(seqDicc)
+
 def correctionPlusORFpred(args, chrom_names):
 
 	global corrORF
@@ -454,11 +453,16 @@ def correctionPlusORFpred(args, chrom_names):
 
 
 			# aligning sequences
-			with open(corrGFF_gmap, 'w') as corrGFF_out:
-				subprocess.call(['gmap','-n', '1', '-t', '4', '--cross-species','--min-intronlength=4', '--gff3-add-separators=0','-f', '2', '-D', index_dir,'-d', prefix, tmpFasta], stdout=corrGFF_out)
-			with open(corrSAM, 'w') as corrSAM_out:
-				subprocess.call(['gmap','-n', '1', '-t', '4', '--cross-species', '--min-intronlength=4', '--gff3-add-separators=0','-f', 'samse', '-D', index_dir,'-d', prefix, tmpFasta], stdout=corrSAM_out)
-			os.remove(tmpFasta)
+			try:
+				with open(corrGFF_gmap, 'w') as corrGFF_out:
+					subprocess.call(['gmap','-n', '1', '-t', '4', '--cross-species','--min-intronlength=4', '--gff3-add-separators=0','-f', '2', '-D', index_dir,'-d', prefix, tmpFasta], stdout=corrGFF_out)
+				with open(corrSAM, 'w') as corrSAM_out:
+					subprocess.call(['gmap','-n', '1', '-t', '4', '--cross-species', '--min-intronlength=4', '--gff3-add-separators=0','-f', 'samse', '-D', index_dir,'-d', prefix, tmpFasta], stdout=corrSAM_out)
+				os.remove(tmpFasta)
+			except (RuntimeError, TypeError, NameError):
+				sys.stderr.write('ERROR: Problem during alignment of sequences.\n')
+				raise SystemExit(1)
+
 
 
 			#GFF GMAP to accurate GFF
@@ -504,7 +508,12 @@ def correctionPlusORFpred(args, chrom_names):
 
 		# GFF to GTF (in case the user provides gff instead of gtf)
 		corrGTF_tpm = corrGTF+".tmp"
-		subprocess.call([utilitiesPath+"gffread", args.isoforms , '-T', '-o', corrGTF_tpm])
+		try:
+			subprocess.call([utilitiesPath+"gffread", args.isoforms , '-T', '-o', corrGTF_tpm])
+		except (RuntimeError, TypeError, NameError):
+			sys.stderr.write('ERROR: File %s without gtf/gff format.\n' % args.isoforms)
+			raise SystemExit(1)
+
 
 		# check if gtf chromosomes inside genome file
 		with open(corrGTF, 'w') as corrGTF_out:
@@ -690,6 +699,7 @@ def reference_parser(args, chrom_names):
 		transcripts_gene_chrom[chrom] = sorted(transcripts_gene_chrom[chrom], key = lambda tup:min(tup.tss + tup.tts))   ##### COMPROBAR QUE ESTA BIEN!!!!
 
 	return (transcripts_chrom_1exon, transcripts_chrom_exons, transcripts_gene, transcripts_gene_chrom)
+
 def isoforms_parser(args):
 
 	global queryFile
@@ -698,7 +708,11 @@ def isoforms_parser(args):
  	sys.stdout.write("\n**** Parsing Isoforms...\n")
 
  	# gtf to genePred
- 	subprocess.call([utilitiesPath+"gtfToGenePred", corrGTF, queryFile , '-genePredExt', '-allErrors', '-ignoreGroupsWithoutExons'])
+ 	try:
+ 		subprocess.call([utilitiesPath+"gtfToGenePred", corrGTF, queryFile , '-genePredExt', '-allErrors', '-ignoreGroupsWithoutExons'])
+	except (RuntimeError, TypeError, NameError):
+		sys.stderr.write('ERROR: Check isoforms file.\n' )
+		raise SystemExit(1)
 
  	## analysis of query transcripts	
  	queryAnnotation = open(queryFile, 'r')
@@ -726,6 +740,7 @@ def isoforms_parser(args):
  	myQueryTranscripts_list = sorted(myQueryTranscripts_list, key = lambda tup:int(tup.coordToSort))
 
  	return(myQueryTranscripts_list)
+
 def STARcov_parser(coverageFiles): # just valid with unstrand-specific RNA-seq protocols. 
 
 	#may be one file, files separated by comma or a directory where file are.
@@ -745,6 +760,7 @@ def STARcov_parser(coverageFiles): # just valid with unstrand-specific RNA-seq p
 		p.close()
 
 	return(cov_list_dicc)
+
 def expression_parser(expressionFile):
 
 	try:

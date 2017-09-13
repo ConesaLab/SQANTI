@@ -655,7 +655,6 @@ if (nrow(junctionsData) > 0){
     total$minTSS = total$transcript_coord[,"n"]
     
     uniqJunc = unique(junctionsData[,c("junctionLabel", "canonical_known", "total_coverage")])
-    print("hola")
     uniqJunc$notCov = uniqJunc$total_coverage == 0
     
     uniqueJunc_nonCov = as.data.frame(table(uniqJunc[uniqJunc$totalCoverage==0,"canonical_known"])/table(uniqJunc$canonical_known)*100)
