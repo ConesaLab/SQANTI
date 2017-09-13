@@ -34,29 +34,29 @@ SQANTI pipeline steps:
 * Gmap aligner (>= 2014-12-31)
 * R (>= 3.4.0)
 * R packages (Sqanti_QC function):
-        # ggplot2
-        # scales
-        # reshape
-        # gridExtra
-        # grid
+        ggplot2,
+        scales,
+        reshape,
+        gridExtra,
+        grid.
 * R packages (Sqanti_filter function):
-        # rpart
-        # ROCR
-        # caret
-        # optparse
-        # ggplot2
-        # lattice
-        # foreach
-        # e1071
-        # randomForest
-        # partykit
-        # ipred
-        # rpart.plot
-        # doMC
-        # nnet
-        # ROSE
-        # pROC
-        # MLmetrics
+        rpart,
+        ROCR,
+        caret,
+        optparse,
+        ggplot2,
+        lattice,
+        foreach,
+        e1071,
+        randomForest,
+        partykit,
+        ipred,
+        rpart.plot,
+        doMC,
+        nnet,
+        ROSE,
+        pROC,
+        MLmetrics
 
 
 ## **Running** ##
