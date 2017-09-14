@@ -68,7 +68,7 @@ python ../sqanti_qc.py all.good.5merge.collapsed.longest_rep16_corrected.gtf $re
 SQANTIclass="all.good.5merge.collapsed.longest_rep16_classification.txt"
 corrFasta="all.good.5merge.collapsed.longest_rep16_corrected.fasta"
 
-python sqanti_filter.py  $SQANTIclass -i $corrFasta
+python ../sqanti_filter.py  $SQANTIclass -i $corrFasta
 
 
 
