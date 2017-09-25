@@ -94,7 +94,7 @@ optional arguments:
                         Expression matrix
   -x GMAP_INDEX, --gmap_index GMAP_INDEX
                         Path and prefix of the reference index created by
-                        gmap_build. Mandatory unless -m option is specified.
+                        gmap_build. Mandatory unless -g option is specified.
   -o OUTPUT, --output OUTPUT
                         Prefix for output files.
   -d DIR, --dir DIR     Directory for output files. Default: Directory where
@@ -137,10 +137,11 @@ where NM_001545.2 is taken as the isoform ID (typical format for RefSeq entries)
 
 where ENST00000434970.2 is taken as the isoform ID (typical format for Ensembl entries).
 
-# 
-**2. Annotation:** To create gene models and therefore annotate each isoform to the corresponding reference gene and reference transcript it's mandatory to provide a reference annotation file in GTF format (http://www.ensembl.org/info/website/upload/gff.html).
+You can also provide Isoforms in gtf file format specifying -g option. "transcript_id" and "gene_id" attributes are mandatory inside GTF file.
 
-*Note: It's recommended to discard smallRNAs (miRNAs, snoRNA, etc) to avoid a misannotation of novel genes.*
+# 
+**2. Annotation:** To create gene models and therefore annotate each isoform to the corresponding reference gene and reference transcript it's mandatory to provide a reference annotation file in GTF format (http://www.ensembl.org/info/website/upload/gff.html). "transcript_id" and "gene_id" attributes are mandatory for each defined isoform.
+
 # 
 **3. Genome:** It must be given in a unique fasta file. "fai" index file must be located in same folder as the fasta file.
 
@@ -252,5 +253,7 @@ lfuente@cipf.es
 
 * Manuel Tardaguila.
 manueltar@ufl.edu
+
+
 
 
