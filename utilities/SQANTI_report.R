@@ -1,6 +1,6 @@
-###############################
-##### SQANTI report generation
-###############################
+#####################################
+##### SQANTI report generation ######
+#####################################
 
 ### Author: Lorena de la Fuente
 ### Date: 14/10/2016
@@ -107,12 +107,24 @@ sqantiData$exonCat = factor(sqantiData$exonCat,
                                     levels = c("MultiExon","MonoExon"), 
                                     ordered=TRUE)
 
-isoPerGene = aggregate(sqantiData$isoform, 
-                       by = list("associatedGene" = sqantiData$associated_gene, 
-                                 "novelGene" = sqantiData$novelGene, 
-                                 "FSM_class" = sqantiData$FSM_class, 
-                                 "geneExp"=sqantiData$gene_exp), 
-                                  length)
+
+sqantiData$gene_exp = as.character(sqantiData$gene_exp)
+
+
+if (!all(is.na(sqantiData$gene_exp))){
+  isoPerGene = aggregate(sqantiData$isoform,
+                         by = list("associatedGene" = sqantiData$associated_gene,
+                                   "novelGene" = sqantiData$novelGene,
+                                   "FSM_class" = sqantiData$FSM_class,
+                                   "geneExp"=sqantiData$gene_exp),
+                         length)
+}else{isoPerGene = aggregate(sqantiData$isoform, 
+                             by = list("associatedGene" = sqantiData$associated_gene, 
+                                       "novelGene" = sqantiData$novelGene, 
+                                       "FSM_class" = sqantiData$FSM_class), 
+                             length)
+}
+
 colnames(isoPerGene)[ncol(isoPerGene)] <- "nIso"
 
 
@@ -301,7 +313,7 @@ if (!all(is.na(sqantiData$FL))){
 
 # PLOT 10: Gene Expression, if expresion provided
 
-if (!all(is.na(isoPerGene$geneExp))){
+if (!all(is.na(sqantiData$iso_exp))){
 
   p10 <- ggplot(data=isoPerGene, aes(x=novelGene, y=log2(geneExp+1), fill=novelGene)) +
     geom_boxplot(color="black", size=0.3, outlier.size = 0.2) +
@@ -934,7 +946,7 @@ grid.arrange(s)
 p0
 p7
 p6
-if (!all(is.na(isoPerGene$geneExp))){
+if (!all(is.na(sqantiData$iso_exp))){
   print(p10)
 }
 if (!all(is.na(sqantiData$FL))){
