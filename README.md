@@ -25,7 +25,7 @@ SQANTI pipeline steps:
 5. Together with SQANTI_qc function, the user can use the **SQANTI filter function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI_qc attributes to create a classifier of artifacts.
 
 
-![SQANTI pipeline](figures/Figure_1b.png?at=master)
+![SQANTI pipeline](figures/Diapositiva1.png?at=master)
 
 
 
@@ -182,9 +182,9 @@ Expression values can be computed with any software design to calculate transcri
 
 **4. RTS folder:** Folder which stores a file with information about junctions that are potential to have suffered RT-switching during retrotranscription. RT switching algorithm locates 8 nt direct repeats characteristic of RT switching between the upstream mRNA boundary of the non-canonical intron and the intron region adjacent to the downstream exon boundary with a slide of 1 nucleotide upstream/downstream. FSM transcripts with the highest mean expression in each gene are assumed to serve as templates for RT switching and are excluded from the analysis.
 
-**5. *name*_classification.txt:** File with attribute information at isoform level (table explaining features at the bottom of the file)
+**5. *name*_classification.txt:** File with attribute information at isoform level (table explaining feature meaning inside output_info).
 
-**6. *name*_junctions.txt:** File with attribute information at splice junction level.
+**6. *name*_junctions.txt:** File with attribute information at splice junction level (table explaining feature meaning inside output_info).
 
 **7. *name*_report.pdf:** PDF file showing different quality control and descriptive plots. 
 
