@@ -25,6 +25,11 @@ SQANTI pipeline steps:
 5. Together with SQANTI_qc function, the user can use the **SQANTI filter function to remove isoforms potential to be artifacts**. To get this curanted transcriptome, SQANTI filtering uses machine learning methods together with SQANTI_qc attributes to create a classifier of artifacts.
 
 
+![SQANTI pipeline](figures/Figure_1b.png?at=master)
+
+
+
+
 ## **Required software** ##
 
 * Python 2.7
