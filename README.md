@@ -78,9 +78,9 @@ Below you can see the help page of SQANTI functions where their mandatory and op
 
 ```
 #!bash
-usage: sqanti_qc.py [-h] [-g] [-e EXPRESSION] [-x GMAP_INDEX] [-o OUTPUT]
-                    [-d DIR] [-c COVERAGE] [-s SITES] [-w WINDOW] [-n]
-                    [-fl FL_COUNT] [-v]
+usage: sqanti_qc.py [-h] [-g] [-e EXPRESSION] [-x GMAP_INDEX]
+                    [-t GMAP_THREADS] [-o OUTPUT] [-d DIR] [-c COVERAGE]
+                    [-s SITES] [-w WINDOW] [-n] [-fl FL_COUNT] [-v]
                     isoforms annotation genome
 
 Structural and Quality Annotation of Novel Transcript Isoforms
@@ -100,6 +100,9 @@ optional arguments:
   -x GMAP_INDEX, --gmap_index GMAP_INDEX
                         Path and prefix of the reference index created by
                         gmap_build. Mandatory unless -g option is specified.
+  -t GMAP_THREADS, --gmap_threads GMAP_THREADS
+                        Number of threads used during sequence alignment by
+                        gmap.
   -o OUTPUT, --output OUTPUT
                         Prefix for output files.
   -d DIR, --dir DIR     Directory for output files. Default: Directory where
