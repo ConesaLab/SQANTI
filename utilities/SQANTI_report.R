@@ -108,9 +108,6 @@ sqantiData$exonCat = factor(sqantiData$exonCat,
                                     ordered=TRUE)
 
 
-sqantiData$gene_exp = as.character(sqantiData$gene_exp)
-
-
 if (!all(is.na(sqantiData$gene_exp))){
   isoPerGene = aggregate(sqantiData$isoform,
                          by = list("associatedGene" = sqantiData$associated_gene,

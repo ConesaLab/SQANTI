@@ -549,38 +549,44 @@ def correctionPlusORFpred(args, chrom_names):
 	 	os.makedirs(gmst_dir)
 
 	subprocess.call(["perl", utilitiesPath+"gmst/gmst.pl", corrFASTA , '-faa', '--strand','direct', '--fnn', '--output',  os.path.splitext(os.path.basename(args.isoforms))[0]+"_corrected"], cwd=gmst_dir) 
-	os.rename(gmst_dir+os.path.basename(ORF), ORF) 
-	gc.collect()
+	if os.path.isfile(gmst_dir+os.path.basename(ORF)):
+		os.rename(gmst_dir+os.path.basename(ORF), ORF) 
 
-	# Modifying ORF sequences by removing sequence before ATG
+		# Modifying ORF sequences by removing sequence before ATG
 
-	ORFdicc = fasta_parser(ORF)	
-	corrORF_file = open(corrORF, "w")
+		ORFdicc = fasta_parser(ORF)	
+		corrORF_file = open(corrORF, "w")
 
-	orfLenDicc = {}
-	for ID in ORFdicc:
-		seq = ORFdicc[ID]
-		l = len(ID.split("\t"))
-		pos = seq.find('M')
-		if pos != -1:
-			corr_seq = seq[pos:]
-			cds_start = int(ID.split("\t")[l-1].split("|")[4])+pos*3
-			cds_end = int(ID.split("\t")[l-1].split("|")[5])  
-			strand = ID.split("\t")[l-1].split("|")[3]
-			ID_mod = ID.split()[0].strip()+"\t"+"isoform|GeneMark.hmm|"+ str(len(corr_seq)) + "_aa|" + strand + "|" + str(cds_start) +"|" + str(cds_end)
-			corrORF_file.write(">"+ID_mod+"\n"+corr_seq+"\n")
-			orfLenDicc[ID.split()[0].strip()] = myQueryProteins(cds_start, (cds_start+len(corr_seq)*3-1), len(corr_seq))
-	
-	corrORF_file.close()
+		orfLenDicc = {}
+		for ID in ORFdicc:
+			seq = ORFdicc[ID]
+			l = len(ID.split("\t"))
+			pos = seq.find('M')
+			if pos != -1:
+				corr_seq = seq[pos:]
+				cds_start = int(ID.split("\t")[l-1].split("|")[4])+pos*3
+				cds_end = int(ID.split("\t")[l-1].split("|")[5])  
+				strand = ID.split("\t")[l-1].split("|")[3]
+				ID_mod = ID.split()[0].strip()+"\t"+"isoform|GeneMark.hmm|"+ str(len(corr_seq)) + "_aa|" + strand + "|" + str(cds_start) +"|" + str(cds_end)
+				corrORF_file.write(">"+ID_mod+"\n"+corr_seq+"\n")
+				orfLenDicc[ID.split()[0].strip()] = myQueryProteins(cds_start, (cds_start+len(corr_seq)*3-1), len(corr_seq))
+		
+		corrORF_file.close()
+		del ORFdicc
+		os.remove(ORF)
+
+
+	else:
+		corrORF_file = open(corrORF, "w")
+		corrORF_file.close()
+		orfLenDicc={}
+
 
 	if len(orfLenDicc)==0:
  		sys.stderr.write("WARNING: All input isoforms were predicted as non-coding")
-
 	
-	os.remove(ORF)
 	os.rename(corrORF, ORF) 
 
-	del ORFdicc
 	gc.collect()
 	return(orfLenDicc)
 
@@ -1895,7 +1901,7 @@ def main():
 	if args.dir==None:
 		args.dir = os.getcwd() 
 	else:
-		if (os.path.isdir(args.dir)==False):
+		if (os.path.isdir(os.path.abspath(args.dir))==False):	
 			sys.stderr.write("ERROR: '%s' directory doesn't exist\n" %(args.dir))
 			sys.exit()
 		else:
