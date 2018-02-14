@@ -189,7 +189,7 @@ Expression values can be computed with any software design to calculate transcri
 
 **6. *name*_junctions.txt:** File with attribute information at splice junction level (table explaining feature meaning inside output_info).
 
-**7. *name*_report.pdf:** PDF file showing different quality control and descriptive plots. 
+**7. *name*_report.pdf:** PDF file showing different quality control and descriptive plots. An example can be found [here.](https://bitbucket.org/ConesaLab/sqanti/src/a0f3d2a16452f304d91c3fb0020d979284cb82b3/example_data_chr16/all.good.5merge.collapsed.longest_rep16_report.pdf?at=master)
 
 
 
