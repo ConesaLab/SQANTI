@@ -203,7 +203,11 @@ if(flag==TRUE){
   print("Preprocessing: remove of the near zero variables")
   
   nzv=nearZeroVar(d3)
-
+  nodel = which(colnames(d3) %in% c("structural_category", "subcategory", "all_canonical"))
+  if(length(colnames(d3)[nzv])!=0){
+    nzv = setdiff(nzv, nodel)  
+  }
+    
   if(length(colnames(d3)[nzv])!=0){
     d27=d3[,-nzv]
     print("removed columns: ")
@@ -252,12 +256,14 @@ if(flag==TRUE){
   # FSM as positives
   # NNC-NC as negatives
   ###############
+  print("-------------------------------------------------")
+  print("Creating positive and negative sets for training and testing")
+  
   if(is.null(opt$TP)){
     print("TP: full splice match")
     print("TN: novel not in catalog non canonical")
-    fsm=d28[d28$structural_category=="full-splice_match",]
-    nnc=d28[d28$structural_category=="novel_not_in_catalog",]
-    nncnc=nnc[nnc$all_canonical=='non_canonical',]
+    fsm=d28[rownames(d3[d3$structural_category=="full-splice_match",]),]
+    nncnc=d28[rownames(d3[d3$structural_category=="novel_not_in_catalog" & d3$all_canonical=='non_canonical',]),]
     trainingsetcomplet=rbind(fsm,nncnc)
     Class=factor(c(rep("POS",length(fsm$length)),rep("NEG",length(nncnc$length))))
   }else{
@@ -273,7 +279,6 @@ if(flag==TRUE){
   
   #print(summary(trainingset))
   #print(head(trainingset$coding))
-  
   
   
 
@@ -307,6 +312,12 @@ if(flag==TRUE){
                     summaryFunction = twoClassSummary,
                     sampling='down',returnData=TRUE,
                     savePredictions = TRUE, returnResamp='all')
+  print("-------------------------------------------------")
+  print("Creating Random Forest Classifier")
+  print("Random Forest parameters:")
+  print("-Down sampling in training set")
+  print("-10 cross validation")
+
   set.seed(1)
   #default: 500 trees
   #randomforest <- train(training[,profile.1$optVariables[1:numbervariable]],Class[inTraining],
@@ -365,32 +376,36 @@ if(flag==TRUE){
   ###############################
   #### classifier in testing set
   ###############################
-  
+  print("-------------------------------------------------")
+  print("Classifier performance in test set")
   test_pred_prob=predict(randomforest,testing,type='prob')
   pred=factor(ifelse(test_pred_prob$POS>=opt$threshold,"POS","NEG"))
   a=data.frame(pred,obs=Class[-inTraining],POS=test_pred_prob$POS,NEG=test_pred_prob$NEG)
-  print("ROC, Sens, Spec on the test set")
+  print("AUC, Sens, Spec on the test set")
   print(twoClassSummary(a,lev=levels(a$obs)))
-  write("ROC, Sens, Spec on the test set",file=paste(opt$dir,'/statistics_testset.txt',sep=''))
-  write(twoClassSummary(a,lev=levels(a$obs)),file=paste(opt$dir,'/statistics_testset.txt',sep=''), append=TRUE)
+  write("AUC, Sens, Spec on the test set",file=paste(opt$dir,'/statistics_testSet.txt',sep=''))
+  write(twoClassSummary(a,lev=levels(a$obs)),file=paste(opt$dir,'/statistics_testSet.txt',sep=''), append=TRUE)
   
-  print("Area under precision-recall curve, Precision, Recall, F ")
-  print(prSummary(a,lev=levels(a$obs)))
-  write("Area under precision-recall curve, Precision, Recall, F ",file=paste(opt$dir,'/statistics_testset.txt',sep=''),append=TRUE)
-  write(prSummary(a,lev=levels(a$obs)),file=paste(opt$dir,'/statistics_testset.txt',sep=''), append=TRUE)
+  # print("Area under precision-recall curve, Precision, Recall, F ")
+  # print(prSummary(a,lev=levels(a$obs)))
+  # write("Area under precision-recall curve, Precision, Recall, F ",file=paste(opt$dir,'/statistics_testset.txt',sep=''),append=TRUE)
+  # write(prSummary(a,lev=levels(a$obs)),file=paste(opt$dir,'/statistics_testset.txt',sep=''), append=TRUE)
   
   testpredandclass=cbind(test_pred_prob,Class[-inTraining])
-  write.table(testpredandclass,paste(opt$dir,'/Pred_test_and_class.txt',sep=''))
+  write.table(testpredandclass,paste(opt$dir,'/Pred_test_and_class.txt',sep=''), quote=F, sep="\t")
   
   cm=confusionMatrix(data=pred,reference=Class[-inTraining],positive="POS")
   info="rows:predictions \ncolumns:reference"
-  write(paste(info,"\n"),file=paste(opt$dir,"/confusion_matrix_testingset.txt",sep=''),append = TRUE)
-  write.table(cm$table,file=paste(opt$dir,"/confusion_matrix_testingset.txt",sep=''),append=TRUE)
+  write.table(paste(info,"\n"),file=paste(opt$dir,"/confusionMatrix_testSet.txt",sep=''), quote = F, col.names = F, row.names = F)
+  write.table(cm$table,file=paste(opt$dir,"/confusionMatrix_testSet.txt",sep=''), append = TRUE, quote = F, col.names = T, row.names = T)
+  write.table("\n",file=paste(opt$dir,"/confusionMatrix_testSet.txt",sep=''),  append = TRUE,quote = F, col.names = F, row.names = F)
+  write.table(cm$overall,file=paste(opt$dir,"/confusionMatrix_testSet.txt",sep=''),append=TRUE, quote=F, col.names = F)
+  write.table(cm$byClass,file=paste(opt$dir,"/confusionMatrix_testSet.txt",sep=''),append=TRUE, quote=F, col.names = F)
   
 
   ###### ROC curve
   # 1) in function of the probability on the test set (not the same proportion of positives and negatives)
-  fileroc=paste(opt$dir,"/ROC_curve_ontestset.pdf",sep='')
+  fileroc=paste(opt$dir,"/ROC_curve_testset.pdf",sep='')
   pdf(fileroc)
   r=roc(as.numeric(Class[-inTraining]),test_pred_prob$POS,percent = TRUE)
   auc(r)
@@ -421,7 +436,7 @@ if(flag==TRUE){
   r=roc(as.numeric(Classnewtest),test_pred_prob2$POS,percent = TRUE)
   auc(r)
   #Area under the curve: 99.29%
-  #plot.roc(r)
+  plot.roc(r)
   lines(r,col='red')
   ci(r)
   text(20,20,paste('AUC (same proportion +/-)=',signif(auc(r),4)),col='red')
@@ -434,6 +449,8 @@ if(flag==TRUE){
   ###############################
   #### classifier in our dataset
   ###############################
+  print("-------------------------------------------------")
+  print("Classifier in our dataset")
   
   preditproba=predict(randomforest,dtotal,type='prob')
   colnames(preditproba) = gsub("NEG","NEG_MLprob", colnames(preditproba))
@@ -451,6 +468,7 @@ if(flag==TRUE){
   if (nrow(dme)>0){
     dtotal = rbind(dtotalandclassprob, data.frame(dme, NEG_MLprob=NA, POS_MLprob=NA, ML_classifier="NA"))
     print("ML classifier results (NEG: Isoforms classified as Artifacts)")
+    dtotal[dtotal$ML_classifier=="NA","ML_classifier"] <- "1exon"
     print(table(dtotal$ML_classifier))
   }
 } else{dtotal=data.frame(d, ML_classifier="NA")}
@@ -458,6 +476,8 @@ if(flag==TRUE){
 
 
 ##### INTRA-PRIMING FILTERING
+print("-------------------------------------------------")
+print("Intrapriming filtering in our dataset")
 
 dtotal[,"intra-priming"] = dtotal$perc_A_downstream_TTS > as.numeric(opt$intrapriming) & !(dtotal$structural_category %in% c("full-splice_match","incomplete-splice_match") )
 
@@ -476,7 +496,8 @@ write.table(dtotal,fileres,sep='\t',quote = F, row.names = F)
 fileres2=paste(opt$dir,'/',basename(opt$sqanti_classif),"_curatedTranscriptome.txt",sep='')
 write.table(dtotal[which(dtotal$SQANTI_filter=="Isoform"),"isoform"],fileres2,sep='\t',quote = F, row.names = F, col.names = F)
 
-print("*** SQANTI filter results:")
+print("-------------------------------------------------")
+print("SQANTI filter results:")
 print(table(dtotal$SQANTI_filter))
 
 print("*** SQANTI filtering finished!")
