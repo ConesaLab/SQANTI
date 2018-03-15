@@ -97,7 +97,7 @@ RoundUp = function(from,to) ceiling(from/to)*to
 #*** PLOT 0: Number Isoforms per Gene
 
 sqantiData[grep("novelGene",  sqantiData$associated_gene), "novelGene"] <- "Novel Genes"
-sqantiData[-grep("novelGene",  sqantiData$associated_gene), "novelGene"] <- "Annotated Genes"
+sqantiData[is.na(sqantiData$novelGene), "novelGene"] <- "Annotated Genes"
 sqantiData$novelGene = factor(sqantiData$novelGene, 
                                           levels = c("Novel Genes","Annotated Genes"), 
                                           ordered=TRUE)
@@ -1010,7 +1010,7 @@ if (nrow(junctionsData) > 0){
     print(p29.a)
   }
 } else{
-  s <- textGrob("Splice junction characterization can be plotted:  Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+  s <- textGrob("Splice junction characterization can't be plotted:\n  Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
   grid.arrange(s)
 }
 
@@ -1031,7 +1031,7 @@ if (nrow(junctionsData) > 0){
   s <- textGrob("Quality control attributes", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
   grid.arrange(s)
   print(p28.a)
-} else{  s <- textGrob("Quality control attributes can be computed: Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
+} else{  s <- textGrob("Quality control attributes can't be computed:\n Not junctions found in input transcriptome", gp=gpar(fontface="italic", fontsize=17), vjust = 0)
 grid.arrange(s)}
 
 
