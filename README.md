@@ -256,11 +256,11 @@ optional arguments:
 
 ##**Contact Information**##
 
-* Lorena de la Fuente.
-lfuente@cipf.es
+* Francisco Pardo Palacios.
+fraparp1@upv.edu.es
 
-* Manuel Tardaguila.
-manueltar@ufl.edu
+* Pedro Salguero García.
+pedsalga@upv.edu.es
 
 
 
