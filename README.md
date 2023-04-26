@@ -1,3 +1,9 @@
+# ⚠ **DEPRECATION WARNING** ⚠ 
+The SQANTI repository is **no longer updated/maintained** and is mainly preserved to ensure reproducibility of the [original manuscript](https://genome.cshlp.org/content/28/7/1096) results as well as of the analysis of other researchers that may have used the first version of the tool. 
+
+Please **switch to [SQANTI3](https://github.com/ConesaLab/SQANTI3)** for the most up-to-date version of the software 
+
+
 # **Welcome to SQANTI: Structural and Quality Annotation of Novel Transcript Isoforms** #
 
 
